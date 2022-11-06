@@ -4,11 +4,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
-public class BuyerPortal extends JFrame {
+public class BuyerPortalUI extends JFrame {
     private JButton catalogBtn;
     private JButton profileBtn;
     private JButton viewCartBtn;
-    public BuyerPortal(String windowTitle)
+    public BuyerPortalUI(String windowTitle)
     {
         super(windowTitle);
 
@@ -49,10 +49,10 @@ public class BuyerPortal extends JFrame {
         Border border = BorderFactory.createLineBorder(Color.black);
 
         // Build product entry
-        JPanel newProductPanel = new JPanel(new MigLayout("", "push[]25[]850[][]push", "[]"));
+        JPanel newProductPanel = new JPanel(new MigLayout("", "15[]25[]850[][]15", "[]"));
         newProductPanel.add(new JLabel(productName)).setFont(new Font("Arial", Font.PLAIN, 32));
         newProductPanel.add(new JLabel("Cost: $" + priceDecimals)).setFont(new Font("Arial", Font.PLAIN, 16));
-        newProductPanel.add(new JButton("View Item"));
+        newProductPanel.add(new JButton("View Product"));
         newProductPanel.add(new JButton("+"));
         newProductPanel.setBorder(border);
 
@@ -61,7 +61,7 @@ public class BuyerPortal extends JFrame {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new BuyerPortal("Products - Catalog");
+        JFrame frame = new BuyerPortalUI("Products - Catalog");
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
