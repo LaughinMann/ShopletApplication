@@ -1,3 +1,4 @@
+package pages;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -8,7 +9,12 @@ import java.awt.event.ActionEvent;
 
 public class ProductUI extends JFrame {
 
-    public ProductUI(String windowTitle, Product product)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ProductUI(String windowTitle, Product product)
     {
         super(windowTitle);
         this.setMinimumSize(new Dimension(1000, 650));

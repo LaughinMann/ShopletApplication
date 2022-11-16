@@ -1,3 +1,4 @@
+package pages;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;

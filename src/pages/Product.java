@@ -1,3 +1,4 @@
+package pages;
 public class Product {
     public Integer productId;
     public Integer associatedSellerId;
