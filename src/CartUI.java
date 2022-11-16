@@ -3,28 +3,39 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CartUI extends JFrame {
     private JButton btnCheckout;
     private JPanel productsArea;
     private JPanel pricingArea;
+    public BuyerCheckoutUI checkout = null;
+    public CartUI cart = null;
 
     public CartUI(String windowTitle)
     {
         super(windowTitle);
-
-        this.setMinimumSize(new Dimension(750, 450));
-        this.setMaximumSize(new Dimension(1000, 450));
+        cart = this;
+        this.setMinimumSize(new Dimension(930, 570));
+        this.setMaximumSize(new Dimension(930, 570));
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Layout and Buttons
-        this.setLayout(new MigLayout("wrap, debug", "[]","[]"));
+        getContentPane().setLayout(new MigLayout("wrap", "[]", "[]"));
 
-        productsArea = new JPanel(new MigLayout("wrap", "[]","[]"));
-        pricingArea = new JPanel(new MigLayout("wrap", "[]","[]"));
-
+        productsArea = new JPanel(new MigLayout("wrap, debug", "[push]", "[]"));
+        pricingArea = new JPanel(new MigLayout("wrap, debug", "[]",""));
         btnCheckout = new JButton("Checkout");
+        btnCheckout.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if (checkout == null)
+        		{
+	        		checkout = new BuyerCheckoutUI("Shoplet - Checkout", cart);
+	        		checkout.setVisible(true);
+        		}
+        	}
+        });
         btnCheckout.setPreferredSize(new Dimension(350, 100));
 
 
@@ -37,22 +48,31 @@ public class CartUI extends JFrame {
 
         pricingArea.add(lblTotalPrice, "gaptop 1");
         pricingArea.add(lblTax);
-        pricingArea.add(lblTotalCost, "gaptop 300");
+        pricingArea.add(lblTotalCost, "gaptop 275");
 
         /** PRODUCTS DEMO **/
-        productsArea.add(ProductItem("Test", 45), "span");
-        productsArea.add(ProductItem("Test", 45), "span");
-        productsArea.add(ProductItem("Test", 45), "span");
-        productsArea.add(ProductItem("Test", 45), "span");
-        productsArea.add(ProductItem("Test", 45), "span");
-        productsArea.add(ProductItem("Test", 45), "span");
-
-
-        add(productsArea);
-        add(pricingArea, "pos 550 0, width 350");
-        add(btnCheckout, "pos 550 450");
+        for (int i = 0; i < Cart.getInstance().getProductInCartCount(); i++)
+        {
+        	productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).productName, Cart.getInstance().itemsInCart.get(i).productPrice), "span");
+        }
+        
+        //Products Debug
+        productsArea.add(ProductItem("Pants", 12), "growx"); 
+        productsArea.add(ProductItem("Test1Test1Test1", 4), "growx");
+        productsArea.add(ProductItem("Shirt", 65), "growx");
+        productsArea.add(ProductItem("Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1", 542), "growx");
+        
+        getContentPane().add(productsArea, "cell 0 0");
+        getContentPane().add(pricingArea, "pos 550 0,cell 0 1,width 350");
+        getContentPane().add(btnCheckout, "pos 550 418.5,cell 0 1");
     }
 
+    /**
+     * Creates new Product item entry.
+     * @param productName The name of the product.
+     * @param productPrice The price of the product.
+     * @return returns a product JPanel to be inserted into another JPanel.
+     */
     public JPanel ProductItem(String productName, double productPrice)
     {
         // Convert price to 2 decimal places
@@ -60,10 +80,23 @@ public class CartUI extends JFrame {
         Border border = BorderFactory.createLineBorder(Color.black);
 
         // Build product entry
-        JPanel newProductPanel = new JPanel(new MigLayout("", "push[][]295[]push", "[]"));
-        newProductPanel.add(new JLabel(productName)).setFont(new Font("Arial", Font.PLAIN, 32));
+        JPanel newProductPanel = new JPanel(new MigLayout("wrap, debug", "[]10[grow]140[grow]", "[]"));
+        
+        // Product Label
+        JLabel lblProductName = new JLabel(productName);
+        lblProductName.setFont(new Font("Arial", Font.PLAIN, 32));
+        lblProductName.setMaximumSize(new Dimension(200, 100));
+
+        // Product Name
+        newProductPanel.add(lblProductName, "");
         newProductPanel.add(new JLabel("Cost: $" + priceDecimals)).setFont(new Font("Arial", Font.PLAIN, 16));
-        newProductPanel.add(new JButton("X")).setPreferredSize(new Dimension(65, 65));
+        
+        // Product Delete Button
+        JButton btnDeleteProductFromCart = new JButton("X");
+        btnDeleteProductFromCart.setPreferredSize(new Dimension(65, 65));
+        newProductPanel.add(btnDeleteProductFromCart, "dock east");
+        
+        // Black border
         newProductPanel.setBorder(border);
 
         // Return the product panel
@@ -71,7 +104,7 @@ public class CartUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new CartUI("Products - Cart");
+        JFrame frame = new CartUI("Shoplet - Cart");
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

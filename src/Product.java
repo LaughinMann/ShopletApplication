@@ -10,6 +10,16 @@ public class Product {
     public Double discountPercentage;
     public String productDescription;
 
+    /**
+     * A Product Item that will be created by GUI and then sent to the database.
+     * @param associatedSellerId The Seller ID.
+     * @param productName The Product Name.
+     * @param productPrice the Product Price.
+     * @param productDescription The Product description.
+     * @param available If available or not.
+     * @param availableQuantity The available quantity.
+     * @param discountCodeActive If a discount code exists for the product.
+     */
     public Product(Integer associatedSellerId, String productName, Double productPrice, String productDescription, boolean available, Integer availableQuantity, boolean discountCodeActive)
     {
         this.associatedSellerId = associatedSellerId;

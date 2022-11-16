@@ -6,11 +6,33 @@ public class Cart {
     public Double totalPrice;
     public Double totalTax;
 
-    public Cart()
+    private static Cart _instance = null;
+    
+    private Cart()
     {
+    	this.itemsInCart = new ArrayList<Product>();
         this.subTotal = 0.0;
         this.totalPrice = 0.0;
         this.totalTax = 0.0;
+    }
+    
+    public static Cart getInstance()
+    {
+    	if (_instance == null)
+    		_instance = new Cart();
+    	
+    	return _instance;
+    }
+    
+    public void addProduct(Product productToAdd)
+    {
+    	itemsInCart.add(productToAdd);
+    	System.out.println("ITEMS NOW IN CART: " + itemsInCart.size());
+    }
+    
+    public int getProductInCartCount()
+    {
+    	return itemsInCart.size();
     }
 
     void removeProductFromCart(Product product)
@@ -24,7 +46,7 @@ public class Cart {
         }
     }
 
-    public Double calculateTotal()
+    public Double calculatePreTaxTotal()
     {
         double tempTotal = 0.0;
 
@@ -33,5 +55,15 @@ public class Cart {
         }
 
         return tempTotal;
+    }
+    
+    public Double calculateTaxTotal()
+    {
+    	return calculatePreTaxTotal() * 0.06;
+    }
+    
+    public Double calculateGrandTotal()
+    {
+    	return calculatePreTaxTotal() + calculateTaxTotal();
     }
 }

@@ -3,6 +3,8 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class BuyerCheckoutUI extends JFrame {
 
@@ -34,70 +36,74 @@ public class BuyerCheckoutUI extends JFrame {
     public JButton btnConfirmOrder = new JButton("Confirm Order");
 
     // Add cart parameter
-    public BuyerCheckoutUI(String windowTitle)
+    public BuyerCheckoutUI(String windowTitle, CartUI cartWindow)
     {
         super(windowTitle);
-
-        this.setMinimumSize(new Dimension(350, 410));
-        this.setMaximumSize(new Dimension(350, 410));
+        addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowClosing(WindowEvent e) {
+        		cartWindow.checkout = null;
+        	}
+        });
+        this.setMinimumSize(new Dimension(350, 370));
+        this.setMaximumSize(new Dimension(350, 370));
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.setLayout(new MigLayout("", "[][]", "[]"));
+        getContentPane().setLayout(new MigLayout("", "[][]", "[]"));
 
-        add(lblFirstName, "cell 0 1");
-        add(lblLastName, "cell 0 2");
-        add(lblStreetAddress, "cell 0 3");
-        add(lblCity, "cell 0 4");
-        add(lblState, "cell 0 5");
-        add(lblZipcode, "cell 0 6");
-        add(lblPhoneNumber, "cell 0 7");
-        add(lblCreditCard, "cell 0 8");
-        add(lblCVV, "cell 0 9");
-        add(lblExpirationDate, "cell 0 10");
+        getContentPane().add(lblFirstName, "cell 0 1");
+        getContentPane().add(lblLastName, "cell 0 2");
+        getContentPane().add(lblStreetAddress, "cell 0 3");
+        getContentPane().add(lblCity, "cell 0 4");
+        getContentPane().add(lblState, "cell 0 5");
+        getContentPane().add(lblZipcode, "cell 0 6");
+        getContentPane().add(lblPhoneNumber, "cell 0 7");
+        getContentPane().add(lblCreditCard, "cell 0 8");
+        getContentPane().add(lblCVV, "cell 0 9");
+        getContentPane().add(lblExpirationDate, "cell 0 10");
 
-        add(txtFirstName, "cell 1 1");
+        getContentPane().add(txtFirstName, "cell 1 1");
         txtFirstName.setColumns(25);
 
-        add(txtLastName, "cell 1 2");
+        getContentPane().add(txtLastName, "cell 1 2");
         txtLastName.setColumns(25);
 
-        add(txtStreetAddress, "cell 1 3");
+        getContentPane().add(txtStreetAddress, "cell 1 3");
         txtStreetAddress.setColumns(25);
 
-        add(txtCity, "cell 1 4");
+        getContentPane().add(txtCity, "cell 1 4");
         txtCity.setColumns(25);
 
-        add(stateComboBox, "cell 1 5");
+        getContentPane().add(stateComboBox, "cell 1 5");
 
-        add(txtZipcode, "cell 1 6");
+        getContentPane().add(txtZipcode, "cell 1 6");
         txtZipcode.setColumns(25);
 
-        add(txtPhoneNumber, "cell 1 7");
+        getContentPane().add(txtPhoneNumber, "cell 1 7");
         txtPhoneNumber.setColumns(25);
 
-        add(txtCreditCard, "cell 1 8");
+        getContentPane().add(txtCreditCard, "cell 1 8");
         txtCreditCard.setColumns(25);
 
-        add(txtCVV, "cell 1 9");
+        getContentPane().add(txtCVV, "cell 1 9");
         txtCVV.setColumns(25);
 
-        add(txtExpirationDate, "cell 1 10");
+        getContentPane().add(txtExpirationDate, "cell 1 10");
         txtExpirationDate.setColumns(25);
 
         lblTotalPrice.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         lblTotalPrice.setFont(new Font("Arial", Font.PLAIN, 26));
         lblTotalPrice.setPreferredSize(new Dimension(278, lblTotalPrice.getHeight()));
-        add(lblTotalPrice, "cell 1 11");
+        getContentPane().add(lblTotalPrice, "cell 1 11");
 
         btnCancel.setPreferredSize(new Dimension(125, btnCancel.getHeight()));
-        add(btnCancel, "cell 1 12");
+        getContentPane().add(btnCancel, "cell 1 12");
         btnConfirmOrder.setPreferredSize(new Dimension(145, btnConfirmOrder.getHeight()));
-        add(btnConfirmOrder, "cell 1 12");
+        getContentPane().add(btnConfirmOrder, "cell 1 12");
     }
 
     public static void main(String[] args) {
-        JFrame frame = new BuyerCheckoutUI("Shoplet - Checkout");
+        JFrame frame = new BuyerCheckoutUI("Shoplet - Checkout", new CartUI("Dummy"));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
