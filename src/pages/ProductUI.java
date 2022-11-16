@@ -1,6 +1,7 @@
 package pages;
 import net.miginfocom.swing.MigLayout;
 
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
