@@ -1,3 +1,4 @@
+package pages;
 public class StatesList {
     public static String[] States =
     {
