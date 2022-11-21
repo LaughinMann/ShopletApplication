@@ -7,6 +7,10 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class BuyerCatalogUI extends JFrame {
 	
@@ -17,7 +21,14 @@ public class BuyerCatalogUI extends JFrame {
     public BuyerCatalogUI(String windowTitle)
     {
         super(windowTitle);
-
+        addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowActivated(WindowEvent e) {
+        		// Update cart text button when user focuses on window.
+        		updateViewCartUI();
+        	}
+        });
+        
         this.setMinimumSize(new Dimension(1000, 700));
         this.setMaximumSize(new Dimension(1000, 700));
         this.setResizable(false);
@@ -27,6 +38,12 @@ public class BuyerCatalogUI extends JFrame {
         getContentPane().setLayout(new MigLayout("wrap", "[][]push[]","[][][]"));
         catalogBtn = new JButton("Catalog");
         profileBtn = new JButton("Profile");
+        profileBtn.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ProfileUI profileUI = new ProfileUI("Shoplet - Profile");
+        		profileUI.setVisible(true);
+        	}
+        });
         viewCartBtn = new JButton("[0] View Cart");
         viewCartBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
@@ -92,7 +109,7 @@ public class BuyerCatalogUI extends JFrame {
     
     public void updateViewCartUI()
     {
-    	viewCartBtn.setText("["+Cart.getInstance().getProductInCartCount()+"]" + " View Cart");
+    	viewCartBtn.setText("["+Cart.getInstance().getCartSize()+"]" + " View Cart");
     }
 
     public static void main(String[] args) {

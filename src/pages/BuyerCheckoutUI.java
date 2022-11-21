@@ -19,7 +19,7 @@ public class BuyerCheckoutUI extends JFrame {
     private JLabel lblCreditCard = new JLabel("Credit Card #:");
     private JLabel lblCVV = new JLabel("CVV:");
     private JLabel lblExpirationDate = new JLabel("Expiration Date:");
-    private JLabel lblTotalPrice = new JLabel("Total: ");
+    private JLabel lblTotalPrice = new JLabel("Total: $" + Cart.getInstance().calculateGrandTotal());
 
 
     private JTextField txtFirstName = new JTextField();

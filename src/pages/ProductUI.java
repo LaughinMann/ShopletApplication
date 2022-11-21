@@ -30,6 +30,12 @@ public class ProductUI extends JFrame {
         getContentPane().add(lblProductName, "cell 0 0");
         
         JButton btnAddToCart = new JButton("Add To Cart");
+        btnAddToCart.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Cart.getInstance().addProduct(product);
+        		JOptionPane.showMessageDialog(null, "Item added to cart.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        	}
+        });
         btnAddToCart.setPreferredSize(new Dimension(100, 100));
         getContentPane().add(btnAddToCart, "cell 1 0,alignx center,aligny center");
         
@@ -50,6 +56,8 @@ public class ProductUI extends JFrame {
         JButton btnLeaveAReview = new JButton("Review");
         btnLeaveAReview.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		ReviewUI reviewUI = new ReviewUI("Product - " + product.productName + " - Review");
+        		reviewUI.setVisible(true);
         	}
         });
         getContentPane().add(btnLeaveAReview, "cell 1 3,alignx right");

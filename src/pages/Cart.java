@@ -31,18 +31,21 @@ public class Cart {
     	System.out.println("ITEMS NOW IN CART: " + itemsInCart.size());
     }
     
-    public int getProductInCartCount()
+    public int getCartSize()
     {
     	return itemsInCart.size();
     }
 
-    void removeProductFromCart(Product product)
+    void removeProductFromCart(String productName)
     {
+    	Product targetProductToRemove = null;
+    	
         for (int i = 0; i < itemsInCart.size(); i++)
         {
-            if (itemsInCart.get(i) == product)
+            if (itemsInCart.get(i).productName == productName)
             {
-                itemsInCart.remove(product);
+            	targetProductToRemove = itemsInCart.get(i);
+                itemsInCart.remove(targetProductToRemove);
             }
         }
     }
