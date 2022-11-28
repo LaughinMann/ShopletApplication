@@ -1,5 +1,5 @@
-//package com.mycompany.cop4331.project_final;
-package pages_Jeff;
+package pages_Jeff_Admin;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -75,8 +75,8 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         create_new_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_new_userActionPerformed(evt);
-                }
-            });
+            }
+        });
 
         pending_sellers.setBackground(new java.awt.Color(102, 102, 102));
         pending_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -85,8 +85,8 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         pending_sellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pending_sellersActionPerformed(evt);
-                }
-            });
+            }
+        });
 
         active_sellers.setBackground(new java.awt.Color(102, 102, 102));
         active_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -100,8 +100,8 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         orders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordersActionPerformed(evt);
-                }
-            });
+            }
+        });
 
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
         menuPane.setLayout(menuPaneLayout);
@@ -139,13 +139,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type1.setText("Account Type: Seller");
 
-        product1.setBackground(new java.awt.Color(204, 204, 204));
+        product1.setBackground(new java.awt.Color(102, 102, 102));
         product1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product1.setText("Products");
         product1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product1ActionPerformed(evt);
             }
         });
 
@@ -180,13 +179,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type2.setText("Account Type: Seller");
 
-        product2.setBackground(new java.awt.Color(204, 204, 204));
+        product2.setBackground(new java.awt.Color(102, 102, 102));
         product2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product2.setText("Products");
         product2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product2ActionPerformed(evt);
             }
         });
 
@@ -221,14 +219,13 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type3.setText("Account Type: Seller");
 
-        product3.setBackground(new java.awt.Color(204, 204, 204));
+        product3.setBackground(new java.awt.Color(102, 102, 102));
         product3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product3.setText("Products");
         product3.setToolTipText("");
         product3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product3ActionPerformed(evt);
             }
         });
 
@@ -265,13 +262,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type4.setText("Account Type: Seller");
 
-        product4.setBackground(new java.awt.Color(204, 204, 204));
+        product4.setBackground(new java.awt.Color(102, 102, 102));
         product4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product4.setText("Products");
         product4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product4ActionPerformed(evt);
             }
         });
 
@@ -308,13 +304,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type5.setText("Account Type: Seller");
 
-        product5.setBackground(new java.awt.Color(204, 204, 204));
+        product5.setBackground(new java.awt.Color(102, 102, 102));
         product5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product5.setText("Products");
         product5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product5ActionPerformed(evt);
             }
         });
 
@@ -349,15 +344,15 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type6.setText("Account Type: Seller");
 
-        product6.setBackground(new java.awt.Color(204, 204, 204));
+        product6.setBackground(new java.awt.Color(102, 102, 102));
         product6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product6.setText("Products");
         product6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product6ActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout active_sellers6Layout = new javax.swing.GroupLayout(active_sellers6);
         active_sellers6.setLayout(active_sellers6Layout);
         active_sellers6Layout.setHorizontalGroup(
@@ -389,13 +384,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type7.setText("Account Type: Seller");
 
-        product7.setBackground(new java.awt.Color(204, 204, 204));
+        product7.setBackground(new java.awt.Color(102, 102, 102));
         product7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product7.setText("Products");
         product7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product7ActionPerformed(evt);
             }
         });
 
@@ -432,13 +426,12 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         account_type8.setText("Account Type: Seller");
 
-        product8.setBackground(new java.awt.Color(204, 204, 204));
+        product8.setBackground(new java.awt.Color(102, 102, 102));
         product8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         product8.setText("Products");
         product8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
+                product8ActionPerformed(evt);
             }
         });
 
@@ -511,8 +504,7 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminPanelUI obj = new AdminPanelUI();
-                obj.setVisible(true);
+                back_buttonActionPerformed(evt);
             }
         });
 
@@ -559,16 +551,62 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void create_new_userActionPerformed(ActionEvent evt){
+    private void create_new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_new_userActionPerformed
         CreateNewUserUI obj = new CreateNewUserUI();
         obj.setVisible(true);
-    }
-    private void pending_sellersActionPerformed(ActionEvent evt) {
-        PendingSellersUI obj = new PendingSellersUI();
+    }//GEN-LAST:event_create_new_userActionPerformed
+
+    private void pending_sellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pending_sellersActionPerformed
+       PendingSellersUI obj = new PendingSellersUI();
         obj.setVisible(true);
-    }
-    private void ordersActionPerformed(ActionEvent evt){
+    }//GEN-LAST:event_pending_sellersActionPerformed
+
+    private void ordersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersActionPerformed
         OrdersUI obj = new OrdersUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_ordersActionPerformed
+
+    private void product1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product1ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product1ActionPerformed
+
+    private void product2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product2ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product2ActionPerformed
+
+    private void product3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product3ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product3ActionPerformed
+
+    private void product4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product4ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product4ActionPerformed
+
+    private void product5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product5ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product5ActionPerformed
+
+    private void product6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product6ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product6ActionPerformed
+
+    private void product7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product7ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product7ActionPerformed
+
+    private void product8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product8ActionPerformed
+        SellerProductUI obj = new SellerProductUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_product8ActionPerformed
+        private void back_buttonActionPerformed(ActionEvent evt){
+        AdminPanelUI obj = new AdminPanelUI();
         obj.setVisible(true);
     }
        public static void main(String args[]) {

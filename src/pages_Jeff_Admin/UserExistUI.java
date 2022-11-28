@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-//package com.mycompany.cop4331.project_final;
-package pages_Jeff;
+package pages_Jeff_Admin;
+
 /**
  *
  * @author jeffplatel

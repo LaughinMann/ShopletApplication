@@ -1,5 +1,4 @@
-//package com.mycompany.cop4331.project_final;
-package pages_Jeff;
+package pages_Jeff_Admin;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -99,6 +98,11 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         orders.setText("Orders");
         orders.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        orders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
         menuPane.setLayout(menuPaneLayout);
@@ -129,7 +133,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders1.setBackground(new java.awt.Color(255, 255, 255));
         orders1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel1.setBackground(new java.awt.Color(204, 204, 204));
+        cancel1.setBackground(new java.awt.Color(102, 102, 102));
         cancel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel1.setText("Cancel");
         cancel1.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +180,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders2.setBackground(new java.awt.Color(255, 255, 255));
         orders2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel2.setBackground(new java.awt.Color(204, 204, 204));
+        cancel2.setBackground(new java.awt.Color(102, 102, 102));
         cancel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel2.setText("Cancel");
         cancel2.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +229,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders3.setBackground(new java.awt.Color(255, 255, 255));
         orders3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel3.setBackground(new java.awt.Color(204, 204, 204));
+        cancel3.setBackground(new java.awt.Color(102, 102, 102));
         cancel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel3.setText("Cancel");
         cancel3.addActionListener(new java.awt.event.ActionListener() {
@@ -272,7 +276,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders4.setBackground(new java.awt.Color(255, 255, 255));
         orders4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel4.setBackground(new java.awt.Color(204, 204, 204));
+        cancel4.setBackground(new java.awt.Color(102, 102, 102));
         cancel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel4.setText("Cancel");
         cancel4.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +323,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders5.setBackground(new java.awt.Color(255, 255, 255));
         orders5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel5.setBackground(new java.awt.Color(204, 204, 204));
+        cancel5.setBackground(new java.awt.Color(102, 102, 102));
         cancel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel5.setText("Cancel");
         cancel5.addActionListener(new java.awt.event.ActionListener() {
@@ -366,7 +370,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders6.setBackground(new java.awt.Color(255, 255, 255));
         orders6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel6.setBackground(new java.awt.Color(204, 204, 204));
+        cancel6.setBackground(new java.awt.Color(102, 102, 102));
         cancel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel6.setText("Cancel");
         cancel6.addActionListener(new java.awt.event.ActionListener() {
@@ -413,7 +417,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders7.setBackground(new java.awt.Color(255, 255, 255));
         orders7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel7.setBackground(new java.awt.Color(204, 204, 204));
+        cancel7.setBackground(new java.awt.Color(102, 102, 102));
         cancel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel7.setText("Cancel");
         cancel7.addActionListener(new java.awt.event.ActionListener() {
@@ -462,7 +466,7 @@ public class OrdersUI extends JFrame implements ActionListener{
         orders8.setBackground(new java.awt.Color(255, 255, 255));
         orders8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cancel8.setBackground(new java.awt.Color(204, 204, 204));
+        cancel8.setBackground(new java.awt.Color(102, 102, 102));
         cancel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel8.setText("Cancel");
         cancel8.addActionListener(new java.awt.event.ActionListener() {
@@ -582,73 +586,83 @@ public class OrdersUI extends JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void homeActionPerformed(ActionEvent evt){
-        AdminPanelUI obj = new AdminPanelUI();
-        obj.setVisible(true);
-    }
-
-    private void create_new_userActionPerformed(ActionEvent evt){
+    private void create_new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_new_userActionPerformed
         CreateNewUserUI obj = new CreateNewUserUI();
         obj.setVisible(true);
-    }
+    }//GEN-LAST:event_create_new_userActionPerformed
 
-    private void  cancel1ActionPerformed(ActionEvent evt){
+    private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
+         AdminPanelUI obj = new AdminPanelUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_homeActionPerformed
+
+    private void ordersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ordersActionPerformed
+
+    private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
         Refund obj = new Refund();
         if(cancel1.getMouseListeners() != null){
             orders1.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel2ActionPerformed(ActionEvent evt){
+    }//GEN-LAST:event_cancel1ActionPerformed
+
+    private void cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel2ActionPerformed
         Refund obj = new Refund();
         if(cancel2.getMouseListeners() != null){
             orders2.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel3ActionPerformed(ActionEvent evt){
-        Refund obj = new Refund();
+    }//GEN-LAST:event_cancel2ActionPerformed
+
+    private void cancel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel3ActionPerformed
+                Refund obj = new Refund();
         if(cancel3.getMouseListeners() != null){
             orders3.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel4ActionPerformed(ActionEvent evt){
+    }//GEN-LAST:event_cancel3ActionPerformed
+
+    private void cancel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel4ActionPerformed
         Refund obj = new Refund();
         if(cancel4.getMouseListeners() != null){
             orders4.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel5ActionPerformed(ActionEvent evt){
-        Refund obj = new Refund();
+    }//GEN-LAST:event_cancel4ActionPerformed
+
+    private void cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel5ActionPerformed
+           Refund obj = new Refund();
         if(cancel5.getMouseListeners() != null){
             orders5.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel6ActionPerformed(ActionEvent evt){
-        Refund obj = new Refund();
+    }//GEN-LAST:event_cancel5ActionPerformed
+
+    private void cancel6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel6ActionPerformed
+            Refund obj = new Refund();
         if(cancel6.getMouseListeners() != null){
             orders6.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel7ActionPerformed(ActionEvent evt){
-        Refund obj = new Refund();
+    }//GEN-LAST:event_cancel6ActionPerformed
+
+    private void cancel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel7ActionPerformed
+         Refund obj = new Refund();
         if(cancel7.getMouseListeners() != null){
             orders7.setVisible(false);
             obj.getClass();
         }
-    }
-    private void  cancel8ActionPerformed(ActionEvent evt){
-        Refund obj = new Refund();
+    }//GEN-LAST:event_cancel7ActionPerformed
+
+    private void cancel8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel8ActionPerformed
+           Refund obj = new Refund();
         if(cancel8.getMouseListeners() != null){
             orders8.setVisible(false);
             obj.getClass();
         }
-    }
-
+    }//GEN-LAST:event_cancel8ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

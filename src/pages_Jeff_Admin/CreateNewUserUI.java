@@ -1,5 +1,5 @@
-//package com.mycompany.cop4331.project_final;
-package pages_Jeff;
+package pages_Jeff_Admin;
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -229,19 +229,20 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
     }
 
     private void createActionPerformed(ActionEvent evt){
-        //boolean match = false;
-        if(String.valueOf(passwor_PasswordField.getPassword()) == String.valueOf(comfirm_passwor_PasswordField.getPassword())) {
+        boolean match = false;
+        if(String.valueOf(passwor_PasswordField.getPassword()) == null ? String.valueOf(comfirm_passwor_PasswordField.getPassword()) == null : String.valueOf(passwor_PasswordField.getPassword()).equals(String.valueOf(comfirm_passwor_PasswordField.getPassword()))) {
+            match = true;
             SuccessUI obj = new SuccessUI();
             obj.setVisible(true);
+            database create = new database();
+		    create.add_user(username_TextField.getText(), email_TextField.getText(), String.valueOf(passwor_PasswordField.getPassword()), String.valueOf(account_typeCombo.getSelectedItem()), match);
+		    //String firstname, String lastname, String email, String password, String account_type, Boolean approval
         }
         else {
+            match = false;
             JFrame frame = new JFrame();
             JOptionPane.showMessageDialog(frame, "Something went wrong try again!");
         }
-
-            //database create = new database();
-		    //create.add_user(username_TextField.getText(), email_TextField.getText(), String.valueOf(passwor_PasswordField.getPassword()), String.valueOf(account_typeCombo.getSelectedItem()), match);
-		    //String firstname, String lastname, String email, String password, String account_type, Boolean approval
     }
 
     public static void main(String args[]) {

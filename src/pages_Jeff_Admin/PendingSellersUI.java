@@ -1,5 +1,4 @@
-//package com.mycompany.cop4331.project_final;
-package pages_Jeff;
+package pages_Jeff_Admin;
 
 import javax.swing.*;
 //import javax.swing.event.AncestorEvent;
@@ -85,7 +84,7 @@ public class PendingSellersUI extends JFrame implements ActionListener{
         create_new_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         create_new_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-               create_new_userActionPerformed(evt);
+                create_new_userActionPerformed(evt);
             }
         });
 
@@ -93,6 +92,11 @@ public class PendingSellersUI extends JFrame implements ActionListener{
         pending_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         pending_sellers.setText("Pending Sellers");
         pending_sellers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pending_sellers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pending_sellersActionPerformed(evt);
+            }
+        });
 
         active_sellers.setBackground(new java.awt.Color(102, 102, 102));
         active_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -119,10 +123,10 @@ public class PendingSellersUI extends JFrame implements ActionListener{
         back_button.setText("Back");
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminPanelUI obj = new AdminPanelUI();
-                obj.setVisible(true);
+                back_buttonActionPerformed(evt);
             }
         });
+
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
         menuPane.setLayout(menuPaneLayout);
         menuPaneLayout.setHorizontalGroup(
@@ -166,12 +170,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type1.setText("Account Type: Seller");
 
-        accept1.setBackground(new java.awt.Color(204, 204, 204));
+        accept1.setBackground(new java.awt.Color(102, 102, 102));
         accept1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept1.setText("Accept");
-       
+        accept1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept1ActionPerformed(evt);
+            }
+        });
 
-        decline1.setBackground(new java.awt.Color(204, 204, 204));
+        decline1.setBackground(new java.awt.Color(102, 102, 102));
         decline1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline1.setText("Decline");
         decline1.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +187,6 @@ public class PendingSellersUI extends JFrame implements ActionListener{
                 decline1ActionPerformed(evt);
             }
         });
-        
 
         javax.swing.GroupLayout pending_sellers1Layout = new javax.swing.GroupLayout(pending_sellers1);
         pending_sellers1.setLayout(pending_sellers1Layout);
@@ -215,11 +222,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type2.setText("Account Type: Seller");
 
-        accept2.setBackground(new java.awt.Color(204, 204, 204));
+        accept2.setBackground(new java.awt.Color(102, 102, 102));
         accept2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept2.setText("Accept");
+        accept2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept2ActionPerformed(evt);
+            }
+        });
 
-        decline2.setBackground(new java.awt.Color(204, 204, 204));
+        decline2.setBackground(new java.awt.Color(102, 102, 102));
         decline2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline2.setText("Decline");
         decline2.addActionListener(new java.awt.event.ActionListener() {
@@ -265,11 +277,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type3.setText("Account Type: Seller");
 
-        accept3.setBackground(new java.awt.Color(204, 204, 204));
+        accept3.setBackground(new java.awt.Color(102, 102, 102));
         accept3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept3.setText("Accept");
+        accept3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept3ActionPerformed(evt);
+            }
+        });
 
-        decline3.setBackground(new java.awt.Color(204, 204, 204));
+        decline3.setBackground(new java.awt.Color(102, 102, 102));
         decline3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline3.setText("Decline");
         decline3.addActionListener(new java.awt.event.ActionListener() {
@@ -313,11 +330,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type4.setText("Account Type: Seller");
 
-        accept4.setBackground(new java.awt.Color(204, 204, 204));
+        accept4.setBackground(new java.awt.Color(102, 102, 102));
         accept4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept4.setText("Accept");
+        accept4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept4ActionPerformed(evt);
+            }
+        });
 
-        decline4.setBackground(new java.awt.Color(204, 204, 204));
+        decline4.setBackground(new java.awt.Color(102, 102, 102));
         decline4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline4.setText("Decline");
         decline4.addActionListener(new java.awt.event.ActionListener() {
@@ -361,11 +383,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type5.setText("Account Type: Seller");
 
-        accept5.setBackground(new java.awt.Color(204, 204, 204));
+        accept5.setBackground(new java.awt.Color(102, 102, 102));
         accept5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept5.setText("Accept");
+        accept5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept5ActionPerformed(evt);
+            }
+        });
 
-        decline5.setBackground(new java.awt.Color(204, 204, 204));
+        decline5.setBackground(new java.awt.Color(102, 102, 102));
         decline5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline5.setText("Decline");
         decline5.addActionListener(new java.awt.event.ActionListener() {
@@ -409,11 +436,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type6.setText("Account Type: Seller");
 
-        accept6.setBackground(new java.awt.Color(204, 204, 204));
+        accept6.setBackground(new java.awt.Color(102, 102, 102));
         accept6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept6.setText("Accept");
+        accept6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept6ActionPerformed(evt);
+            }
+        });
 
-        decline6.setBackground(new java.awt.Color(204, 204, 204));
+        decline6.setBackground(new java.awt.Color(102, 102, 102));
         decline6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline6.setText("Decline");
         decline6.addActionListener(new java.awt.event.ActionListener() {
@@ -459,11 +491,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type7.setText("Account Type: Seller");
 
-        accept7.setBackground(new java.awt.Color(204, 204, 204));
+        accept7.setBackground(new java.awt.Color(102, 102, 102));
         accept7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept7.setText("Accept");
+        accept7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept7ActionPerformed(evt);
+            }
+        });
 
-        decline7.setBackground(new java.awt.Color(204, 204, 204));
+        decline7.setBackground(new java.awt.Color(102, 102, 102));
         decline7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline7.setText("Decline");
         decline7.addActionListener(new java.awt.event.ActionListener() {
@@ -471,7 +508,6 @@ public class PendingSellersUI extends JFrame implements ActionListener{
                 decline7ActionPerformed(evt);
             }
         });
-       
 
         javax.swing.GroupLayout pending_sellers7Layout = new javax.swing.GroupLayout(pending_sellers7);
         pending_sellers7.setLayout(pending_sellers7Layout);
@@ -508,11 +544,16 @@ public class PendingSellersUI extends JFrame implements ActionListener{
 
         account_type8.setText("Account Type: Seller");
 
-        accept8.setBackground(new java.awt.Color(204, 204, 204));
+        accept8.setBackground(new java.awt.Color(102, 102, 102));
         accept8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept8.setText("Accept");
+        accept8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accept8ActionPerformed(evt);
+            }
+        });
 
-        decline8.setBackground(new java.awt.Color(204, 204, 204));
+        decline8.setBackground(new java.awt.Color(102, 102, 102));
         decline8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline8.setText("Decline");
         decline8.addActionListener(new java.awt.event.ActionListener() {
@@ -520,7 +561,6 @@ public class PendingSellersUI extends JFrame implements ActionListener{
                 decline8ActionPerformed(evt);
             }
         });
-        
 
         javax.swing.GroupLayout pending_sellers8Layout = new javax.swing.GroupLayout(pending_sellers8);
         pending_sellers8.setLayout(pending_sellers8Layout);
@@ -624,10 +664,111 @@ public class PendingSellersUI extends JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void create_new_userActionPerformed(ActionEvent evt){
+    private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
+        AdminPanelUI obj = new AdminPanelUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_back_buttonActionPerformed
+
+    private void create_new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_new_userActionPerformed
         CreateNewUserUI obj = new CreateNewUserUI();
         obj.setVisible(true);
-    }
+    }//GEN-LAST:event_create_new_userActionPerformed
+
+    private void pending_sellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pending_sellersActionPerformed
+        PendingSellersUI obj = new PendingSellersUI();
+        obj.setVisible(true);
+    }//GEN-LAST:event_pending_sellersActionPerformed
+
+    private void decline1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline1ActionPerformed
+        if(decline1.getMouseListeners() != null){
+            pending_sellers1.setVisible(false);
+        }
+    }//GEN-LAST:event_decline1ActionPerformed
+
+    private void decline3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline3ActionPerformed
+        if(decline3.getMouseListeners() != null){
+            pending_sellers3.setVisible(false);
+        }
+    }//GEN-LAST:event_decline3ActionPerformed
+
+    private void decline4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline4ActionPerformed
+        if(decline4.getMouseListeners() != null){
+            pending_sellers4.setVisible(false);
+        }
+    }//GEN-LAST:event_decline4ActionPerformed
+
+    private void decline5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline5ActionPerformed
+        if(decline5.getMouseListeners() != null){
+            pending_sellers5.setVisible(false);
+        }
+    }//GEN-LAST:event_decline5ActionPerformed
+
+    private void decline6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline6ActionPerformed
+        if(decline6.getMouseListeners() != null){
+            pending_sellers6.setVisible(false);
+        }
+    }//GEN-LAST:event_decline6ActionPerformed
+
+    private void decline7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline7ActionPerformed
+        if(decline7.getMouseListeners() != null){
+            pending_sellers7.setVisible(false);
+        }
+    }//GEN-LAST:event_decline7ActionPerformed
+
+    private void decline8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decline8ActionPerformed
+        if(decline8.getMouseListeners() != null){
+            pending_sellers8.setVisible(false);
+        }
+    }//GEN-LAST:event_decline8ActionPerformed
+
+    private void accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
+        if(accept1.getMouseListeners() != null){
+            pending_sellers1.setVisible(false);
+        }
+    }//GEN-LAST:event_accept1ActionPerformed
+
+    private void accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept2ActionPerformed
+        if(accept2.getMouseListeners() != null){
+            pending_sellers2.setVisible(false);
+        }
+    }//GEN-LAST:event_accept2ActionPerformed
+
+    private void accept3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept3ActionPerformed
+        if(accept3.getMouseListeners() != null){
+            pending_sellers3.setVisible(false);
+        }
+    }//GEN-LAST:event_accept3ActionPerformed
+
+    private void accept4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept4ActionPerformed
+        if(accept4.getMouseListeners() != null){
+            pending_sellers4.setVisible(false);
+        }
+    }//GEN-LAST:event_accept4ActionPerformed
+
+    private void accept5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept5ActionPerformed
+        if(accept5.getMouseListeners() != null){
+            pending_sellers5.setVisible(false);
+        }
+    }//GEN-LAST:event_accept5ActionPerformed
+
+    private void accept6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept6ActionPerformed
+        if(accept6.getMouseListeners() != null){
+            pending_sellers6.setVisible(false);
+        }
+    }//GEN-LAST:event_accept6ActionPerformed
+
+    private void accept7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept7ActionPerformed
+        if(accept7.getMouseListeners() != null){
+            pending_sellers7.setVisible(false);
+        }
+    }//GEN-LAST:event_accept7ActionPerformed
+
+    private void accept8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept8ActionPerformed
+        if(accept8.getMouseListeners() != null){
+            pending_sellers8.setVisible(false);
+        }
+    }//GEN-LAST:event_accept8ActionPerformed
+
     private void active_sellersActionPerformed(ActionEvent evt){
         ActiveSellersUI obj = new ActiveSellersUI();
         obj.setVisible(true);
@@ -636,46 +777,9 @@ public class PendingSellersUI extends JFrame implements ActionListener{
         OrdersUI obj = new OrdersUI();
         obj.setVisible(true);
     }
-
-    private void  decline1ActionPerformed(ActionEvent evt){
-        //ActiveSellersUI obj = new ActiveSellersUI();
-        if(decline1.getMouseListeners() != null){
-            pending_sellers1.setVisible(false);
-        }
-    }
     private void  decline2ActionPerformed(ActionEvent evt){
         if(decline2.getMouseListeners() != null){
             pending_sellers2.setVisible(false);
-        }
-    }
-    private void  decline3ActionPerformed(ActionEvent evt){
-        if(decline3.getMouseListeners() != null){
-            pending_sellers3.setVisible(false);
-        }
-    }
-    private void  decline4ActionPerformed(ActionEvent evt){
-        if(decline4.getMouseListeners() != null){
-            pending_sellers4.setVisible(false);
-        }
-    }
-    private void  decline5ActionPerformed(ActionEvent evt){
-        if(decline5.getMouseListeners() != null){
-            pending_sellers5.setVisible(false);
-        }
-    }
-    private void  decline6ActionPerformed(ActionEvent evt){
-        if(decline6.getMouseListeners() != null){
-            pending_sellers6.setVisible(false);
-        }
-    }
-    private void  decline7ActionPerformed(ActionEvent evt){
-        if(decline7.getMouseListeners() != null){
-            pending_sellers7.setVisible(false);
-        }
-    }
-    private void  decline8ActionPerformed(ActionEvent evt){
-        if(decline8.getMouseListeners() != null){
-            pending_sellers8.setVisible(false);
         }
     }
 /* 
@@ -770,11 +874,10 @@ public class PendingSellersUI extends JFrame implements ActionListener{
     private javax.swing.JPanel pending_sellers8;
     private javax.swing.JPanel pending_sellersPane;
     // End of variables declaration//GEN-END:variables
-
     @Override
     public void actionPerformed(ActionEvent e) {
-       
-        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // TODO Auto-generated method stub
+        
     }
    
 }
