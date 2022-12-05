@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
  *
  */
 public class BuyerCheckoutUI extends JFrame {
-
+	
 	// Variables
     private JLabel lblFirstName = new JLabel("First Name:");
     private JLabel lblLastName = new JLabel("Last Name:");
@@ -103,14 +103,16 @@ public class BuyerCheckoutUI extends JFrame {
 
         getContentPane().add(txtExpirationDate, "cell 1 10");
         txtExpirationDate.setColumns(25);
-
+        
         lblTotalPrice.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         lblTotalPrice.setFont(new Font("Arial", Font.PLAIN, 26));
         lblTotalPrice.setPreferredSize(new Dimension(278, lblTotalPrice.getHeight()));
         getContentPane().add(lblTotalPrice, "cell 1 11");
         btnCancel.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		//frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+        		cancelCheckoutWindow();
+        		JOptionPane.showMessageDialog(null, "Payment cancelled.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        		
         	}
         });
 
@@ -120,10 +122,20 @@ public class BuyerCheckoutUI extends JFrame {
         	public void actionPerformed(ActionEvent e) {
         		//Input verification
         	    txtFirstName.setInputVerifier(normalTextFieldVerifier);
+        		cancelCheckoutWindow();
+        		JOptionPane.showMessageDialog(null, "Payment confirmed.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
         	}
         });
         btnConfirmOrder.setPreferredSize(new Dimension(145, btnConfirmOrder.getHeight()));
         getContentPane().add(btnConfirmOrder, "cell 1 12");
+    }
+    
+    /**
+     * Hides the Checkout Window
+     */
+    public void cancelCheckoutWindow()
+    {
+    	this.setVisible(false);
     }
     
     /**
@@ -142,7 +154,7 @@ public class BuyerCheckoutUI extends JFrame {
      * @param args Arguments
      */
     public static void main(String[] args) {
-        JFrame frame = new BuyerCheckoutUI("Shoplet - Checkout", new CartUI("Dummy"));
+   	 	JFrame frame = new BuyerCheckoutUI("Shoplet - Checkout", new CartUI("Dummy"));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
