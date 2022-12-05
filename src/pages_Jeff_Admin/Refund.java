@@ -15,7 +15,7 @@ package pages_Jeff_Admin;
 public class Refund {
     Refund(){
         JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame, "Refund in process");
+        JOptionPane.showMessageDialog(frame, "Order cancelled. Refund in process...");
     }
     public static void main(String[] args) {
         new Refund();   

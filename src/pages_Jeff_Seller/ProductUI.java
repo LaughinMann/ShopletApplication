@@ -6,6 +6,7 @@ package pages_Jeff_Seller;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 /**
  *
@@ -17,6 +18,7 @@ public class ProductUI extends javax.swing.JFrame {
      * Creates new form ProductUI
      */
     public ProductUI() {
+    	setTitle("Product");
         initComponents();
     }
 
@@ -33,26 +35,30 @@ public class ProductUI extends javax.swing.JFrame {
         product_name = new javax.swing.JLabel();
         price = new javax.swing.JLabel();
         edit_details = new javax.swing.JButton();
+        edit_details.setForeground(new Color(255, 255, 255));
         delete = new javax.swing.JButton();
+        delete.setForeground(new Color(255, 255, 255));
         discount_code = new javax.swing.JButton();
+        discount_code.setForeground(new Color(255, 255, 255));
         reviews = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         fnamel1 = new javax.swing.JLabel();
         placeholdera_text1 = new javax.swing.JLabel();
         stars1 = new javax.swing.JLabel();
         respond1 = new javax.swing.JButton();
+        respond1.setForeground(new Color(0, 0, 0));
         jPanel2 = new javax.swing.JPanel();
         fnamel2 = new javax.swing.JLabel();
         placeholdera_text2 = new javax.swing.JLabel();
         stars2 = new javax.swing.JLabel();
         respond2 = new javax.swing.JButton();
+        respond2.setForeground(new Color(0, 0, 0));
         jScrollPane1 = new javax.swing.JScrollPane();
         description = new javax.swing.JTextArea();
         back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         product_name.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         product_name.setText("Product Name");
@@ -62,7 +68,6 @@ public class ProductUI extends javax.swing.JFrame {
         edit_details.setBackground(new java.awt.Color(102, 102, 102));
         edit_details.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         edit_details.setText("Edit Details");
-        edit_details.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         edit_details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_detailsActionPerformed(evt);
@@ -72,7 +77,6 @@ public class ProductUI extends javax.swing.JFrame {
         delete.setBackground(new java.awt.Color(102, 102, 102));
         delete.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         delete.setText("Delete");
-        delete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteActionPerformed(evt);
@@ -82,7 +86,6 @@ public class ProductUI extends javax.swing.JFrame {
         discount_code.setBackground(new java.awt.Color(102, 102, 102));
         discount_code.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         discount_code.setText("Discount  Code");
-        discount_code.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         discount_code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 discount_codeActionPerformed(evt);
@@ -105,7 +108,6 @@ public class ProductUI extends javax.swing.JFrame {
         respond1.setBackground(new java.awt.Color(153, 153, 153));
         respond1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         respond1.setText("Respond");
-        respond1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         respond1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 respond1ActionPerformed(evt);
@@ -156,7 +158,6 @@ public class ProductUI extends javax.swing.JFrame {
         respond2.setBackground(new java.awt.Color(153, 153, 153));
         respond2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         respond2.setText("Respond");
-        respond2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         respond2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 respond2ActionPerformed(evt);
@@ -204,7 +205,6 @@ public class ProductUI extends javax.swing.JFrame {
         back_button.setBackground(new java.awt.Color(102, 102, 102));
         back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         back_button.setText("Back");
-        back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_buttonActionPerformed(evt);
@@ -310,8 +310,7 @@ public class ProductUI extends javax.swing.JFrame {
     }//GEN-LAST:event_respond2ActionPerformed
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-       SellersPanelUI obj = new SellersPanelUI();
-       obj.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_back_buttonActionPerformed
 
     /**

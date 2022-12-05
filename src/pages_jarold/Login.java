@@ -37,7 +37,6 @@ public class Login extends JFrame {
 			public void run() {
 				try {
 					Login frame = new Login();
-					frame.setTitle("SHOPLET Login");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,10 +49,11 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setTitle("Shoplet - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 631, 459);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 248, 255));
+		contentPane.setBackground(new Color(240, 240, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -62,12 +62,12 @@ public class Login extends JFrame {
 		JLabel user_label = new JLabel("Username:");
 		user_label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		user_label.setBackground(SystemColor.info);
-		user_label.setBounds(144, 232, 106, 33);
+		user_label.setBounds(144, 218, 106, 33);
 		contentPane.add(user_label);
 		
 		JLabel password_label = new JLabel("Password :");
 		password_label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		password_label.setBounds(144, 283, 106, 27);
+		password_label.setBounds(144, 269, 106, 27);
 		contentPane.add(password_label);
 		
 		JLabel logo_label = new JLabel("");
@@ -79,12 +79,12 @@ public class Login extends JFrame {
 		contentPane.add(logo_label);
 		
 		user_box = new JTextField();
-		user_box.setBounds(260, 242, 126, 20);
+		user_box.setBounds(260, 228, 126, 20);
 		contentPane.add(user_box);
 		user_box.setColumns(10);
 		
 		password_box = new JPasswordField();
-		password_box.setBounds(260, 290, 126, 20);
+		password_box.setBounds(260, 276, 126, 20);
 		contentPane.add(password_box);
 		
 		JButton register_button = new JButton("Register");
@@ -96,12 +96,12 @@ public class Login extends JFrame {
 				dispose();
 			}
 		});
-		register_button.setBounds(260, 387, 126, 22);
+		register_button.setBounds(260, 376, 126, 19);
 		contentPane.add(register_button);
 		
 		JLabel desc_box = new JLabel("Don't have an account?");
 		desc_box.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		desc_box.setBounds(119, 390, 131, 14);
+		desc_box.setBounds(119, 376, 131, 14);
 		contentPane.add(desc_box);
 		
 		JButton login_button = new JButton("Login");
@@ -120,7 +120,7 @@ public class Login extends JFrame {
 				}
 			}
 		});
-		login_button.setBounds(260, 333, 126, 27);
+		login_button.setBounds(260, 326, 126, 20);
 		contentPane.add(login_button);
 	}
 }

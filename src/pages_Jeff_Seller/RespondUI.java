@@ -10,6 +10,9 @@ package pages_Jeff_Seller;
  */
 
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
 
 public class RespondUI extends javax.swing.JFrame {
 
@@ -17,6 +20,8 @@ public class RespondUI extends javax.swing.JFrame {
      * Creates new form Respond
      */
     public RespondUI() {
+    	setBackground(new Color(240, 240, 240));
+    	getContentPane().setBackground(new Color(240, 240, 240));
         initComponents();
     }
 
@@ -34,17 +39,14 @@ public class RespondUI extends javax.swing.JFrame {
         reply_text = new javax.swing.JTextField();
         post_button = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         reply.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        reply.setText("Reply");
+        reply.setText("Review Response");
 
-        post_button.setBackground(new java.awt.Color(102, 102, 102));
+        post_button.setBackground(new Color(255, 255, 255));
         post_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         post_button.setText("Post");
-        post_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         post_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 post_buttonActionPerformed(evt);
@@ -52,36 +54,33 @@ public class RespondUI extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(reply, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(reply_text, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(post_button, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+        					.addGap(0, 429, Short.MAX_VALUE)
+        					.addComponent(post_button, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(reply, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(reply_text, GroupLayout.PREFERRED_SIZE, 493, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(reply, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(reply_text, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(post_button, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(reply, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(reply_text, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(post_button, GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+        			.addContainerGap())
         );
+        contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,10 +98,9 @@ public class RespondUI extends javax.swing.JFrame {
 
     private void post_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_post_buttonActionPerformed
         JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame, "Coment posted.");
+        JOptionPane.showMessageDialog(frame, "Response was posted.");
         dispose();
-        ProductUI obj = new ProductUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_post_buttonActionPerformed
 
     /**

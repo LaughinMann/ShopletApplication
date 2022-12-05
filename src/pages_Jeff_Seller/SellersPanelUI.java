@@ -10,6 +10,11 @@ package pages_Jeff_Seller;
  */
 
 import java.awt.event.*;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
 
 public class SellersPanelUI extends javax.swing.JFrame {
 
@@ -17,6 +22,7 @@ public class SellersPanelUI extends javax.swing.JFrame {
      * Creates new form ProductCatalog
      */
     public SellersPanelUI() {
+    	setTitle("Sellers Portal");
         initComponents();
     }
 
@@ -34,45 +40,56 @@ public class SellersPanelUI extends javax.swing.JFrame {
         icon = new javax.swing.JLabel();
         seller_header = new javax.swing.JLabel();
         logout_button = new javax.swing.JButton();
+        logout_button.setForeground(new Color(255, 255, 255));
         displayPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
         catalog_button = new javax.swing.JButton();
+        catalog_button.setForeground(new Color(255, 255, 255));
         profile_button = new javax.swing.JButton();
+        profile_button.setForeground(new Color(255, 255, 255));
         add_product_button = new javax.swing.JButton();
+        add_product_button.setForeground(new Color(255, 255, 255));
         profit_report_button = new javax.swing.JButton();
+        profit_report_button.setForeground(new Color(255, 255, 255));
         product1 = new javax.swing.JPanel();
         product_name1 = new javax.swing.JLabel();
         cost1 = new javax.swing.JLabel();
         view_button1 = new javax.swing.JButton();
+        view_button1.setForeground(new Color(255, 255, 255));
         product2 = new javax.swing.JPanel();
         product_name2 = new javax.swing.JLabel();
         cost2 = new javax.swing.JLabel();
         view_button2 = new javax.swing.JButton();
+        view_button2.setForeground(new Color(255, 255, 255));
         product3 = new javax.swing.JPanel();
         product_name3 = new javax.swing.JLabel();
         cost3 = new javax.swing.JLabel();
         view_button3 = new javax.swing.JButton();
+        view_button3.setForeground(new Color(255, 255, 255));
         product4 = new javax.swing.JPanel();
         product_name4 = new javax.swing.JLabel();
         cost4 = new javax.swing.JLabel();
         view_button4 = new javax.swing.JButton();
+        view_button4.setForeground(new Color(255, 255, 255));
         product5 = new javax.swing.JPanel();
         product_name5 = new javax.swing.JLabel();
         cost5 = new javax.swing.JLabel();
         view_button5 = new javax.swing.JButton();
+        view_button5.setForeground(new Color(255, 255, 255));
         product6 = new javax.swing.JPanel();
         product_name6 = new javax.swing.JLabel();
         cost6 = new javax.swing.JLabel();
         view_button6 = new javax.swing.JButton();
+        view_button6.setForeground(new Color(255, 255, 255));
+
+        contentPane.setBackground(new Color(240, 240, 240));
+
+        headerPane.setBackground(new Color(240, 240, 240));
+
+        icon.setIcon(new ImageIcon(SellersPanelUI.class.getResource("/pages_Jeff_Seller/icon/logo1.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        headerPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cop4331/poject/seller/icon/logo1.png"))); // NOI18N
-
+        
         seller_header.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         seller_header.setForeground(new java.awt.Color(204, 0, 51));
         seller_header.setText("Seller");
@@ -80,7 +97,6 @@ public class SellersPanelUI extends javax.swing.JFrame {
         logout_button.setBackground(new java.awt.Color(102, 102, 102));
         logout_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         logout_button.setText("Logout");
-        logout_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logout_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logout_buttonActionPerformed(evt);
@@ -88,41 +104,38 @@ public class SellersPanelUI extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout headerPaneLayout = new javax.swing.GroupLayout(headerPane);
-        headerPane.setLayout(headerPaneLayout);
         headerPaneLayout.setHorizontalGroup(
-            headerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPaneLayout.createSequentialGroup()
-                .addComponent(icon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seller_header)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 748, Short.MAX_VALUE)
-                .addComponent(logout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        	headerPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(headerPaneLayout.createSequentialGroup()
+        			.addComponent(icon)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(seller_header)
+        			.addPreferredGap(ComponentPlacement.RELATED, 719, Short.MAX_VALUE)
+        			.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap())
         );
         headerPaneLayout.setVerticalGroup(
-            headerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPaneLayout.createSequentialGroup()
-                .addComponent(icon)
-                .addGap(0, 6, Short.MAX_VALUE))
-            .addGroup(headerPaneLayout.createSequentialGroup()
-                .addGroup(headerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(headerPaneLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(seller_header, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(headerPaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	headerPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(headerPaneLayout.createSequentialGroup()
+        			.addGroup(headerPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(icon)
+        				.addGroup(headerPaneLayout.createSequentialGroup()
+        					.addGap(23)
+        					.addComponent(seller_header, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(headerPaneLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        headerPane.setLayout(headerPaneLayout);
 
-        displayPane.setBackground(new java.awt.Color(255, 255, 255));
+        displayPane.setBackground(new Color(240, 240, 240));
 
-        menuPane.setBackground(new java.awt.Color(255, 255, 255));
+        menuPane.setBackground(new Color(240, 240, 240));
 
         catalog_button.setBackground(new java.awt.Color(102, 102, 102));
         catalog_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         catalog_button.setText("Catalog");
-        catalog_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         catalog_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 catalog_buttonActionPerformed(evt);
@@ -132,7 +145,6 @@ public class SellersPanelUI extends javax.swing.JFrame {
         profile_button.setBackground(new java.awt.Color(102, 102, 102));
         profile_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         profile_button.setText("Profile");
-        profile_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         profile_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profile_buttonActionPerformed(evt);
@@ -142,7 +154,6 @@ public class SellersPanelUI extends javax.swing.JFrame {
         add_product_button.setBackground(new java.awt.Color(102, 102, 102));
         add_product_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         add_product_button.setText("Add Product");
-        add_product_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add_product_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_product_buttonActionPerformed(evt);
@@ -152,7 +163,6 @@ public class SellersPanelUI extends javax.swing.JFrame {
         profit_report_button.setBackground(new java.awt.Color(102, 102, 102));
         profit_report_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         profit_report_button.setText("Profit Report");
-        profit_report_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         profit_report_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 profit_report_buttonActionPerformed(evt);

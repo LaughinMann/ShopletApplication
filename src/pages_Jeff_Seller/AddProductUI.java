@@ -9,12 +9,14 @@ package pages_Jeff_Seller;
  * @author jeffplatel
  */
 import javax.swing.*;
+import java.awt.Color;
 public class AddProductUI extends javax.swing.JFrame {
 
     /**
      * Creates new form AddProduct
      */
     public AddProductUI() {
+    	setTitle("Add Product");
         initComponents();
     }
 
@@ -37,24 +39,23 @@ public class AddProductUI extends javax.swing.JFrame {
         quantity_text = new javax.swing.JTextField();
         description_text = new javax.swing.JTextField();
         create_button = new javax.swing.JButton();
+        create_button.setForeground(Color.WHITE);
         cancel_button = new javax.swing.JButton();
+        cancel_button.setForeground(Color.WHITE);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        product_name.setText("Product Name:");
 
-        product_name.setText("Product Name");
+        price.setText("Price:");
 
-        price.setText("Price");
+        quantity.setText("Quantity:");
 
-        quantity.setText("Quantity");
-
-        description.setText("Description");
+        description.setText("Description:");
 
         create_button.setBackground(new java.awt.Color(102, 102, 102));
         create_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         create_button.setText("Create");
-        create_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         create_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_buttonActionPerformed(evt);
@@ -64,7 +65,6 @@ public class AddProductUI extends javax.swing.JFrame {
         cancel_button.setBackground(new java.awt.Color(102, 102, 102));
         cancel_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel_button.setText("Cancel");
-        cancel_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);
@@ -159,10 +159,9 @@ public class AddProductUI extends javax.swing.JFrame {
     }//GEN-LAST:event_create_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
-        SellersPanelUI obj = new SellersPanelUI();
-        obj.setVisible(true);
+        this.setVisible(false);
         JFrame frame = new JFrame();
-        JOptionPane.showMessageDialog(frame, "No product added.");
+        JOptionPane.showMessageDialog(frame, "Creation cancelled. No product was created.");
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**

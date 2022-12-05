@@ -20,6 +20,7 @@ public class HomePage extends JFrame {
 			public void run() {
 				try {
 					HomePage frame = new HomePage();
+					frame.setTitle("Shoplet");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

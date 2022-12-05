@@ -40,7 +40,7 @@ public class Registration extends JFrame {
 			public void run() {
 				try {
 					Registration frame = new Registration();
-					frame.setTitle("SHOPLET Registration");
+					frame.setTitle("Shoplet - Registration");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,15 +54,15 @@ public class Registration extends JFrame {
 	 */
 	public Registration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 550);
+		setBounds(100, 100, 464, 534);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(240, 248, 255));
+		contentPane.setBackground(new Color(240, 240, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel registration_desc = new JLabel("Create a SHOPLET account");
+		JLabel registration_desc = new JLabel("Create a Shoplet account");
 		registration_desc.setBounds(184, 36, 231, 42);
 		registration_desc.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(registration_desc);
@@ -80,7 +80,7 @@ public class Registration extends JFrame {
 		contentPane.add(account_label);
 		
 		JComboBox account_box = new JComboBox();
-		account_box.setModel(new DefaultComboBoxModel(new String[] {"Buyer", "Seller","Default"}));
+		account_box.setModel(new DefaultComboBoxModel(new String[] {"Buyer", "Seller"}));
 		account_box.setMaximumRowCount(2);
 		account_box.setBounds(186, 171, 201, 22);
 		contentPane.add(account_box);
@@ -148,7 +148,7 @@ public class Registration extends JFrame {
 		password_box.setBounds(184, 289, 203, 20);
 		contentPane.add(password_box);
 		
-		user_box = new RoundJTextField(1);
+		user_box = new JTextField();
 		user_box.setColumns(20);
 		user_box.setBounds(184, 250, 203, 20);
 		contentPane.add(user_box);

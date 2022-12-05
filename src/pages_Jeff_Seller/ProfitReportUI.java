@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pages_Jeff_Seller;
+import java.awt.Color;
 
 /**
  *
@@ -14,6 +15,7 @@ public class ProfitReportUI extends javax.swing.JFrame {
      * Creates new form ProfitReportUI
      */
     public ProfitReportUI() {
+    	setTitle("Revenue Report");
         initComponents();
     }
 
@@ -34,10 +36,9 @@ public class ProfitReportUI extends javax.swing.JFrame {
         cost = new javax.swing.JLabel();
         profit = new javax.swing.JLabel();
         close_button = new javax.swing.JButton();
+        close_button.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         total_revenue.setText("Total Revenue:");
 
@@ -115,8 +116,7 @@ public class ProfitReportUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void close_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_buttonActionPerformed
-        SellersPanelUI obj = new SellersPanelUI();
-        obj.setVisible(true);
+    	this.setVisible(false);
     }//GEN-LAST:event_close_buttonActionPerformed
 
     /**

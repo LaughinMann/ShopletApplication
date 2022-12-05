@@ -10,6 +10,7 @@ package pages_Jeff_Seller;
  */
 
 import javax.swing.*;
+import java.awt.Color;
 
 public class DiscountCodeUI extends javax.swing.JFrame {
 
@@ -17,6 +18,8 @@ public class DiscountCodeUI extends javax.swing.JFrame {
      * Creates new form DiscountCode
      */
     public DiscountCodeUI() {
+    	setTitle("Create Product Discount");
+    	setBackground(new Color(240, 240, 240));
         initComponents();
     }
 
@@ -33,17 +36,17 @@ public class DiscountCodeUI extends javax.swing.JFrame {
         discount_code = new javax.swing.JLabel();
         percent_off = new javax.swing.JLabel();
         create_button = new javax.swing.JButton();
+        create_button.setForeground(new Color(255, 255, 255));
         code_TextField = new javax.swing.JTextField();
         percent_TextField = new javax.swing.JTextField();
         back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        discount_code.setText("Discount Code:");
 
-        discount_code.setText("Discount Code");
-
-        percent_off.setText("Percent % Off");
+        percent_off.setText("Percent % Off:");
 
         create_button.setBackground(new java.awt.Color(102, 102, 102));
         create_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -132,8 +135,7 @@ public class DiscountCodeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_create_buttonActionPerformed
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        ProductUI obj = new ProductUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_back_buttonActionPerformed
 
     /**

@@ -4,6 +4,7 @@ import javax.swing.*;
 
 //import java.awt.Window;
 import java.awt.event.*;
+import java.awt.Color;
 
 public class AdminPanelUI extends JFrame {
 
@@ -11,6 +12,7 @@ public class AdminPanelUI extends JFrame {
      * Creates new form AdminPanelUI
      */
     public AdminPanelUI() {
+    	setTitle("Admin Panel Dashboard");
         initComponents();
     }
 
@@ -30,50 +32,67 @@ public class AdminPanelUI extends JFrame {
         head_Administrator = new javax.swing.JLabel();
         head_Dashboard = new javax.swing.JLabel();
         logout_button = new javax.swing.JButton();
+        logout_button.setForeground(new Color(255, 255, 255));
         pending_sellersPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
         create_new_user = new javax.swing.JButton();
+        create_new_user.setForeground(new Color(255, 255, 255));
         pending_Sellers = new javax.swing.JButton();
+        pending_Sellers.setForeground(new Color(255, 255, 255));
         active_sellers = new javax.swing.JButton();
+        active_sellers.setForeground(new Color(255, 255, 255));
         orders = new javax.swing.JButton();
+        orders.setForeground(new Color(255, 255, 255));
         pending_sellers1 = new javax.swing.JPanel();
         decline1 = new javax.swing.JButton();
+        decline1.setForeground(new Color(255, 255, 255));
         accept1 = new javax.swing.JButton();
+        accept1.setForeground(new Color(255, 255, 255));
         fname_lname1 = new javax.swing.JLabel();
         account_type1 = new javax.swing.JLabel();
         pending_sellers2 = new javax.swing.JPanel();
         decline2 = new javax.swing.JButton();
+        decline2.setForeground(new Color(255, 255, 255));
         accept2 = new javax.swing.JButton();
+        accept2.setForeground(new Color(255, 255, 255));
         fname_lname2 = new javax.swing.JLabel();
         account_type2 = new javax.swing.JLabel();
         pending_sellers3 = new javax.swing.JPanel();
         decline3 = new javax.swing.JButton();
+        decline3.setForeground(new Color(255, 255, 255));
         accept3 = new javax.swing.JButton();
+        accept3.setForeground(new Color(255, 255, 255));
         fname_lname3 = new javax.swing.JLabel();
         account_type3 = new javax.swing.JLabel();
         pending_sellers4 = new javax.swing.JPanel();
         decline4 = new javax.swing.JButton();
+        decline4.setForeground(new Color(255, 255, 255));
         accept4 = new javax.swing.JButton();
+        accept4.setForeground(new Color(255, 255, 255));
         fname_lname4 = new javax.swing.JLabel();
         account_type4 = new javax.swing.JLabel();
         pending_sellers5 = new javax.swing.JPanel();
         decline5 = new javax.swing.JButton();
+        decline5.setForeground(new Color(255, 255, 255));
         accept5 = new javax.swing.JButton();
+        accept5.setForeground(new Color(255, 255, 255));
         fname_lname5 = new javax.swing.JLabel();
         account_type5 = new javax.swing.JLabel();
         pending_sellers6 = new javax.swing.JPanel();
         decline6 = new javax.swing.JButton();
+        decline6.setForeground(new Color(255, 255, 255));
         accept6 = new javax.swing.JButton();
+        accept6.setForeground(new Color(255, 255, 255));
         fname_lname6 = new javax.swing.JLabel();
         account_type6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        logoPane.setBackground(new java.awt.Color(255, 255, 255));
+        logoPane.setBackground(new Color(240, 240, 240));
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cop4331/project_final/logo2png.png"))); // NOI18N
+        logo.setIcon(new ImageIcon(AdminPanelUI.class.getResource("/pages_Jeff_Seller/icon/logo1.png"))); // NOI18N
 
         head_Administrator.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         head_Administrator.setForeground(new java.awt.Color(204, 0, 51));
@@ -86,7 +105,6 @@ public class AdminPanelUI extends JFrame {
         logout_button.setBackground(new java.awt.Color(102, 102, 102));
         logout_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         logout_button.setText("Logout");
-        logout_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         logout_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logout_buttonActionPerformed(evt);
@@ -123,7 +141,7 @@ public class AdminPanelUI extends JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        pending_sellersPane.setBackground(new java.awt.Color(255, 255, 255));
+        pending_sellersPane.setBackground(new Color(240, 240, 240));
         pending_sellersPane.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 pending_sellersPaneAncestorAdded(evt);
@@ -134,12 +152,11 @@ public class AdminPanelUI extends JFrame {
             }
         });
 
-        menuPane.setBackground(new java.awt.Color(255, 255, 255));
+        menuPane.setBackground(new Color(240, 240, 240));
 
         create_new_user.setBackground(new java.awt.Color(102, 102, 102));
         create_new_user.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         create_new_user.setText("Create New User");
-        create_new_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         create_new_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_new_userActionPerformed(evt);
@@ -149,7 +166,6 @@ public class AdminPanelUI extends JFrame {
         pending_Sellers.setBackground(new java.awt.Color(102, 102, 102));
         pending_Sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         pending_Sellers.setText("Pending Sellers");
-        pending_Sellers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pending_Sellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pending_SellersActionPerformed(evt);
@@ -159,7 +175,6 @@ public class AdminPanelUI extends JFrame {
         active_sellers.setBackground(new java.awt.Color(102, 102, 102));
         active_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         active_sellers.setText("Active Sellers");
-        active_sellers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         active_sellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 active_sellersActionPerformed(evt);
@@ -169,7 +184,6 @@ public class AdminPanelUI extends JFrame {
         orders.setBackground(new java.awt.Color(102, 102, 102));
         orders.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         orders.setText("Orders");
-        orders.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         orders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordersActionPerformed(evt);
@@ -208,7 +222,6 @@ public class AdminPanelUI extends JFrame {
         decline1.setBackground(new java.awt.Color(102, 102, 102));
         decline1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline1.setText("Decline");
-        decline1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline1ActionPerformed(evt);
@@ -217,7 +230,6 @@ public class AdminPanelUI extends JFrame {
         accept1.setBackground(new java.awt.Color(102, 102, 102));
         accept1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept1.setText("Accept");
-        accept1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         accept1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept1ActionPerformed(evt);
@@ -261,7 +273,6 @@ public class AdminPanelUI extends JFrame {
         decline2.setBackground(new java.awt.Color(102, 102, 102));
         decline2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline2.setText("Decline");
-        decline2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline2ActionPerformed(evt);
@@ -271,7 +282,6 @@ public class AdminPanelUI extends JFrame {
         accept2.setBackground(new java.awt.Color(102, 102, 102));
         accept2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept2.setText("Accept");
-        accept2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         accept2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept2ActionPerformed(evt);
@@ -315,7 +325,6 @@ public class AdminPanelUI extends JFrame {
         decline3.setBackground(new java.awt.Color(102, 102, 102));
         decline3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline3.setText("Decline");
-        decline3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline3ActionPerformed(evt);
@@ -325,7 +334,6 @@ public class AdminPanelUI extends JFrame {
         accept3.setBackground(new java.awt.Color(102, 102, 102));
         accept3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept3.setText("Accept");
-        accept3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         accept3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept3ActionPerformed(evt);
@@ -370,7 +378,6 @@ public class AdminPanelUI extends JFrame {
         decline4.setBackground(new java.awt.Color(102, 102, 102));
         decline4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline4.setText("Decline");
-        decline4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline4ActionPerformed(evt);
@@ -380,7 +387,6 @@ public class AdminPanelUI extends JFrame {
         accept4.setBackground(new java.awt.Color(102, 102, 102));
         accept4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept4.setText("Accept");
-        accept4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         accept4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept4ActionPerformed(evt);
@@ -425,7 +431,6 @@ public class AdminPanelUI extends JFrame {
         decline5.setBackground(new java.awt.Color(102, 102, 102));
         decline5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline5.setText("Decline");
-        decline5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline5ActionPerformed(evt);
@@ -435,7 +440,6 @@ public class AdminPanelUI extends JFrame {
         accept5.setBackground(new java.awt.Color(102, 102, 102));
         accept5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept5.setText("Accept");
-        accept5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         accept5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept5ActionPerformed(evt);
@@ -480,7 +484,6 @@ public class AdminPanelUI extends JFrame {
         decline6.setBackground(new java.awt.Color(102, 102, 102));
         decline6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         decline6.setText("Decline");
-        decline6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         decline6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 decline6ActionPerformed(evt);
@@ -490,7 +493,6 @@ public class AdminPanelUI extends JFrame {
         accept6.setBackground(new java.awt.Color(102, 102, 102));
         accept6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         accept6.setText("Accept");
-        accept6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         accept6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 accept6ActionPerformed(evt);

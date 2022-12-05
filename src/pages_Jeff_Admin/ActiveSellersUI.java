@@ -2,6 +2,9 @@ package pages_Jeff_Admin;
 
 import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
 
 public class ActiveSellersUI extends JFrame implements ActionListener{
 
@@ -9,6 +12,7 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
      * Creates new form ActiveSellersUI
      */
     public ActiveSellersUI() {
+    	setTitle("Admin Panel - Active Sellers");
         initComponents();
     }
 
@@ -24,54 +28,60 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         contentPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
         create_new_user = new javax.swing.JButton();
+        create_new_user.setForeground(new Color(255, 255, 255));
         pending_sellers = new javax.swing.JButton();
-        active_sellers = new javax.swing.JButton();
+        pending_sellers.setForeground(new Color(255, 255, 255));
         orders = new javax.swing.JButton();
+        orders.setForeground(new Color(255, 255, 255));
         active_sellersPane = new javax.swing.JPanel();
         active_sellers1 = new javax.swing.JPanel();
         fname_lname1 = new javax.swing.JLabel();
         account_type1 = new javax.swing.JLabel();
         product1 = new javax.swing.JButton();
+        product1.setForeground(new Color(255, 255, 255));
         active_sellers2 = new javax.swing.JPanel();
         fname_lname2 = new javax.swing.JLabel();
         account_type2 = new javax.swing.JLabel();
         product2 = new javax.swing.JButton();
+        product2.setForeground(new Color(255, 255, 255));
         active_sellers3 = new javax.swing.JPanel();
         fname_lname3 = new javax.swing.JLabel();
         account_type3 = new javax.swing.JLabel();
         product3 = new javax.swing.JButton();
+        product3.setForeground(new Color(255, 255, 255));
         active_sellers4 = new javax.swing.JPanel();
         fname_lname4 = new javax.swing.JLabel();
         account_type4 = new javax.swing.JLabel();
         product4 = new javax.swing.JButton();
+        product4.setForeground(new Color(255, 255, 255));
         active_sellers5 = new javax.swing.JPanel();
         fname_lname5 = new javax.swing.JLabel();
         account_type5 = new javax.swing.JLabel();
         product5 = new javax.swing.JButton();
+        product5.setForeground(new Color(255, 255, 255));
         active_sellers6 = new javax.swing.JPanel();
         fname_lname6 = new javax.swing.JLabel();
         account_type6 = new javax.swing.JLabel();
         product6 = new javax.swing.JButton();
+        product6.setForeground(new Color(255, 255, 255));
         active_sellers7 = new javax.swing.JPanel();
         fname_lname7 = new javax.swing.JLabel();
         account_type7 = new javax.swing.JLabel();
         product7 = new javax.swing.JButton();
+        product7.setForeground(new Color(255, 255, 255));
         active_sellers8 = new javax.swing.JPanel();
         fname_lname8 = new javax.swing.JLabel();
         account_type8 = new javax.swing.JLabel();
         product8 = new javax.swing.JButton();
-        back_button = new javax.swing.JButton();
+        product8.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        menuPane.setBackground(new java.awt.Color(255, 255, 255));
+        menuPane.setBackground(new Color(240, 240, 240));
 
         create_new_user.setBackground(new java.awt.Color(102, 102, 102));
         create_new_user.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         create_new_user.setText("Create New User");
-        create_new_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         create_new_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_new_userActionPerformed(evt);
@@ -81,56 +91,60 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         pending_sellers.setBackground(new java.awt.Color(102, 102, 102));
         pending_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         pending_sellers.setText("Pending Sellers");
-        pending_sellers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         pending_sellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pending_sellersActionPerformed(evt);
             }
         });
 
-        active_sellers.setBackground(new java.awt.Color(102, 102, 102));
-        active_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        active_sellers.setText("Active Sellers");
-        active_sellers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         orders.setBackground(new java.awt.Color(102, 102, 102));
         orders.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         orders.setText("Orders");
-        orders.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         orders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordersActionPerformed(evt);
             }
         });
+        back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
+        
+                back_button.setBackground(new java.awt.Color(102, 102, 102));
+                back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+                back_button.setText("Back");
+                back_button.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        back_buttonActionPerformed(evt);
+                    }
+                });
 
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
-        menuPane.setLayout(menuPaneLayout);
         menuPaneLayout.setHorizontalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(create_new_user, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(pending_sellers, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(active_sellers, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(orders, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(back_button, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE)
+        			.addGap(106)
+        			.addComponent(create_new_user, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+        			.addComponent(pending_sellers, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+        			.addGap(116)
+        			.addComponent(orders, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE)
+        			.addGap(19))
         );
         menuPaneLayout.setVerticalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(create_new_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pending_sellers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(menuPaneLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(back_button, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        				.addComponent(orders, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+        				.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+        				.addComponent(create_new_user, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+        			.addContainerGap())
         );
+        menuPane.setLayout(menuPaneLayout);
 
-        active_sellersPane.setBackground(new java.awt.Color(255, 255, 255));
+        active_sellersPane.setBackground(new Color(240, 240, 240));
 
         active_sellers1.setBackground(new java.awt.Color(255, 255, 255));
         active_sellers1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -498,44 +512,27 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
                 .addContainerGap())
         );
 
-        back_button.setBackground(new java.awt.Color(102, 102, 102));
-        back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        back_button.setText("Back");
-        back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_buttonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(active_sellersPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, 897, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap())
+        				.addComponent(active_sellersPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(active_sellersPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(active_sellersPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addContainerGap())
         );
+        contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -606,8 +603,7 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         obj.setVisible(true);
     }//GEN-LAST:event_product8ActionPerformed
         private void back_buttonActionPerformed(ActionEvent evt){
-        AdminPanelUI obj = new AdminPanelUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }
        public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -650,7 +646,6 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
     private javax.swing.JLabel account_type6;
     private javax.swing.JLabel account_type7;
     private javax.swing.JLabel account_type8;
-    private javax.swing.JButton active_sellers;
     private javax.swing.JPanel active_sellers1;
     private javax.swing.JPanel active_sellers2;
     private javax.swing.JPanel active_sellers3;

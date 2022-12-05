@@ -1,6 +1,9 @@
 package pages_Jeff_Admin;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Color;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class OrdersUI extends JFrame implements ActionListener{
 
@@ -9,6 +12,7 @@ public class OrdersUI extends JFrame implements ActionListener{
      * Creates new form OrdersUI
      */
     public OrdersUI() {
+    	setTitle("Admin Panel - Orders");
         initComponents();
     }
 
@@ -24,55 +28,64 @@ public class OrdersUI extends JFrame implements ActionListener{
         contentPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
         create_new_user = new javax.swing.JButton();
+        create_new_user.setForeground(new Color(255, 255, 255));
         home = new javax.swing.JButton();
-        orders = new javax.swing.JButton();
+        home.setForeground(new Color(255, 255, 255));
         ordersPane = new javax.swing.JPanel();
         orders1 = new javax.swing.JPanel();
         cancel1 = new javax.swing.JButton();
+        cancel1.setForeground(new Color(255, 255, 255));
         order_num1 = new javax.swing.JLabel();
         fname_lname1 = new javax.swing.JLabel();
         cost1 = new javax.swing.JLabel();
         orders2 = new javax.swing.JPanel();
         cancel2 = new javax.swing.JButton();
+        cancel2.setForeground(new Color(255, 255, 255));
         order_num2 = new javax.swing.JLabel();
         fname_lname2 = new javax.swing.JLabel();
         cost2 = new javax.swing.JLabel();
         orders3 = new javax.swing.JPanel();
         cancel3 = new javax.swing.JButton();
+        cancel3.setForeground(new Color(255, 255, 255));
         order_num3 = new javax.swing.JLabel();
         fname_lname3 = new javax.swing.JLabel();
         cost3 = new javax.swing.JLabel();
         orders4 = new javax.swing.JPanel();
         cancel4 = new javax.swing.JButton();
+        cancel4.setForeground(new Color(255, 255, 255));
         order_num4 = new javax.swing.JLabel();
         fname_lname4 = new javax.swing.JLabel();
         cost4 = new javax.swing.JLabel();
         orders5 = new javax.swing.JPanel();
         cancel5 = new javax.swing.JButton();
+        cancel5.setForeground(new Color(255, 255, 255));
         order_num5 = new javax.swing.JLabel();
         fname_lname5 = new javax.swing.JLabel();
         cost5 = new javax.swing.JLabel();
         orders6 = new javax.swing.JPanel();
         cancel6 = new javax.swing.JButton();
+        cancel6.setForeground(new Color(255, 255, 255));
         order_num6 = new javax.swing.JLabel();
         fname_lname6 = new javax.swing.JLabel();
         cost6 = new javax.swing.JLabel();
         orders7 = new javax.swing.JPanel();
         cancel7 = new javax.swing.JButton();
+        cancel7.setForeground(new Color(255, 255, 255));
         order_num7 = new javax.swing.JLabel();
         fname_lname7 = new javax.swing.JLabel();
         cost7 = new javax.swing.JLabel();
         orders8 = new javax.swing.JPanel();
         cancel8 = new javax.swing.JButton();
+        cancel8.setForeground(new Color(255, 255, 255));
         order_num8 = new javax.swing.JLabel();
         fname_lname8 = new javax.swing.JLabel();
         cost8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        menuPane.setBackground(new java.awt.Color(255, 255, 255));
+        menuPane.setBackground(new Color(240, 240, 240));
 
         create_new_user.setBackground(new java.awt.Color(102, 102, 102));
         create_new_user.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -94,48 +107,35 @@ public class OrdersUI extends JFrame implements ActionListener{
             }
         });
 
-        orders.setBackground(new java.awt.Color(102, 102, 102));
-        orders.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        orders.setText("Orders");
-        orders.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        orders.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ordersActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
-        menuPane.setLayout(menuPaneLayout);
         menuPaneLayout.setHorizontalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(create_new_user, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(orders, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(home, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
+        			.addComponent(create_new_user, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap())
         );
         menuPaneLayout.setVerticalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(create_new_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(home, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(orders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(menuPaneLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(home, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        				.addComponent(create_new_user, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+        			.addContainerGap())
         );
+        menuPane.setLayout(menuPaneLayout);
 
-        ordersPane.setBackground(new java.awt.Color(255, 255, 255));
+        ordersPane.setBackground(new Color(240, 240, 240));
 
         orders1.setBackground(new java.awt.Color(255, 255, 255));
         orders1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         cancel1.setBackground(new java.awt.Color(102, 102, 102));
         cancel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel1.setText("Cancel");
+        cancel1.setText("Cancel Order");
         cancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel1ActionPerformed(evt);
@@ -182,7 +182,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel2.setBackground(new java.awt.Color(102, 102, 102));
         cancel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel2.setText("Cancel");
+        cancel2.setText("Cancel Order");
         cancel2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel2ActionPerformed(evt);
@@ -231,7 +231,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel3.setBackground(new java.awt.Color(102, 102, 102));
         cancel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel3.setText("Cancel");
+        cancel3.setText("Cancel Order");
         cancel3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel3ActionPerformed(evt);
@@ -278,7 +278,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel4.setBackground(new java.awt.Color(102, 102, 102));
         cancel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel4.setText("Cancel");
+        cancel4.setText("Cancel Order");
         cancel4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel4ActionPerformed(evt);
@@ -325,7 +325,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel5.setBackground(new java.awt.Color(102, 102, 102));
         cancel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel5.setText("Cancel");
+        cancel5.setText("Cancel Order");
         cancel5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel5ActionPerformed(evt);
@@ -372,7 +372,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel6.setBackground(new java.awt.Color(102, 102, 102));
         cancel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel6.setText("Cancel");
+        cancel6.setText("Cancel Order");
         cancel6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel6ActionPerformed(evt);
@@ -419,7 +419,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel7.setBackground(new java.awt.Color(102, 102, 102));
         cancel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel7.setText("Cancel");
+        cancel7.setText("Cancel Order");
         cancel7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel7ActionPerformed(evt);
@@ -468,7 +468,7 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         cancel8.setBackground(new java.awt.Color(102, 102, 102));
         cancel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel8.setText("Cancel");
+        cancel8.setText("Cancel Order");
         cancel8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel8ActionPerformed(evt);
@@ -592,13 +592,8 @@ public class OrdersUI extends JFrame implements ActionListener{
     }//GEN-LAST:event_create_new_userActionPerformed
 
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
-         AdminPanelUI obj = new AdminPanelUI();
-        obj.setVisible(true);
+    	this.setVisible(false);
     }//GEN-LAST:event_homeActionPerformed
-
-    private void ordersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ordersActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
         Refund obj = new Refund();
@@ -733,7 +728,6 @@ public class OrdersUI extends JFrame implements ActionListener{
     private javax.swing.JLabel order_num6;
     private javax.swing.JLabel order_num7;
     private javax.swing.JLabel order_num8;
-    private javax.swing.JButton orders;
     private javax.swing.JPanel orders1;
     private javax.swing.JPanel orders2;
     private javax.swing.JPanel orders3;

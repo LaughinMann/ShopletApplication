@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pages_Jeff_Seller;
+import java.awt.Color;
 
 /**
  *
@@ -15,6 +16,7 @@ public class CatalogUI extends javax.swing.JFrame {
      * Creates new form CatalogUI
      */
     public CatalogUI() {
+    	setTitle("Your Seller Products");
         initComponents();
     }
 
@@ -29,47 +31,53 @@ public class CatalogUI extends javax.swing.JFrame {
 
         contentPane = new javax.swing.JPanel();
         back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
         product1 = new javax.swing.JPanel();
         view1 = new javax.swing.JButton();
+        view1.setForeground(new Color(255, 255, 255));
         product_name1 = new javax.swing.JLabel();
         cost1 = new javax.swing.JLabel();
         product2 = new javax.swing.JPanel();
         view2 = new javax.swing.JButton();
+        view2.setForeground(new Color(255, 255, 255));
         product_name2 = new javax.swing.JLabel();
         cost2 = new javax.swing.JLabel();
         product3 = new javax.swing.JPanel();
         view3 = new javax.swing.JButton();
+        view3.setForeground(new Color(255, 255, 255));
         product_name3 = new javax.swing.JLabel();
         cost3 = new javax.swing.JLabel();
         product4 = new javax.swing.JPanel();
         view4 = new javax.swing.JButton();
+        view4.setForeground(new Color(255, 255, 255));
         product_name4 = new javax.swing.JLabel();
         cost4 = new javax.swing.JLabel();
         product5 = new javax.swing.JPanel();
         view5 = new javax.swing.JButton();
+        view5.setForeground(new Color(255, 255, 255));
         product_name5 = new javax.swing.JLabel();
         cost5 = new javax.swing.JLabel();
         product6 = new javax.swing.JPanel();
         view6 = new javax.swing.JButton();
+        view6.setForeground(new Color(255, 255, 255));
         product_name6 = new javax.swing.JLabel();
         cost6 = new javax.swing.JLabel();
         product7 = new javax.swing.JPanel();
         view7 = new javax.swing.JButton();
+        view7.setForeground(new Color(255, 255, 255));
         product_name7 = new javax.swing.JLabel();
         cost7 = new javax.swing.JLabel();
         product8 = new javax.swing.JPanel();
         view8 = new javax.swing.JButton();
+        view8.setForeground(new Color(255, 255, 255));
         product_name8 = new javax.swing.JLabel();
         cost8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         back_button.setBackground(new java.awt.Color(102, 102, 102));
         back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         back_button.setText("Back");
-        back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_buttonActionPerformed(evt);
@@ -82,7 +90,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view1.setBackground(new java.awt.Color(102, 102, 102));
         view1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view1.setText("View");
-        view1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view1ActionPerformed(evt);
@@ -124,7 +131,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view2.setBackground(new java.awt.Color(102, 102, 102));
         view2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view2.setText("View");
-        view2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view2ActionPerformed(evt);
@@ -166,7 +172,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view3.setBackground(new java.awt.Color(102, 102, 102));
         view3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view3.setText("View");
-        view3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view3ActionPerformed(evt);
@@ -208,7 +213,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view4.setBackground(new java.awt.Color(102, 102, 102));
         view4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view4.setText("View");
-        view4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view4ActionPerformed(evt);
@@ -250,7 +254,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view5.setBackground(new java.awt.Color(102, 102, 102));
         view5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view5.setText("View");
-        view5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view5ActionPerformed(evt);
@@ -292,7 +295,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view6.setBackground(new java.awt.Color(102, 102, 102));
         view6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view6.setText("View");
-        view6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view6ActionPerformed(evt);
@@ -334,7 +336,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view7.setBackground(new java.awt.Color(102, 102, 102));
         view7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view7.setText("View");
-        view7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view7ActionPerformed(evt);
@@ -376,7 +377,6 @@ public class CatalogUI extends javax.swing.JFrame {
         view8.setBackground(new java.awt.Color(102, 102, 102));
         view8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         view8.setText("View");
-        view8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         view8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 view8ActionPerformed(evt);
@@ -471,8 +471,7 @@ public class CatalogUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        SellersPanelUI obj = new SellersPanelUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_back_buttonActionPerformed
 
     private void view1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view1ActionPerformed

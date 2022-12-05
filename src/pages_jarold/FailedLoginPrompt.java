@@ -26,6 +26,7 @@ public class FailedLoginPrompt extends JFrame {
 			public void run() {
 				try {
 					FailedLoginPrompt frame = new FailedLoginPrompt();
+					frame.setTitle("Shoplet - Login Failed");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

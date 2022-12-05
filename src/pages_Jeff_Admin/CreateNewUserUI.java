@@ -2,6 +2,7 @@ package pages_Jeff_Admin;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Color;
 
 public class CreateNewUserUI extends JFrame implements ActionListener{
 
@@ -9,6 +10,8 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
      * Creates new form CreateNewUserUI
      */
     public CreateNewUserUI() {
+    	setTitle("Admin - Create User");
+    	getContentPane().setBackground(new Color(240, 240, 240));
         initComponents();
     }
 
@@ -40,13 +43,11 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
         create = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        logoPane.setBackground(new Color(240, 240, 240));
 
-        logoPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/cop4331/project_final/logo1.png"))); // NOI18N
+        logo.setIcon(new ImageIcon(CreateNewUserUI.class.getResource("/pages_Jeff_Admin/logo1.png"))); // NOI18N
 
         header_message.setBackground(new java.awt.Color(255, 255, 255));
         header_message.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -74,7 +75,7 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
                 .addGap(0, 16, Short.MAX_VALUE))
         );
 
-        inforPane.setBackground(new java.awt.Color(255, 255, 255));
+        inforPane.setBackground(new Color(240, 240, 240));
 
         account_type.setText("Account Type :");
 
@@ -224,8 +225,7 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelActionPerformed(ActionEvent evt){
-        AdminPanelUI obj = new AdminPanelUI();
-        obj.setVisible(true);
+    	this.setVisible(false);
     }
 
     private void createActionPerformed(ActionEvent evt){

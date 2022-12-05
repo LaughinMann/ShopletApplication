@@ -46,8 +46,6 @@ public class SellerProductUI extends javax.swing.JFrame {
         view_button4 = new javax.swing.JButton();
         cost4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         contentPane.setBackground(new java.awt.Color(255, 255, 255));
 
         back_button.setBackground(new java.awt.Color(102, 102, 102));

@@ -10,6 +10,7 @@ package pages_Jeff_Seller;
  */
 
  import javax.swing.*;
+import java.awt.Color;
 public class ProfileUI extends javax.swing.JFrame {
 
     /**
@@ -50,11 +51,11 @@ public class ProfileUI extends javax.swing.JFrame {
         zip_code_text = new javax.swing.JTextField();
         phone_number_text = new javax.swing.JTextField();
         update_button = new javax.swing.JButton();
+        update_button.setForeground(new Color(255, 255, 255));
         cancel_button = new javax.swing.JButton();
+        cancel_button.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         username.setText("Username");
 
@@ -92,7 +93,7 @@ public class ProfileUI extends javax.swing.JFrame {
         update_button.setBackground(new java.awt.Color(102, 102, 102));
         update_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         update_button.setText("Update Account");
-        update_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        update_button.setBorder(null);
         update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_buttonActionPerformed(evt);
@@ -102,7 +103,7 @@ public class ProfileUI extends javax.swing.JFrame {
         cancel_button.setBackground(new java.awt.Color(102, 102, 102));
         cancel_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         cancel_button.setText("Cancel");
-        cancel_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        cancel_button.setBorder(null);
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);
@@ -219,15 +220,13 @@ public class ProfileUI extends javax.swing.JFrame {
     private void update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_buttonActionPerformed
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Account details updated.");
-        SellersPanelUI obj = new SellersPanelUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_update_buttonActionPerformed
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "No changes were made.");
-        SellersPanelUI obj = new SellersPanelUI();
-        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
     /**

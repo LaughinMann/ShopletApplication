@@ -9,12 +9,14 @@ package pages_Jeff_Seller;
  * @author jeffplatel
  */
 import javax.swing.*;
+import java.awt.Color;
 public class EditDetailsUI extends javax.swing.JFrame {
 
     /**
      * Creates new form UpdateProductUI
      */
     public EditDetailsUI() {
+    	setTitle("Update Product");
         initComponents();
     }
 
@@ -36,20 +38,21 @@ public class EditDetailsUI extends javax.swing.JFrame {
         price_text = new javax.swing.JTextField();
         quantity_text = new javax.swing.JTextField();
         description_text = new javax.swing.JTextField();
+        description_text.setHorizontalAlignment(SwingConstants.LEFT);
         update_button = new javax.swing.JButton();
+        update_button.setForeground(new Color(255, 255, 255));
         back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        contentPane.setBackground(new Color(240, 240, 240));
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        product_name.setText("Product Name:");
 
-        product_name.setText("Product Name");
+        price.setText("Price:");
 
-        price.setText("Price");
+        quantity.setText("Quantity:");
 
-        quantity.setText("Quantity");
-
-        description.setText("Description");
+        description.setText("Description:");
 
         product_name_text.setText("Product Name");
 
@@ -62,7 +65,6 @@ public class EditDetailsUI extends javax.swing.JFrame {
         update_button.setBackground(new java.awt.Color(102, 102, 102));
         update_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         update_button.setText("Update");
-        update_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         update_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 update_buttonActionPerformed(evt);
@@ -72,7 +74,6 @@ public class EditDetailsUI extends javax.swing.JFrame {
         back_button.setBackground(new java.awt.Color(102, 102, 102));
         back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         back_button.setText("Back");
-        back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_buttonActionPerformed(evt);
@@ -202,5 +203,4 @@ public class EditDetailsUI extends javax.swing.JFrame {
     private javax.swing.JLabel quantity;
     private javax.swing.JTextField quantity_text;
     private javax.swing.JButton update_button;
-    // End of variables declaration//GEN-END:variables
 }
