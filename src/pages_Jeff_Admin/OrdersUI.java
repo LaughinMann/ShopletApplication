@@ -81,8 +81,6 @@ public class OrdersUI extends JFrame implements ActionListener{
         fname_lname8 = new javax.swing.JLabel();
         cost8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         contentPane.setBackground(new Color(240, 240, 240));
 
         menuPane.setBackground(new Color(240, 240, 240));
@@ -90,7 +88,6 @@ public class OrdersUI extends JFrame implements ActionListener{
         create_new_user.setBackground(new java.awt.Color(102, 102, 102));
         create_new_user.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         create_new_user.setText("Create New User");
-        create_new_user.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         create_new_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 create_new_userActionPerformed(evt);
@@ -100,7 +97,6 @@ public class OrdersUI extends JFrame implements ActionListener{
         home.setBackground(new java.awt.Color(102, 102, 102));
         home.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         home.setText("Home");
-        home.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeActionPerformed(evt);
