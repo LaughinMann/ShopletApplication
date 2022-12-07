@@ -23,4 +23,4 @@ an external .JAR file for the project. This project was done in Eclipse, so the 
 
 # Running the Shoplet Application
 
-After ensuring no errors exist, one can launch the Shoplet Application through the Login.java file if within the project folder.
+After ensuring no errors exist, one can launch the Shoplet Application through the Login.java file within the project folder in their IDE if the project is compiled and created correctly a Shoplet Application Login Window should appear.
