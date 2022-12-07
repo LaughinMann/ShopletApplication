@@ -4,6 +4,18 @@
  */
 package pages_Jeff_Seller;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import datebase_jon.ShopletSystemManager;
+import datebase_jon.Order;
+import datebase_jon.Product;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 /**
  *
@@ -15,7 +27,7 @@ public class ProfitReportUI extends javax.swing.JFrame {
      * Creates new form ProfitReportUI
      */
     public ProfitReportUI() {
-    	setTitle("Revenue Report");
+    	setTitle("Seller Revenue Report");
         initComponents();
     }
 
@@ -29,28 +41,14 @@ public class ProfitReportUI extends javax.swing.JFrame {
     private void initComponents() {
 
         contentPane = new javax.swing.JPanel();
-        total_revenue = new javax.swing.JLabel();
-        total_cost = new javax.swing.JLabel();
         total_profit = new javax.swing.JLabel();
-        revenue = new javax.swing.JLabel();
-        cost = new javax.swing.JLabel();
         profit = new javax.swing.JLabel();
         close_button = new javax.swing.JButton();
         close_button.setForeground(new Color(255, 255, 255));
 
         contentPane.setBackground(new Color(240, 240, 240));
 
-        total_revenue.setText("Total Revenue:");
-
-        total_cost.setText("Total Cost:");
-
-        total_profit.setText("Total Profit:");
-
-        revenue.setText("$XXX.XX");
-
-        cost.setText("$XXX.XX");
-
-        profit.setText("$XXX.XX");
+        total_profit.setText("Gross Profit:");
 
         close_button.setBackground(new java.awt.Color(102, 102, 102));
         close_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -61,45 +59,45 @@ public class ProfitReportUI extends javax.swing.JFrame {
                 close_buttonActionPerformed(evt);
             }
         });
+        
+        JLabel lblProfitHeader = new JLabel("Profit Report");
+        lblProfitHeader.setFont(new Font("Tahoma", Font.PLAIN, 25));
+        
+        
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(total_cost, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(total_revenue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(total_profit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(revenue, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                        .addComponent(cost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(profit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGap(78)
+        					.addComponent(lblProfitHeader))
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGap(102)
+        					.addComponent(total_profit)
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(profit)))
+        			.addContainerGap(71, Short.MAX_VALUE))
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap(91, Short.MAX_VALUE)
+        			.addComponent(close_button, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+        			.addGap(85))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(revenue, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(total_revenue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cost, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(total_cost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(total_profit, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(profit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+        			.addGap(26)
+        			.addComponent(lblProfitHeader)
+        			.addGap(39)
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(total_profit, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(profit))
+        			.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+        			.addComponent(close_button, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+        			.addGap(54))
         );
+        contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +109,36 @@ public class ProfitReportUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        
+        //Get the total profit.
+        
+    	List<Order> orders = ShopletSystemManager.getInstance().get_all_orders();
+    	List<Product> sellerProductIds = ShopletSystemManager.getInstance().get_list_of_own_products();
+    	
+    	Integer totalProfit = 0;
+    	List<String> orderProductIds = new ArrayList<String>();
+    	
+    	for (int i = 0; i < orders.size(); i++)
+    	{
+    		orderProductIds.addAll(Arrays.asList(orders.get(i).product_ids.replaceAll("[^0-9,]","").split(",")));
+    	}
+    	
+    	System.out.println("Product IDS that were bought:");
+		System.out.println(orderProductIds.toString());
+		
+		System.out.println("First Product Id that was found for this seller: " + sellerProductIds.get(0).product_id);
+		
+		for (int i = 0; i < orderProductIds.size(); i++)
+		{
+			for (int j = 0; j < sellerProductIds.size(); j++)
+			{
+				if (Integer.parseInt(orderProductIds.get(i)) == sellerProductIds.get(j).product_id)
+					totalProfit += sellerProductIds.get(j).getProductPrice();
+			}
+		}
+			
+    	profit.setText("$" + totalProfit.toString());
+    	
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,11 +185,6 @@ public class ProfitReportUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton close_button;
     private javax.swing.JPanel contentPane;
-    private javax.swing.JLabel cost;
     private javax.swing.JLabel profit;
-    private javax.swing.JLabel revenue;
-    private javax.swing.JLabel total_cost;
     private javax.swing.JLabel total_profit;
-    private javax.swing.JLabel total_revenue;
-    // End of variables declaration//GEN-END:variables
 }

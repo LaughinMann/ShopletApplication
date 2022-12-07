@@ -1,8 +1,13 @@
 package pages_Jeff_Admin;
 
 import javax.swing.*;
+
+import datebase_jon.ShopletSystemManager;
+
 import java.awt.event.*;
 import java.awt.Color;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class CreateNewUserUI extends JFrame implements ActionListener{
 
@@ -28,20 +33,31 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
         logoPane = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
         header_message = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         inforPane = new javax.swing.JPanel();
         account_type = new javax.swing.JLabel();
+        account_type.setBounds(31, 11, 132, 32);
         email = new javax.swing.JLabel();
+        email.setBounds(31, 61, 126, 32);
         username = new javax.swing.JLabel();
+        username.setBounds(31, 191, 126, 31);
         password = new javax.swing.JLabel();
+        password.setBounds(31, 233, 126, 32);
         confirm_password = new javax.swing.JLabel();
+        confirm_password.setBounds(31, 277, 126, 30);
         account_typeCombo = new javax.swing.JComboBox<>();
+        account_typeCombo.setBounds(181, 16, 218, 22);
         email_TextField = new javax.swing.JTextField();
+        email_TextField.setBounds(181, 69, 218, 16);
         username_TextField = new javax.swing.JTextField();
+        username_TextField.setBounds(179, 198, 218, 16);
         passwor_PasswordField = new javax.swing.JPasswordField();
+        passwor_PasswordField.setBounds(179, 241, 218, 16);
         comfirm_passwor_PasswordField = new javax.swing.JPasswordField();
+        comfirm_passwor_PasswordField.setBounds(179, 284, 218, 16);
         create = new javax.swing.JButton();
+        create.setBounds(179, 324, 100, 32);
         cancel = new javax.swing.JButton();
+        cancel.setBounds(297, 324, 100, 32);
 
         contentPane.setBackground(new Color(240, 240, 240));
 
@@ -118,91 +134,62 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
             }
         });
 
-        javax.swing.GroupLayout inforPaneLayout = new javax.swing.GroupLayout(inforPane);
-        inforPane.setLayout(inforPaneLayout);
-        inforPaneLayout.setHorizontalGroup(
-            inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inforPaneLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(confirm_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(account_typeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(email_TextField)
-                    .addComponent(username_TextField)
-                    .addComponent(passwor_PasswordField)
-                    .addComponent(comfirm_passwor_PasswordField)
-                    .addGroup(inforPaneLayout.createSequentialGroup()
-                        .addComponent(create, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        inforPaneLayout.setVerticalGroup(
-            inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inforPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(account_type, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(account_typeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(username_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwor_PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirm_password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comfirm_passwor_PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(inforPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(create, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(logoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(inforPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(441, 441, 441)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGap(53)
+        					.addComponent(logoPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(contentPaneLayout.createSequentialGroup()
+        					.addGap(115)
+        					.addComponent(inforPane, GroupLayout.PREFERRED_SIZE, 557, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap(79, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(logoPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inforPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addGap(37)
+        			.addComponent(logoPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(inforPane, GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+        			.addContainerGap())
         );
+        inforPane.setLayout(null);
+        inforPane.add(confirm_password);
+        inforPane.add(password);
+        inforPane.add(username);
+        inforPane.add(email);
+        inforPane.add(account_type);
+        inforPane.add(account_typeCombo);
+        inforPane.add(email_TextField);
+        inforPane.add(username_TextField);
+        inforPane.add(passwor_PasswordField);
+        inforPane.add(comfirm_passwor_PasswordField);
+        inforPane.add(create);
+        inforPane.add(cancel);
+        
+        inputLastName = new JTextField();
+        inputLastName.setBounds(179, 150, 218, 20);
+        inforPane.add(inputLastName);
+        inputLastName.setColumns(10);
+        
+        inputFirstName = new JTextField();
+        inputFirstName.setColumns(10);
+        inputFirstName.setBounds(181, 108, 218, 20);
+        inforPane.add(inputFirstName);
+        
+        firstNameLbl = new JLabel();
+        firstNameLbl.setText("First Name:");
+        firstNameLbl.setBounds(33, 104, 126, 32);
+        inforPane.add(firstNameLbl);
+        
+        lastNameLbl = new JLabel();
+        lastNameLbl.setText("Last Name:");
+        lastNameLbl.setBounds(31, 148, 126, 32);
+        inforPane.add(lastNameLbl);
+        contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,19 +216,21 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
     }
 
     private void createActionPerformed(ActionEvent evt){
-        boolean match = false;
-        if(String.valueOf(passwor_PasswordField.getPassword()) == null ? String.valueOf(comfirm_passwor_PasswordField.getPassword()) == null : String.valueOf(passwor_PasswordField.getPassword()).equals(String.valueOf(comfirm_passwor_PasswordField.getPassword()))) {
-            match = true;
-            SuccessUI obj = new SuccessUI();
-            obj.setVisible(true);
-            database create = new database();
-		    create.add_user(username_TextField.getText(), email_TextField.getText(), String.valueOf(passwor_PasswordField.getPassword()), String.valueOf(account_typeCombo.getSelectedItem()), match);
-		    //String firstname, String lastname, String email, String password, String account_type, Boolean approval
+        if (email_TextField.getText().isEmpty() || inputFirstName.getText().isEmpty() || inputLastName.getText().isEmpty() || username_TextField.getText().isEmpty() 
+        		|| passwor_PasswordField.getText().isEmpty() || comfirm_passwor_PasswordField.getText().isEmpty())
+        {
+    		JOptionPane.showMessageDialog(null, "One or more fields are empty.", "Shoplet", JOptionPane.ERROR_MESSAGE);
+    		return;
         }
-        else {
-            match = false;
-            JFrame frame = new JFrame();
-            JOptionPane.showMessageDialog(frame, "Something went wrong try again!");
+    	else if (!(passwor_PasswordField.getText().equals(comfirm_passwor_PasswordField.getText()))) {
+    		JOptionPane.showMessageDialog(null, "Password fields do not match.", "Shoplet", JOptionPane.ERROR_MESSAGE);
+    		return;
+        }
+        else
+        {
+        	ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_TextField.getText(), passwor_PasswordField.getText(), account_typeCombo.getSelectedItem().toString(), true);
+    		JOptionPane.showMessageDialog(null, "User successfully created.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+    		this.setVisible(false);
         }
     }
 
@@ -289,13 +278,16 @@ public class CreateNewUserUI extends JFrame implements ActionListener{
     private javax.swing.JTextField email_TextField;
     private javax.swing.JLabel header_message;
     private javax.swing.JPanel inforPane;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel logoPane;
     private javax.swing.JPasswordField passwor_PasswordField;
     private javax.swing.JLabel password;
     private javax.swing.JLabel username;
     private javax.swing.JTextField username_TextField;
+    private JTextField inputLastName;
+    private JTextField inputFirstName;
+    private JLabel firstNameLbl;
+    private JLabel lastNameLbl;
     // End of variables declaration//GEN-END:variables
     @Override
     public void actionPerformed(ActionEvent e) {

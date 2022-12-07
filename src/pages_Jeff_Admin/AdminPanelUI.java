@@ -4,7 +4,21 @@ import javax.swing.*;
 
 //import java.awt.Window;
 import java.awt.event.*;
+import java.util.List;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.Border;
+
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
+import datebase_jon.User;
+import net.miginfocom.swing.MigLayout;
+import pages_Jeff_Seller.ProductUI;
+import java.awt.FlowLayout;
 
 public class AdminPanelUI extends JFrame {
 
@@ -43,48 +57,7 @@ public class AdminPanelUI extends JFrame {
         active_sellers.setForeground(new Color(255, 255, 255));
         orders = new javax.swing.JButton();
         orders.setForeground(new Color(255, 255, 255));
-        pending_sellers1 = new javax.swing.JPanel();
-        decline1 = new javax.swing.JButton();
-        decline1.setForeground(new Color(255, 255, 255));
-        accept1 = new javax.swing.JButton();
-        accept1.setForeground(new Color(255, 255, 255));
-        fname_lname1 = new javax.swing.JLabel();
-        account_type1 = new javax.swing.JLabel();
-        pending_sellers2 = new javax.swing.JPanel();
-        decline2 = new javax.swing.JButton();
-        decline2.setForeground(new Color(255, 255, 255));
-        accept2 = new javax.swing.JButton();
-        accept2.setForeground(new Color(255, 255, 255));
-        fname_lname2 = new javax.swing.JLabel();
-        account_type2 = new javax.swing.JLabel();
-        pending_sellers3 = new javax.swing.JPanel();
-        decline3 = new javax.swing.JButton();
-        decline3.setForeground(new Color(255, 255, 255));
-        accept3 = new javax.swing.JButton();
-        accept3.setForeground(new Color(255, 255, 255));
-        fname_lname3 = new javax.swing.JLabel();
-        account_type3 = new javax.swing.JLabel();
-        pending_sellers4 = new javax.swing.JPanel();
-        decline4 = new javax.swing.JButton();
-        decline4.setForeground(new Color(255, 255, 255));
-        accept4 = new javax.swing.JButton();
-        accept4.setForeground(new Color(255, 255, 255));
-        fname_lname4 = new javax.swing.JLabel();
-        account_type4 = new javax.swing.JLabel();
-        pending_sellers5 = new javax.swing.JPanel();
-        decline5 = new javax.swing.JButton();
-        decline5.setForeground(new Color(255, 255, 255));
-        accept5 = new javax.swing.JButton();
-        accept5.setForeground(new Color(255, 255, 255));
-        fname_lname5 = new javax.swing.JLabel();
-        account_type5 = new javax.swing.JLabel();
-        pending_sellers6 = new javax.swing.JPanel();
-        decline6 = new javax.swing.JButton();
-        decline6.setForeground(new Color(255, 255, 255));
-        accept6 = new javax.swing.JButton();
-        accept6.setForeground(new Color(255, 255, 255));
-        fname_lname6 = new javax.swing.JLabel();
-        account_type6 = new javax.swing.JLabel();
+        pending_sellers = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,34 +85,30 @@ public class AdminPanelUI extends JFrame {
         });
 
         javax.swing.GroupLayout logoPaneLayout = new javax.swing.GroupLayout(logoPane);
-        logoPane.setLayout(logoPaneLayout);
         logoPaneLayout.setHorizontalGroup(
-            logoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(head_Administrator)
-                .addGap(129, 129, 129)
-                .addComponent(head_Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        	logoPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(logoPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(logo)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addComponent(head_Administrator)
+        			.addGap(129)
+        			.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+        			.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap())
         );
         logoPaneLayout.setVerticalGroup(
-            logoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(logoPaneLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(logoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(head_Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(head_Administrator, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(logoPaneLayout.createSequentialGroup()
-                .addGroup(logoPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
-                    .addComponent(logout_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+        	logoPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(logoPaneLayout.createSequentialGroup()
+        			.addGap(16)
+        			.addGroup(logoPaneLayout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(head_Administrator, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
+        		.addComponent(logo)
+        		.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
         );
+        logoPane.setLayout(logoPaneLayout);
 
         pending_sellersPane.setBackground(new Color(240, 240, 240));
         pending_sellersPane.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -216,360 +185,28 @@ public class AdminPanelUI extends JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pending_sellers1.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline1.setBackground(new java.awt.Color(102, 102, 102));
-        decline1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline1.setText("Decline");
-        decline1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline1ActionPerformed(evt);
-            }
-        });
-        accept1.setBackground(new java.awt.Color(102, 102, 102));
-        accept1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept1.setText("Accept");
-        accept1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept1ActionPerformed(evt);
-            }
-        });
-
-        fname_lname1.setText("F. Name L. Name");
-
-        account_type1.setText("Account Type: Seller");
-
-        javax.swing.GroupLayout pending_sellers1Layout = new javax.swing.GroupLayout(pending_sellers1);
-        pending_sellers1.setLayout(pending_sellers1Layout);
-        pending_sellers1Layout.setHorizontalGroup(
-            pending_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname1)
-                .addGap(18, 18, 18)
-                .addComponent(account_type1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accept1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers1Layout.setVerticalGroup(
-            pending_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pending_sellers1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(decline1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(accept1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fname_lname1)
-                    .addComponent(account_type1))
-                .addContainerGap())
-        );
-
-        pending_sellers2.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline2.setBackground(new java.awt.Color(102, 102, 102));
-        decline2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline2.setText("Decline");
-        decline2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline2ActionPerformed(evt);
-            }
-        });
-
-        accept2.setBackground(new java.awt.Color(102, 102, 102));
-        accept2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept2.setText("Accept");
-        accept2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept2ActionPerformed(evt);
-            }
-        });
-        fname_lname2.setText("F. Name L. Name");
-
-        account_type2.setText("Account Type: Seller");
-
-        javax.swing.GroupLayout pending_sellers2Layout = new javax.swing.GroupLayout(pending_sellers2);
-        pending_sellers2.setLayout(pending_sellers2Layout);
-        pending_sellers2Layout.setHorizontalGroup(
-            pending_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname2)
-                .addGap(18, 18, 18)
-                .addComponent(account_type2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accept2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers2Layout.setVerticalGroup(
-            pending_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pending_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(accept2, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(fname_lname2)
-                        .addComponent(account_type2))
-                    .addComponent(decline2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        pending_sellers3.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline3.setBackground(new java.awt.Color(102, 102, 102));
-        decline3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline3.setText("Decline");
-        decline3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline3ActionPerformed(evt);
-            }
-        });
-
-        accept3.setBackground(new java.awt.Color(102, 102, 102));
-        accept3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept3.setText("Accept");
-        accept3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept3ActionPerformed(evt);
-            }
-        });
-
-        fname_lname3.setText("F. Name L. Name");
-
-        account_type3.setText("Account Type: Seller");
-
-        javax.swing.GroupLayout pending_sellers3Layout = new javax.swing.GroupLayout(pending_sellers3);
-        pending_sellers3.setLayout(pending_sellers3Layout);
-        pending_sellers3Layout.setHorizontalGroup(
-            pending_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname3)
-                .addGap(18, 18, 18)
-                .addComponent(account_type3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accept3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers3Layout.setVerticalGroup(
-            pending_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pending_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(accept3, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(fname_lname3)
-                        .addComponent(account_type3))
-                    .addComponent(decline3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        pending_sellers4.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline4.setBackground(new java.awt.Color(102, 102, 102));
-        decline4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline4.setText("Decline");
-        decline4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline4ActionPerformed(evt);
-            }
-        });
-
-        accept4.setBackground(new java.awt.Color(102, 102, 102));
-        accept4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept4.setText("Accept");
-        accept4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept4ActionPerformed(evt);
-            }
-        });
-
-        fname_lname4.setText("F. Name L. Name");
-
-        account_type4.setText("Account Type: Buyer");
-
-        javax.swing.GroupLayout pending_sellers4Layout = new javax.swing.GroupLayout(pending_sellers4);
-        pending_sellers4.setLayout(pending_sellers4Layout);
-        pending_sellers4Layout.setHorizontalGroup(
-            pending_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname4)
-                .addGap(18, 18, 18)
-                .addComponent(account_type4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 375, Short.MAX_VALUE)
-                .addComponent(accept4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers4Layout.setVerticalGroup(
-            pending_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pending_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(accept4, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(fname_lname4)
-                        .addComponent(account_type4))
-                    .addComponent(decline4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        pending_sellers5.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline5.setBackground(new java.awt.Color(102, 102, 102));
-        decline5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline5.setText("Decline");
-        decline5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline5ActionPerformed(evt);
-            }
-        });
-
-        accept5.setBackground(new java.awt.Color(102, 102, 102));
-        accept5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept5.setText("Accept");
-        accept5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept5ActionPerformed(evt);
-            }
-        });
-
-        fname_lname5.setText("F. Name L. Name");
-
-        account_type5.setText("Account Type: Seller");
-
-        javax.swing.GroupLayout pending_sellers5Layout = new javax.swing.GroupLayout(pending_sellers5);
-        pending_sellers5.setLayout(pending_sellers5Layout);
-        pending_sellers5Layout.setHorizontalGroup(
-            pending_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname5)
-                .addGap(18, 18, 18)
-                .addComponent(account_type5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accept5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers5Layout.setVerticalGroup(
-            pending_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pending_sellers5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(decline5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(accept5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(fname_lname5)
-                        .addComponent(account_type5)))
-                .addContainerGap())
-        );
-
-        pending_sellers6.setBackground(new java.awt.Color(255, 255, 255));
-        pending_sellers6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        decline6.setBackground(new java.awt.Color(102, 102, 102));
-        decline6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        decline6.setText("Decline");
-        decline6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                decline6ActionPerformed(evt);
-            }
-        });
-
-        accept6.setBackground(new java.awt.Color(102, 102, 102));
-        accept6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        accept6.setText("Accept");
-        accept6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accept6ActionPerformed(evt);
-            }
-        });
-
-        fname_lname6.setText("F. Name L. Name");
-
-        account_type6.setText("Account Type: Seller");
-
-        javax.swing.GroupLayout pending_sellers6Layout = new javax.swing.GroupLayout(pending_sellers6);
-        pending_sellers6.setLayout(pending_sellers6Layout);
-        pending_sellers6Layout.setHorizontalGroup(
-            pending_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname6)
-                .addGap(18, 18, 18)
-                .addComponent(account_type6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accept6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(decline6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        pending_sellers6Layout.setVerticalGroup(
-            pending_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pending_sellers6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pending_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pending_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(accept6, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                        .addComponent(fname_lname6)
-                        .addComponent(account_type6))
-                    .addComponent(decline6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        pending_sellers.setBackground(new Color(240, 240, 240));
 
         javax.swing.GroupLayout pending_sellersPaneLayout = new javax.swing.GroupLayout(pending_sellersPane);
-        pending_sellersPane.setLayout(pending_sellersPaneLayout);
         pending_sellersPaneLayout.setHorizontalGroup(
-            pending_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pending_sellersPaneLayout.createSequentialGroup()
-                .addGroup(pending_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pending_sellersPaneLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(pending_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pending_sellers1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pending_sellers2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pending_sellers3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pending_sellers4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pending_sellers5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pending_sellers6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(pending_sellersPaneLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+        	pending_sellersPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pending_sellersPaneLayout.createSequentialGroup()
+        			.addGap(47)
+        			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(17, Short.MAX_VALUE))
+        		.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
         );
         pending_sellersPaneLayout.setVerticalGroup(
-            pending_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pending_sellersPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pending_sellers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pending_sellers2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pending_sellers3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pending_sellers4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pending_sellers5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pending_sellers6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	pending_sellersPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(pending_sellersPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+        			.addContainerGap())
         );
+        pending_sellers.setLayout(new BoxLayout(pending_sellers, BoxLayout.X_AXIS));
+        pending_sellersPane.setLayout(pending_sellersPaneLayout);
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -600,6 +237,16 @@ public class AdminPanelUI extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        
+        
+        
+        //Products
+        List<User> pendingSellers = ShopletSystemManager.getInstance().grab_sellers(false);
+        
+        for (int i = 0; i < pendingSellers.size(); i++)
+        {
+        	pending_sellers.add(addPendingSeller(pendingSellers.get(i).firstname, pendingSellers.get(i).lastname, pendingSellers.get(i).user_id), "span, growx");
+        }
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -626,70 +273,9 @@ public class AdminPanelUI extends JFrame {
         CreateNewUserUI obj = new CreateNewUserUI();
         obj.setVisible(true);
     }//GEN-LAST:event_create_new_userActionPerformed
-
-    private void accept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept1.getMouseListeners() != null){
-            pending_sellers1.setVisible(false);
-        }
-    }//GEN-LAST:event_accept1ActionPerformed
-    private void accept2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept2.getMouseListeners() != null){
-            pending_sellers2.setVisible(false);
-        }
-    }
-    private void accept3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept3.getMouseListeners() != null){
-            pending_sellers3.setVisible(false);
-        }
-    }
-    private void accept4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept4.getMouseListeners() != null){
-            pending_sellers4.setVisible(false);
-        }
-    }
-    private void accept5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept5.getMouseListeners() != null){
-            pending_sellers5.setVisible(false);
-        }
-    }
-    private void accept6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accept1ActionPerformed
-        if(accept6.getMouseListeners() != null){
-            pending_sellers6.setVisible(false);
-        }
-    }
     private void ordersActionPerformed(ActionEvent evt){
         OrdersUI obj = new OrdersUI();
         obj.setVisible(true);
-    }
-    private void  decline1ActionPerformed(ActionEvent evt){
-        if(decline1.getMouseListeners() != null){
-                pending_sellers1.setVisible(false);
-        }
-    }
-    private void  decline2ActionPerformed(ActionEvent evt){
-        if(decline2.getMouseListeners() != null){
-            pending_sellers2.setVisible(false);
-        }
-    }
-    private void  decline3ActionPerformed(ActionEvent evt){
-        if(decline3.getMouseListeners() != null ){
-            pending_sellers3.setVisible(false);
-        }
-    }
-    private void  decline4ActionPerformed(ActionEvent evt){
-        if(decline4.getMouseListeners() != null ){
-            pending_sellers4.setVisible(false);
-        }
-    }
-    private void  decline5ActionPerformed(ActionEvent evt){
-        if(decline5.getMouseListeners() != null){
-            pending_sellers5.setVisible(false);
-        }
-    }
-    private void  decline6ActionPerformed(ActionEvent evt){
-        if(decline6.getMouseListeners() != null){
-            pending_sellers6.setVisible(false);
-        }
     }
     private void logout_buttonActionPerformed(ActionEvent evt){
         Logout obj = new Logout();
@@ -707,6 +293,48 @@ public class AdminPanelUI extends JFrame {
     }
 */
   
+    public JPanel addPendingSeller(String firstName, String lastName, Integer user_id)
+    {    	
+        // Convert price to 2 decimal places
+        Border border = BorderFactory.createLineBorder(Color.black);
+
+        // Build product entry
+        JPanel newProductPanel = new JPanel(new MigLayout("", "[][]push[][]15", "[]"));
+        newProductPanel.setPreferredSize(new Dimension(1000, 60));
+        newProductPanel.setMaximumSize(new Dimension(1000, 60));
+        newProductPanel.setBackground(Color.white);
+        
+        JLabel productLabel = new JLabel(firstName + " " + lastName);
+        productLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        productLabel.setMaximumSize(new Dimension(200, 100));
+        
+        newProductPanel.add(productLabel);
+        newProductPanel.add(new JLabel("Account Type: Seller")).setFont(new Font("Arial", Font.PLAIN, 16));
+        
+        JButton approveBtn = new JButton("Approve");
+        JButton denyBtn = new JButton("Deny");
+
+        newProductPanel.add(approveBtn);
+        newProductPanel.add(denyBtn);
+        
+        approveBtn.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ShopletSystemManager.getInstance().edit_user(user_id, null, null, null, null, null,  true);
+        	}
+        });
+        
+        denyBtn.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ShopletSystemManager.getInstance().edit_user(user_id, null, null, null, null, "buyer", false);
+        	}
+        });
+        
+        newProductPanel.setBorder(border);
+
+        // Return the product panel
+        return newProductPanel;
+    }
+    
 
     public static void main(String args[]) {
         try {
@@ -737,35 +365,9 @@ public class AdminPanelUI extends JFrame {
         //AdminPanelUI obj = new AdminPanelUI();
         //JFrame frame = new AdminPanelUI();
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton accept1;
-    private javax.swing.JButton accept2;
-    private javax.swing.JButton accept3;
-    private javax.swing.JButton accept4;
-    private javax.swing.JButton accept5;
-    private javax.swing.JButton accept6;
-    private javax.swing.JLabel account_type1;
-    private javax.swing.JLabel account_type2;
-    private javax.swing.JLabel account_type3;
-    private javax.swing.JLabel account_type4;
-    private javax.swing.JLabel account_type5;
-    private javax.swing.JLabel account_type6;
     private javax.swing.JButton active_sellers;
     private javax.swing.JPanel contentPane;
     private javax.swing.JButton create_new_user;
-    private javax.swing.JButton decline1;
-    private javax.swing.JButton decline2;
-    private javax.swing.JButton decline3;
-    private javax.swing.JButton decline4;
-    private javax.swing.JButton decline5;
-    private javax.swing.JButton decline6;
-    private javax.swing.JLabel fname_lname1;
-    private javax.swing.JLabel fname_lname2;
-    private javax.swing.JLabel fname_lname3;
-    private javax.swing.JLabel fname_lname4;
-    private javax.swing.JLabel fname_lname5;
-    private javax.swing.JLabel fname_lname6;
     private javax.swing.JLabel head_Administrator;
     private javax.swing.JLabel head_Dashboard;
     private javax.swing.JSlider jSlider1;
@@ -775,12 +377,7 @@ public class AdminPanelUI extends JFrame {
     private javax.swing.JPanel menuPane;
     private javax.swing.JButton orders;
     private javax.swing.JButton pending_Sellers;
-    private javax.swing.JPanel pending_sellers1;
-    private javax.swing.JPanel pending_sellers2;
-    private javax.swing.JPanel pending_sellers3;
-    private javax.swing.JPanel pending_sellers4;
-    private javax.swing.JPanel pending_sellers5;
-    private javax.swing.JPanel pending_sellers6;
+    private javax.swing.JPanel pending_sellers;
     private javax.swing.JPanel pending_sellersPane;
     // End of variables declaration//GEN-END:variables
 }

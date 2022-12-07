@@ -6,6 +6,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datebase_jon.ShopletSystemManager;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
@@ -29,8 +32,9 @@ public class Registration extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField password2_box;
 	private JPasswordField password_box;
-	private JTextField user_box;
+	private JTextField inputFirstName;
 	private JTextField email_box;
+	private JTextField inputLastName;
 
 	/**
 	 * Launch the application.
@@ -99,64 +103,81 @@ public class Registration extends JFrame {
 				
 			}
 		});
-		cancel_button.setBounds(298, 395, 89, 23);
+		cancel_button.setBounds(297, 407, 89, 23);
 		contentPane.add(cancel_button);
 		
-		JButton continue_button = new JButton("Continue");
-		continue_button.addActionListener(new ActionListener() {
+		JButton register_button = new JButton("Register");
+		register_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean match = false;
+				
 				if(String.valueOf(password_box.getPassword()) == String.valueOf(password_box.getPassword())) {
 					match = true;
 				}
 				else {
 					match = false;
+				}					
+				
+				if ((String.valueOf(account_box.getSelectedItem()).equals("Seller")))
+				{
+					System.out.println("Test");
+					ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), false);
 				}
-				database create = new database();
-				
-				create.add_user(user_box.getText(), user_box.getText(), email_box.getText(),String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), match);
+				else if ((String.valueOf(account_box.getSelectedItem()).equals("Buyer")))
+				{
+					System.out.println("Test1");
+					ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), true);
+				}
 				//String firstname, String lastname, String email, String password, String account_type, Boolean approval
-				
-				
 			}
 		});
-		continue_button.setBounds(184, 395, 89, 23);
-		contentPane.add(continue_button);
+		register_button.setBounds(183, 407, 89, 23);
+		contentPane.add(register_button);
 		
-		JLabel user_label = new JLabel("Username : ");
+		JLabel user_label = new JLabel("First Name:");
 		user_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		user_label.setBounds(48, 244, 128, 28);
 		contentPane.add(user_label);
 		
 		JLabel pass_label = new JLabel("Password : ");
 		pass_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		pass_label.setBounds(48, 283, 128, 28);
+		pass_label.setBounds(48, 318, 128, 28);
 		contentPane.add(pass_label);
 		
 		JLabel confpass_label = new JLabel("Confirm password : ");
 		confpass_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		confpass_label.setBounds(48, 322, 148, 28);
+		confpass_label.setBounds(51, 357, 148, 28);
 		contentPane.add(confpass_label);
 		
 		password2_box = new JPasswordField();
 		password2_box.setColumns(25);
-		password2_box.setBounds(184, 328, 203, 20);
+		password2_box.setBounds(184, 363, 203, 20);
 		contentPane.add(password2_box);
 		
 		password_box = new JPasswordField();
 		password_box.setColumns(25);
-		password_box.setBounds(184, 289, 203, 20);
+		password_box.setBounds(184, 324, 203, 20);
 		contentPane.add(password_box);
 		
-		user_box = new JTextField();
-		user_box.setColumns(20);
-		user_box.setBounds(184, 250, 203, 20);
-		contentPane.add(user_box);
+		inputFirstName = new JTextField();
+		inputFirstName.setColumns(20);
+		inputFirstName.setBounds(184, 250, 203, 20);
+		contentPane.add(inputFirstName);
 		
 		email_box = new JTextField();
 		email_box.setBounds(184, 211, 203, 20);
 		contentPane.add(email_box);
 		email_box.setColumns(30);
+		
+		JLabel user_label_1 = new JLabel("Last Name:");
+		user_label_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		user_label_1.setBounds(48, 282, 128, 28);
+		contentPane.add(user_label_1);
+		
+		inputLastName = new JTextField();
+		inputLastName.setColumns(20);
+		inputLastName.setBounds(184, 281, 203, 20);
+		contentPane.add(inputLastName);
 	}
 	
 	private static void addPopup(Component component, final JPopupMenu popup) {

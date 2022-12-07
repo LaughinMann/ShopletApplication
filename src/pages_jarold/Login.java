@@ -5,7 +5,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import datebase_jon.Admin;
+import datebase_jon.Seller;
+import datebase_jon.ShopletSystemManager;
+import datebase_jon.User;
+import pages_Jeff_Admin.AdminPanelUI;
+import pages_Jeff_Seller.SellersPanelUI;
+import pages_kelvin.BuyerCatalogUI;
+
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -51,7 +62,7 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Shoplet - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 631, 459);
+		setBounds(100, 100, 554, 459);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 240, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,15 +70,15 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel user_label = new JLabel("Username:");
+		JLabel user_label = new JLabel("Email:");
 		user_label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		user_label.setBackground(SystemColor.info);
-		user_label.setBounds(144, 218, 106, 33);
+		user_label.setBounds(111, 218, 106, 33);
 		contentPane.add(user_label);
 		
 		JLabel password_label = new JLabel("Password :");
 		password_label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		password_label.setBounds(144, 269, 106, 27);
+		password_label.setBounds(111, 269, 106, 27);
 		contentPane.add(password_label);
 		
 		JLabel logo_label = new JLabel("");
@@ -75,16 +86,16 @@ public class Login extends JFrame {
 		logo_label.setIcon(new ImageIcon(img1));
 		
 		
-		logo_label.setBounds(155, 11, 275, 210);
+		logo_label.setBounds(122, 11, 275, 210);
 		contentPane.add(logo_label);
 		
 		user_box = new JTextField();
-		user_box.setBounds(260, 228, 126, 20);
+		user_box.setBounds(227, 228, 201, 20);
 		contentPane.add(user_box);
 		user_box.setColumns(10);
 		
 		password_box = new JPasswordField();
-		password_box.setBounds(260, 276, 126, 20);
+		password_box.setBounds(227, 276, 201, 20);
 		contentPane.add(password_box);
 		
 		JButton register_button = new JButton("Register");
@@ -108,19 +119,50 @@ public class Login extends JFrame {
 		login_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				database login = new database();
-				if(login.authenticate_user(user_box.getText(), String.valueOf(password_box.getPassword()))) {
-					HomePage home = new HomePage();
-					home.setVisible(true);
-					dispose();
+				ShopletSystemManager db = ShopletSystemManager.getInstance();
+				
+				User user = db.authenticate_user(user_box.getText(), String.valueOf(password_box.getPassword()));		
+				
+				if (user.firstname != null)
+				{
+					if (user.account_type.equals("seller") && user.approval == true)
+					{
+						hideLogin();
+						SellersPanelUI sellerPanel = new SellersPanelUI();
+						sellerPanel.setVisible(true);
+					} 
+					else if (user.account_type.equals("seller") && user.approval == false) 
+					{
+		        		JOptionPane.showMessageDialog(null, "Seller account pending approval. Try again later.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+					}
 					
-				}else {
-					FailedLoginPrompt prompt = new FailedLoginPrompt();
-					prompt.setVisible(true);
+					
+					if (user.account_type.equals("buyer"))
+					{
+						hideLogin();
+						BuyerCatalogUI buyerCatalog = new BuyerCatalogUI("Buyers Catalog - Logged in as " + user.firstname + " " + user.lastname);
+						buyerCatalog.setVisible(true);
+					}
+					
+					if (user.account_type.equals("admin"))
+					{
+						hideLogin();
+						AdminPanelUI adminPanel = new AdminPanelUI();
+						adminPanel.setVisible(true);
+					}
+				}
+				else
+				{								
+	        		JOptionPane.showMessageDialog(null, "User not found or incorrect Username or Password.", "Shoplet", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
 		login_button.setBounds(260, 326, 126, 20);
 		contentPane.add(login_button);
+	}
+	
+	public void hideLogin()
+	{
+		this.setVisible(false);
 	}
 }

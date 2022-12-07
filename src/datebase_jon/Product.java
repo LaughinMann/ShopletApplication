@@ -1,21 +1,25 @@
-package pages_kelvin;
+package datebase_jon;
 
-/**
- * A Product class representation
- * @author Kelvin Dhoman
- *
- */
 public class Product {
-    public Integer productId;
-    public Integer associatedSellerId;
-    public String productName;
-    public Double productPrice;
+    public Integer product_id;
+    public Integer seller_id;
+    public Integer amount_sold;
+    public String name;
+    public Integer price;
     public boolean available;
     public Integer availableQuantity;
     public boolean discountCodeActive;
     public String discountCode;
     public Double discountPercentage;
-    public String productDescription;
+    public String description;
+    
+    /**
+     * Default Constructor
+     */
+    public Product()
+    {
+    	
+    }
 
     /**
      * A Product Item that will be created by GUI and then sent to the database.
@@ -27,12 +31,12 @@ public class Product {
      * @param availableQuantity The available quantity.
      * @param discountCodeActive If a discount code exists for the product.
      */
-    public Product(Integer associatedSellerId, String productName, Double productPrice, String productDescription, boolean available, Integer availableQuantity, boolean discountCodeActive)
+    public Product(Integer productId, String productName, Integer productPrice, String productDescription, boolean available, Integer availableQuantity, boolean discountCodeActive)
     {
-        this.associatedSellerId = associatedSellerId;
-        this.productName = productName;
-        this.productDescription = productDescription;
-        this.productPrice = productPrice;
+    	this.product_id = productId;
+        this.name = productName;
+        this.description = productDescription;
+        this.price = productPrice;
         this.available = available;
         this.availableQuantity = availableQuantity;
         this.discountCodeActive = discountCodeActive;
@@ -42,16 +46,16 @@ public class Product {
      * Returns the product price.
      * @return Product price
      */
-    public Double getProductPrice() {
-        return productPrice;
+    public Integer getProductPrice() {
+        return price;
     }
 
     /**
      * Sets the product's price
      * @param productPrice The new product price.
      */
-    public void setProductPrice(Double productPrice) {
-        this.productPrice = productPrice;
+    public void setProductPrice(Integer productPrice) {
+        this.price = productPrice;
     }
 
     /**
@@ -75,7 +79,7 @@ public class Product {
      * @return Returns the product description.
      */
     public String getProductDescription() {
-        return productDescription;
+        return description;
     }
 
     /**
@@ -83,6 +87,6 @@ public class Product {
      * @param productDescription The product description.
      */
     public void setProductDescription(String productDescription) {
-        this.productDescription = productDescription;
+        this.description = productDescription;
     }
 }

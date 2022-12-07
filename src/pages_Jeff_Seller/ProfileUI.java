@@ -17,6 +17,7 @@ public class ProfileUI extends javax.swing.JFrame {
      * Creates new form Profile
      */
     public ProfileUI() {
+    	setTitle("Seller Panel - Edit Profile");
         initComponents();
     }
 

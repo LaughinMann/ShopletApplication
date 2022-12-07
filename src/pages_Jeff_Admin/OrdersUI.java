@@ -27,8 +27,6 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         contentPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
-        create_new_user = new javax.swing.JButton();
-        create_new_user.setForeground(new Color(255, 255, 255));
         home = new javax.swing.JButton();
         home.setForeground(new Color(255, 255, 255));
         ordersPane = new javax.swing.JPanel();
@@ -85,18 +83,9 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         menuPane.setBackground(new Color(240, 240, 240));
 
-        create_new_user.setBackground(new java.awt.Color(102, 102, 102));
-        create_new_user.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        create_new_user.setText("Create New User");
-        create_new_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                create_new_userActionPerformed(evt);
-            }
-        });
-
         home.setBackground(new java.awt.Color(102, 102, 102));
         home.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        home.setText("Home");
+        home.setText("Close");
         home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeActionPerformed(evt);
@@ -109,17 +98,13 @@ public class OrdersUI extends JFrame implements ActionListener{
         		.addGroup(menuPaneLayout.createSequentialGroup()
         			.addContainerGap()
         			.addComponent(home, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
-        			.addComponent(create_new_user, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap())
+        			.addContainerGap(497, Short.MAX_VALUE))
         );
         menuPaneLayout.setVerticalGroup(
         	menuPaneLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(menuPaneLayout.createSequentialGroup()
         			.addContainerGap()
-        			.addGroup(menuPaneLayout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(home, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        				.addComponent(create_new_user, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+        			.addComponent(home, GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         			.addContainerGap())
         );
         menuPane.setLayout(menuPaneLayout);
@@ -582,11 +567,6 @@ public class OrdersUI extends JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void create_new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_new_userActionPerformed
-        CreateNewUserUI obj = new CreateNewUserUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_create_new_userActionPerformed
-
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
     	this.setVisible(false);
     }//GEN-LAST:event_homeActionPerformed
@@ -705,7 +685,6 @@ public class OrdersUI extends JFrame implements ActionListener{
     private javax.swing.JLabel cost6;
     private javax.swing.JLabel cost7;
     private javax.swing.JLabel cost8;
-    private javax.swing.JButton create_new_user;
     private javax.swing.JLabel fname_lname1;
     private javax.swing.JLabel fname_lname2;
     private javax.swing.JLabel fname_lname3;

@@ -3,8 +3,15 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 /**
@@ -30,6 +37,19 @@ public class CartUI extends JFrame {
     public CartUI(String windowTitle)
     {
         super(windowTitle);
+        
+        addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowActivated(WindowEvent e) {
+        		// Update cart text button when user focuses on window.
+        		if (Cart.getInstance().getCartSize() > 0)
+        		{
+	        		System.out.println("Refreshing UI for any added products");
+	        		refreshCartContents();
+        		}
+        	}
+        });
+        
         cart = this;
         this.setMinimumSize(new Dimension(930, 570));
         this.setMaximumSize(new Dimension(930, 570));
@@ -67,10 +87,14 @@ public class CartUI extends JFrame {
         /** PRODUCTS DEMO **/
         for (int i = 0; i < Cart.getInstance().getCartSize(); i++)
         {
-        	productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).productName, Cart.getInstance().itemsInCart.get(i).productPrice), "span");
+        	productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).name, Cart.getInstance().itemsInCart.get(i).price), "span");
         }
         
         //Products
+        
+        //Disable checkout button if cart is empty.
+        if (Cart.getInstance().getCartSize() == 0)
+    		btnCheckout.setEnabled(false);
         
         // Reset products panel
     	productsArea.removeAll();
@@ -82,9 +106,11 @@ public class CartUI extends JFrame {
         for (int i = 0; i < Cart.getInstance().getCartSize(); i++)
         {
         	if (Cart.getInstance().getCartSize() == 0)
+        	{
         		return;
+        	}
         	
-            productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).productName, Cart.getInstance().itemsInCart.get(i).getProductPrice()), "growx");     
+            productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).name, Cart.getInstance().itemsInCart.get(i).getProductPrice()), "growx");     
         }
         
         getContentPane().add(productsArea, "cell 0 0");
@@ -98,10 +124,12 @@ public class CartUI extends JFrame {
         if (Cart.getInstance().getCartSize() == 0)
         {
 	        lblEmptyCart.setVisible(true);
+	        btnCheckout.setEnabled(false);
         }
         else
         {
 	        lblEmptyCart.setVisible(false);
+	        btnCheckout.setEnabled(true);
         }
     }
 
@@ -167,16 +195,50 @@ public class CartUI extends JFrame {
         
 		 if (Cart.getInstance().getCartSize() == 0)
         {
+			btnCheckout.setEnabled(false);
 	        lblEmptyCart.setVisible(true);
         }
         else
         {
+			btnCheckout.setEnabled(true);
 	        lblEmptyCart.setVisible(false);
         }
 		
     	this.revalidate();
     	this.repaint();
     	pack();
+    }
+    
+    public void refreshCartContents()
+    {
+    	productsArea.removeAll();
+        lblEmptyCart.setVisible(false);
+    	productsArea.revalidate();
+    	productsArea.repaint();
+    	
+    	// Load all the products from cart 
+        for (int i = 0; i < Cart.getInstance().getCartSize(); i++)
+        {
+        	if (Cart.getInstance().getCartSize() == 0)
+        	{
+        		return;
+        	}
+        	
+            productsArea.add(ProductItem(Cart.getInstance().itemsInCart.get(i).name, Cart.getInstance().itemsInCart.get(i).getProductPrice()), "growx");     
+        }
+        
+        lblTotalPrice.setText("Price: $" + Cart.getInstance().calculatePreTaxTotal());
+        lblTax.setText("Tax: $" + Cart.getInstance().calculateTaxTotal());
+        lblTotalCost.setText("Total Cost: $" + Cart.getInstance().calculateGrandTotal());
+    }
+    
+    public void clearCartUI()
+    {
+    	Cart.getInstance().clearCart();
+    	productsArea.removeAll();
+        lblEmptyCart.setVisible(true);
+    	productsArea.revalidate();
+    	productsArea.repaint();
     }
 
     /**

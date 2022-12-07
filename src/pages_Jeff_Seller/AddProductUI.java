@@ -9,14 +9,20 @@ package pages_Jeff_Seller;
  * @author jeffplatel
  */
 import javax.swing.*;
+
+import datebase_jon.ShopletSystemManager;
+
 import java.awt.Color;
 public class AddProductUI extends javax.swing.JFrame {
 
+	SellersPanelUI sellersPanel;
+	
     /**
      * Creates new form AddProduct
      */
-    public AddProductUI() {
+    public AddProductUI(SellersPanelUI sellersPanel) {
     	setTitle("Add Product");
+    	this.sellersPanel = sellersPanel;
         initComponents();
     }
 
@@ -149,12 +155,13 @@ public class AddProductUI extends javax.swing.JFrame {
         }
         else {
             match = true;
-            SellersPanelUI obj = new SellersPanelUI();
-            obj.setVisible(true);
             JFrame frame = new JFrame();
             JOptionPane.showMessageDialog(frame, "Item successfully added.");
-            database create = new database();
-		    create.add_product(product_name_text.getText(), price_text.getText(), String.valueOf(quantity_text.getText()), String.valueOf(description_text.getText()), match);
+            ShopletSystemManager.getInstance().add_product(product_name_text.getText(), description_text.getText(), Integer.parseInt(price_text.getText()), 0, ShopletSystemManager.getInstance().current_user_id);
+            this.setVisible(false);
+            sellersPanel.refreshProductList();
+            
+		    //ShopletSystemManager.getInstance().add_product(product_name_text.getText(), price_text.getText(), String.valueOf(quantity_text.getText()), String.valueOf(description_text.getText()), match);
         }
     }//GEN-LAST:event_create_buttonActionPerformed
 
@@ -195,7 +202,7 @@ public class AddProductUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddProductUI().setVisible(true);
+                new AddProductUI(new SellersPanelUI()).setVisible(true);
             }
         });
     }

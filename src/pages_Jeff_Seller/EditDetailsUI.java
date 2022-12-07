@@ -9,17 +9,26 @@ package pages_Jeff_Seller;
  * @author jeffplatel
  */
 import javax.swing.*;
+
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
+
 import java.awt.Color;
 public class EditDetailsUI extends javax.swing.JFrame {
+	
+    Product product = new Product();
+    ProductUI productUI;
 
     /**
      * Creates new form UpdateProductUI
      */
-    public EditDetailsUI() {
-    	setTitle("Update Product");
+    public EditDetailsUI(Product product, ProductUI productUI) {
+    	setTitle("Update Product - " + product.name);
+    	this.product = product;
+    	this.productUI = productUI;
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,13 +63,13 @@ public class EditDetailsUI extends javax.swing.JFrame {
 
         description.setText("Description:");
 
-        product_name_text.setText("Product Name");
+        product_name_text.setText(product.name);
 
-        price_text.setText("XX.XX");
+        price_text.setText(product.price.toString());
 
         quantity_text.setText("3");
 
-        description_text.setText("Lorem Ipsolum");
+        description_text.setText(product.description);
 
         update_button.setBackground(new java.awt.Color(102, 102, 102));
         update_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -144,14 +153,15 @@ public class EditDetailsUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_buttonActionPerformed
-        ProductUI obj = new ProductUI();
-        obj.setVisible(true);
+    	ShopletSystemManager.getInstance().edit_product(product.product_id, product_name_text.getText(), description_text.getText(), Integer.parseInt(price_text.getText()), product.amount_sold);
+    	productUI.refreshUI(product_name_text.getText(), price_text.getText(), description_text.getText());
+    	this.setVisible(false);
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "Product details updated.");
     }//GEN-LAST:event_update_buttonActionPerformed
 
     private void back_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_buttonActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_back_buttonActionPerformed
 
@@ -186,7 +196,7 @@ public class EditDetailsUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditDetailsUI().setVisible(true);
+                new EditDetailsUI(new Product(), new ProductUI(new Product())).setVisible(true);
             }
         });
     }

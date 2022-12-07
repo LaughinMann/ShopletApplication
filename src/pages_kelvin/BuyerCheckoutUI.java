@@ -1,8 +1,13 @@
 package pages_kelvin;
 import net.miginfocom.swing.MigLayout;
+import java.util.*;
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
+import datebase_jon.ShopletSystemManager;
+
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -118,14 +123,48 @@ public class BuyerCheckoutUI extends JFrame {
 
         btnCancel.setPreferredSize(new Dimension(125, btnCancel.getHeight()));
         getContentPane().add(btnCancel, "cell 1 12");
+                
         btnConfirmOrder.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		//Input verification
-        	    txtFirstName.setInputVerifier(normalTextFieldVerifier);
-        		cancelCheckoutWindow();
-        		JOptionPane.showMessageDialog(null, "Payment confirmed.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        		
+        		if(String.valueOf(txtFirstName.getText()).isEmpty() || txtLastName.getText().isEmpty() || txtStreetAddress.getText().isEmpty() || 
+        				txtCity.getText().isEmpty() || txtZipcode.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() || txtCreditCard.getText().isEmpty()
+        				|| txtCVV.getText().isEmpty() || txtExpirationDate.getText().isEmpty())
+        		{
+        			 JFrame frame = new JFrame();
+                     JOptionPane.showMessageDialog(frame, "You left one or more field(s) empty!");
+        		}
+        		else
+        		{	
+        			List<Integer> product_ids = new ArrayList<Integer>();
+        			
+        			for (int i = 0; i < Cart.getInstance().getCartSize(); i++)
+        			{
+        				Integer id = Cart.getInstance().itemsInCart.get(i).product_id;
+        				product_ids.add(id);
+        			}
+        			
+        			String products_ids_as_string = product_ids.toString();
+        			
+	        		ShopletSystemManager.getInstance().add_order(ShopletSystemManager.getInstance().current_user_id, Cart.getInstance().getInstance().calculateGrandTotal().toString(), products_ids_as_string);
+        			
+	        		cartWindow.clearCartUI();
+	        		
+	        		//Input verification        		
+	        		for (int i = 0; i < Cart.getInstance().getCartSize(); i++)
+	        		{	
+	        			ShopletSystemManager.getInstance().add_product_sale(Cart.getInstance().itemsInCart.get(i).product_id, 1);
+	        		}
+	        		
+	        		cancelCheckoutWindow();
+	        		
+	        		JOptionPane.showMessageDialog(null, "Payment confirmed.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+	  	        		
+	        		cartWindow.setVisible(false);
+        		}
         	}
         });
+        
         btnConfirmOrder.setPreferredSize(new Dimension(145, btnConfirmOrder.getHeight()));
         getContentPane().add(btnConfirmOrder, "cell 1 12");
     }
@@ -138,17 +177,7 @@ public class BuyerCheckoutUI extends JFrame {
     	this.setVisible(false);
     }
     
-    /**
-     * Input Verifier for normal basic text fields that require just text.
-     */
-    InputVerifier normalTextFieldVerifier = new InputVerifier() {
-		@Override
-		public boolean verify(JComponent input) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-    };
-
+   
     /**
      * Main class for the Buyer Checkout UI
      * @param args Arguments

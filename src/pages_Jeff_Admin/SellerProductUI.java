@@ -14,6 +14,7 @@ public class SellerProductUI extends javax.swing.JFrame {
      * Creates new form SellerProductUI
      */
     public SellerProductUI() {
+    	setTitle("Seller Products");
         initComponents();
     }
 

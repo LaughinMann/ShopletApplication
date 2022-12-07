@@ -10,6 +10,9 @@ package pages_Jeff_Seller;
  */
 
 import javax.swing.*;
+
+import datebase_jon.Product;
+
 import java.awt.Color;
 
 public class DiscountCodeUI extends javax.swing.JFrame {
@@ -126,7 +129,7 @@ public class DiscountCodeUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(frame, "You did not add a code or percent off.");
             }
             else if(String.valueOf(code_TextField.getText()) != null && String.valueOf(percent_TextField.getText()) != null){
-                    ProductUI obj = new ProductUI();
+                    ProductUI obj = new ProductUI(new Product());
                     obj.setVisible(true);
                     JFrame frame = new JFrame();
                     JOptionPane.showMessageDialog(frame, "Discount code added.");

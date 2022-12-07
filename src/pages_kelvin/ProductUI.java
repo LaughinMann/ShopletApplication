@@ -1,11 +1,20 @@
 package pages_kelvin;
+
+import datebase_jon.Review;
+import datebase_jon.ShopletSystemManager;
 import net.miginfocom.swing.MigLayout;
 
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
+import datebase_jon.Product;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 /**
@@ -22,9 +31,23 @@ public class ProductUI extends JFrame {
 	 * @param windowTitle The title of the product panel.
 	 * @param product The product the panel will be created for.
 	 */
+	
+    JPanel reviewsArea = new JPanel();
+    Product product;
+
 	public ProductUI(String windowTitle, Product product)
     {
-        super(windowTitle);
+        super(windowTitle);   
+        this.product = product;
+        
+        addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowActivated(WindowEvent e) {
+        		// Update cart text button when user focuses on window.
+        		refreshUI();
+        	}
+        });
+        
         this.setMinimumSize(new Dimension(1000, 650));
         this.setMaximumSize(new Dimension(1000, 650));
         this.setResizable(false);
@@ -32,7 +55,7 @@ public class ProductUI extends JFrame {
         //Layout and Buttons
         getContentPane().setLayout(new MigLayout("wrap", "[793.00,grow][::100px,grow]", "[73.00][67.00][177.00][27.00][grow,fill]"));
         
-        JLabel lblProductName = new JLabel(product.productName);
+        JLabel lblProductName = new JLabel(product.name);
         lblProductName.setFont(new Font("Tahoma", Font.PLAIN, 18));
         getContentPane().add(lblProductName, "cell 0 0");
         
@@ -54,7 +77,7 @@ public class ProductUI extends JFrame {
         txtProductDescription.setEditable(false);
         txtProductDescription.setLineWrap(true);
         txtProductDescription.setBackground(null);
-        txtProductDescription.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n");
+        txtProductDescription.setText(product.description);
         getContentPane().add(txtProductDescription, "cell 0 2,growx,gapright 100,aligny top");
         
         JLabel lblReviewText = new JLabel("Reviews");
@@ -63,15 +86,87 @@ public class ProductUI extends JFrame {
         JButton btnLeaveAReview = new JButton("Review");
         btnLeaveAReview.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		ReviewUI reviewUI = new ReviewUI("Product - " + product.productName + " - Review");
+        		ReviewUI reviewUI = new ReviewUI("Product - " + product.name + " - Review", product);
         		reviewUI.setVisible(true);
         	}
         });
         getContentPane().add(btnLeaveAReview, "cell 1 3,alignx right");
-        
+              
+        /**
         JLabel lblNewLabel = new JLabel("No reviews currently...");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 28));
         getContentPane().add(lblNewLabel, "cell 0 4,alignx center,aligny center");
+        **/
+        
+        //Reviews
+        List<Review> productReviews = ShopletSystemManager.getInstance().grab_reviews(product.product_id);
+        
+        for (int i = 0; i < productReviews.size(); i++)
+        {
+        	reviewsArea.add(addReview(productReviews.get(i).review_id, productReviews.get(i).user_id
+            		,productReviews.get(i).product_id, productReviews.get(i).reviewer_name, productReviews.get(i).review_rating
+            		, productReviews.get(i).review_content), "span, growx");
+        }
+        
+        getContentPane().add(reviewsArea, "cell 0 4 2 1");
+    }
+	
+	/**
+	 * Refreshes UI elements of the window
+	 */
+	void refreshUI()
+	{
+		reviewsArea.removeAll();
+		
+		 //Reviews
+        List<Review> productReviews = ShopletSystemManager.getInstance().grab_reviews(product.product_id);
+        
+        for (int i = 0; i < productReviews.size(); i++)
+        {
+        	reviewsArea.add(addReview(productReviews.get(i).review_id, productReviews.get(i).user_id
+            		,productReviews.get(i).product_id, productReviews.get(i).reviewer_name, productReviews.get(i).review_rating
+            		, productReviews.get(i).review_content), "span, growx");
+        }
+		
+		reviewsArea.revalidate();
+		reviewsArea.repaint();	
+	}
+	
+	/**
+	 * Creates each review element for the product
+	 * @param review_id The review id
+	 * @param product_id The product id
+	 * @param reviewerName the reviewer's name
+	 * @param review_rating the review's rating
+	 * @param review_content the review's content
+	 * @return A review panel UI element
+	 */
+	public JPanel addReview(Integer review_id, Integer user_id, Integer product_id, String review_name, String review_rating, String review_content)
+    {
+    	Review review = new Review(review_id, user_id, product_id, review_name, review_rating, review_content);
+    	
+        // Convert price to 2 decimal places
+        Border border = BorderFactory.createLineBorder(Color.black);
+
+        // Build product entry
+        JPanel reviewPanel = new JPanel(new MigLayout("", "[][]push[][]15", "[]"));
+        reviewPanel.setPreferredSize(new Dimension(1000, 60));
+        reviewPanel.setMaximumSize(new Dimension(1000, 60));
+        reviewPanel.setBackground(Color.white);
+        
+        JLabel reviewerLabel = new JLabel(review.reviewer_name);
+        reviewerLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        reviewerLabel.setMaximumSize(new Dimension(200, 100));
+        reviewPanel.add(reviewerLabel);
+        
+        reviewPanel.add(new JLabel(" Rating: " + review_rating)).setFont(new Font("Arial", Font.PLAIN, 16));
+        reviewPanel.add(new JLabel(review_content)).setFont(new Font("Arial", Font.PLAIN, 16));
+        
+
+        reviewPanel.setBorder(border);
+
+        // Return the product panel
+        return reviewPanel;
     }
 
 	/**
@@ -79,7 +174,7 @@ public class ProductUI extends JFrame {
 	 * @param args
 	 */
     public static void main(String[] args) {
-    	Product dummy = new Product(1, "Dummy", 00.00, "Dummy", true, 1, false);
+    	Product dummy = new Product(1, "Dummy", 0, "Dummy", true, 1, false);
         JFrame frame = new ProductUI("Shoplet - Product", dummy);
         frame.pack();
         frame.setLocationRelativeTo(null);

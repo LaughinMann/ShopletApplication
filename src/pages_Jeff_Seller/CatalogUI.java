@@ -5,6 +5,8 @@
 package pages_Jeff_Seller;
 import java.awt.Color;
 
+import datebase_jon.Product;
+
 /**
  *
  * @author jeffplatel
@@ -475,42 +477,42 @@ public class CatalogUI extends javax.swing.JFrame {
     }//GEN-LAST:event_back_buttonActionPerformed
 
     private void view1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view1ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view1ActionPerformed
 
     private void view2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view2ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view2ActionPerformed
 
     private void view3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view3ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view3ActionPerformed
 
     private void view4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view4ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view4ActionPerformed
 
     private void view5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view5ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view5ActionPerformed
 
     private void view6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view6ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view6ActionPerformed
 
     private void view7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view7ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view7ActionPerformed
 
     private void view8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view8ActionPerformed
-        ProductUI obj = new ProductUI();
+        ProductUI obj = new ProductUI(new Product());
         obj.setVisible(true);
     }//GEN-LAST:event_view8ActionPerformed
 

@@ -1,9 +1,12 @@
 package pages_kelvin;
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
 import net.miginfocom.swing.MigLayout;
-
+import java.util.List;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -67,10 +70,11 @@ public class BuyerCatalogUI extends JFrame {
         getContentPane().add(viewCartBtn);
 
         //Products
-        getContentPane().add(ProductItem("Pants", 12), "span, growx");
-        getContentPane().add(ProductItem("Test1Test1Test1", 4), "span, growx");
-        getContentPane().add(ProductItem("Shirt", 65), "span, growx");
-        getContentPane().add(ProductItem("Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1", 542), "span, growx");
+        List<Product> products = ShopletSystemManager.getInstance().get_list_of_products();
+        for (int i = 0; i < products.size(); i++)
+        {
+            getContentPane().add(ProductItem(products.get(i).product_id, products.get(i).name, products.get(i).price, products.get(i).description), "span, growx");
+        }
     }
 
     /**
@@ -79,12 +83,11 @@ public class BuyerCatalogUI extends JFrame {
      * @param productPrice The price of the product to show
      * @return
      */
-    public JPanel ProductItem(String productName, double productPrice)
+    public JPanel ProductItem(Integer productId, String productName, Integer productPrice, String productDescription)
     {
-    	Product product = new Product(1, productName, productPrice, "Test", true, 1, false);
-    	
+    	Product product = new Product(productId, productName, productPrice, productDescription, true, 1, false);
+
         // Convert price to 2 decimal places
-        String priceDecimals = String.format("%.2f", productPrice);
         Border border = BorderFactory.createLineBorder(Color.black);
 
         // Build product entry
@@ -94,7 +97,7 @@ public class BuyerCatalogUI extends JFrame {
         productLabel.setMaximumSize(new Dimension(200, 100));
         
         newProductPanel.add(productLabel);
-        newProductPanel.add(new JLabel("Cost: $" + priceDecimals)).setFont(new Font("Arial", Font.PLAIN, 16));
+        newProductPanel.add(new JLabel("Cost: $" + productPrice)).setFont(new Font("Arial", Font.PLAIN, 16));
         
         JButton viewProduct = new JButton("View Product");
         viewProduct.addActionListener(new ActionListener() {

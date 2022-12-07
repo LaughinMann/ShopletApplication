@@ -1,6 +1,8 @@
 package pages_kelvin;
 import java.util.ArrayList;
 
+import datebase_jon.Product;
+
 /**
  * Singleton class representing a user's cart.
  * @author Kelvin Dhoman
@@ -64,7 +66,7 @@ public class Cart {
     	
         for (int i = 0; i < itemsInCart.size(); i++)
         {
-            if (itemsInCart.get(i).productName == productName)
+            if (itemsInCart.get(i).name == productName)
             {
             	targetProductToRemove = itemsInCart.get(i);
                 itemsInCart.remove(targetProductToRemove);
@@ -103,5 +105,13 @@ public class Cart {
     public Double calculateGrandTotal()
     {
     	return calculatePreTaxTotal() + calculateTaxTotal();
+    }
+    
+    /**
+     * Clear cart of all items.
+     */
+    public void clearCart()
+    {
+    	itemsInCart.clear();
     }
 }
