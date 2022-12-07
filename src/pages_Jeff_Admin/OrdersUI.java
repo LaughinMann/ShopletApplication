@@ -1,9 +1,20 @@
 package pages_Jeff_Admin;
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.Border;
+
+import datebase_jon.Order;
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
+import net.miginfocom.swing.MigLayout;
+import pages_Jeff_Seller.ProductUI;
 
 public class OrdersUI extends JFrame implements ActionListener{
 
@@ -30,54 +41,6 @@ public class OrdersUI extends JFrame implements ActionListener{
         home = new javax.swing.JButton();
         home.setForeground(new Color(255, 255, 255));
         ordersPane = new javax.swing.JPanel();
-        orders1 = new javax.swing.JPanel();
-        cancel1 = new javax.swing.JButton();
-        cancel1.setForeground(new Color(255, 255, 255));
-        order_num1 = new javax.swing.JLabel();
-        fname_lname1 = new javax.swing.JLabel();
-        cost1 = new javax.swing.JLabel();
-        orders2 = new javax.swing.JPanel();
-        cancel2 = new javax.swing.JButton();
-        cancel2.setForeground(new Color(255, 255, 255));
-        order_num2 = new javax.swing.JLabel();
-        fname_lname2 = new javax.swing.JLabel();
-        cost2 = new javax.swing.JLabel();
-        orders3 = new javax.swing.JPanel();
-        cancel3 = new javax.swing.JButton();
-        cancel3.setForeground(new Color(255, 255, 255));
-        order_num3 = new javax.swing.JLabel();
-        fname_lname3 = new javax.swing.JLabel();
-        cost3 = new javax.swing.JLabel();
-        orders4 = new javax.swing.JPanel();
-        cancel4 = new javax.swing.JButton();
-        cancel4.setForeground(new Color(255, 255, 255));
-        order_num4 = new javax.swing.JLabel();
-        fname_lname4 = new javax.swing.JLabel();
-        cost4 = new javax.swing.JLabel();
-        orders5 = new javax.swing.JPanel();
-        cancel5 = new javax.swing.JButton();
-        cancel5.setForeground(new Color(255, 255, 255));
-        order_num5 = new javax.swing.JLabel();
-        fname_lname5 = new javax.swing.JLabel();
-        cost5 = new javax.swing.JLabel();
-        orders6 = new javax.swing.JPanel();
-        cancel6 = new javax.swing.JButton();
-        cancel6.setForeground(new Color(255, 255, 255));
-        order_num6 = new javax.swing.JLabel();
-        fname_lname6 = new javax.swing.JLabel();
-        cost6 = new javax.swing.JLabel();
-        orders7 = new javax.swing.JPanel();
-        cancel7 = new javax.swing.JButton();
-        cancel7.setForeground(new Color(255, 255, 255));
-        order_num7 = new javax.swing.JLabel();
-        fname_lname7 = new javax.swing.JLabel();
-        cost7 = new javax.swing.JLabel();
-        orders8 = new javax.swing.JPanel();
-        cancel8 = new javax.swing.JButton();
-        cancel8.setForeground(new Color(255, 255, 255));
-        order_num8 = new javax.swing.JLabel();
-        fname_lname8 = new javax.swing.JLabel();
-        cost8 = new javax.swing.JLabel();
 
         contentPane.setBackground(new Color(240, 240, 240));
 
@@ -111,447 +74,30 @@ public class OrdersUI extends JFrame implements ActionListener{
 
         ordersPane.setBackground(new Color(240, 240, 240));
 
-        orders1.setBackground(new java.awt.Color(255, 255, 255));
-        orders1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel1.setBackground(new java.awt.Color(102, 102, 102));
-        cancel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel1.setText("Cancel Order");
-        cancel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel1ActionPerformed(evt);
-            }
-        });
-
-        order_num1.setText("Order #0123456");
-
-        fname_lname1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname1.setText("F. Name L. Name");
-
-        cost1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost1.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders1Layout = new javax.swing.GroupLayout(orders1);
-        orders1.setLayout(orders1Layout);
-        orders1Layout.setHorizontalGroup(
-            orders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                .addComponent(cost1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders1Layout.setVerticalGroup(
-            orders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders2.setBackground(new java.awt.Color(255, 255, 255));
-        orders2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel2.setBackground(new java.awt.Color(102, 102, 102));
-        cancel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel2.setText("Cancel Order");
-        cancel2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel2ActionPerformed(evt);
-            }
-        });
-
-        order_num2.setText("Order #0123456");
-
-        fname_lname2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname2.setText("F. Name L. Name");
-
-        cost2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost2.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders2Layout = new javax.swing.GroupLayout(orders2);
-        orders2.setLayout(orders2Layout);
-        orders2Layout.setHorizontalGroup(
-            orders2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders2Layout.setVerticalGroup(
-            orders2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders2Layout.createSequentialGroup()
-                .addGroup(orders2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(orders2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(orders2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                            .addComponent(order_num2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cost2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-
-        orders3.setBackground(new java.awt.Color(255, 255, 255));
-        orders3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel3.setBackground(new java.awt.Color(102, 102, 102));
-        cancel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel3.setText("Cancel Order");
-        cancel3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel3ActionPerformed(evt);
-            }
-        });
-
-        order_num3.setText("Order #0123456");
-
-        fname_lname3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname3.setText("F. Name L. Name");
-
-        cost3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost3.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders3Layout = new javax.swing.GroupLayout(orders3);
-        orders3.setLayout(orders3Layout);
-        orders3Layout.setHorizontalGroup(
-            orders3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders3Layout.setVerticalGroup(
-            orders3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders4.setBackground(new java.awt.Color(255, 255, 255));
-        orders4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel4.setBackground(new java.awt.Color(102, 102, 102));
-        cancel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel4.setText("Cancel Order");
-        cancel4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel4ActionPerformed(evt);
-            }
-        });
-
-        order_num4.setText("Order #0123456");
-
-        fname_lname4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname4.setText("F. Name L. Name");
-
-        cost4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost4.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders4Layout = new javax.swing.GroupLayout(orders4);
-        orders4.setLayout(orders4Layout);
-        orders4Layout.setHorizontalGroup(
-            orders4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders4Layout.setVerticalGroup(
-            orders4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders5.setBackground(new java.awt.Color(255, 255, 255));
-        orders5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel5.setBackground(new java.awt.Color(102, 102, 102));
-        cancel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel5.setText("Cancel Order");
-        cancel5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel5ActionPerformed(evt);
-            }
-        });
-
-        order_num5.setText("Order #0123456");
-
-        fname_lname5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname5.setText("F. Name L. Name");
-
-        cost5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost5.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders5Layout = new javax.swing.GroupLayout(orders5);
-        orders5.setLayout(orders5Layout);
-        orders5Layout.setHorizontalGroup(
-            orders5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders5Layout.setVerticalGroup(
-            orders5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders6.setBackground(new java.awt.Color(255, 255, 255));
-        orders6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel6.setBackground(new java.awt.Color(102, 102, 102));
-        cancel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel6.setText("Cancel Order");
-        cancel6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel6ActionPerformed(evt);
-            }
-        });
-
-        order_num6.setText("Order #01234566");
-
-        fname_lname6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname6.setText("F. Name L. Name");
-
-        cost6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost6.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders6Layout = new javax.swing.GroupLayout(orders6);
-        orders6.setLayout(orders6Layout);
-        orders6Layout.setHorizontalGroup(
-            orders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname6, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders6Layout.setVerticalGroup(
-            orders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders7.setBackground(new java.awt.Color(255, 255, 255));
-        orders7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel7.setBackground(new java.awt.Color(102, 102, 102));
-        cancel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel7.setText("Cancel Order");
-        cancel7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel7ActionPerformed(evt);
-            }
-        });
-
-        order_num7.setText("Order #0123456");
-
-        fname_lname7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname7.setText("F. Name L. Name");
-
-        cost7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost7.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders7Layout = new javax.swing.GroupLayout(orders7);
-        orders7.setLayout(orders7Layout);
-        orders7Layout.setHorizontalGroup(
-            orders7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost7, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders7Layout.setVerticalGroup(
-            orders7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders7Layout.createSequentialGroup()
-                .addGroup(orders7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(orders7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(orders7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cancel7, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                            .addComponent(order_num7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(fname_lname7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(cost7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        orders8.setBackground(new java.awt.Color(255, 255, 255));
-        orders8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        cancel8.setBackground(new java.awt.Color(102, 102, 102));
-        cancel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cancel8.setText("Cancel Order");
-        cancel8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancel8ActionPerformed(evt);
-            }
-        });
-
-        order_num8.setText("Order #0123456");
-
-        fname_lname8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        fname_lname8.setText("F. Name L. Name");
-
-        cost8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost8.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout orders8Layout = new javax.swing.GroupLayout(orders8);
-        orders8.setLayout(orders8Layout);
-        orders8Layout.setHorizontalGroup(
-            orders8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, orders8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(order_num8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fname_lname8, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cancel8, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        orders8Layout.setVerticalGroup(
-            orders8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(orders8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(orders8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancel8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(order_num8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(fname_lname8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cost8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout ordersPaneLayout = new javax.swing.GroupLayout(ordersPane);
-        ordersPane.setLayout(ordersPaneLayout);
-        ordersPaneLayout.setHorizontalGroup(
-            ordersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ordersPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ordersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(orders1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        ordersPaneLayout.setVerticalGroup(
-            ordersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ordersPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(orders1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(orders8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ordersPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(ordersPane, GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE))
+        				.addGroup(Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+        					.addGap(64)
+        					.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap())
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menuPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(ordersPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(ordersPane, GroupLayout.PREFERRED_SIZE, 536, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        contentPane.setLayout(contentPaneLayout);
+        ordersPane.setLayout(new BoxLayout(ordersPane, BoxLayout.X_AXIS));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -563,77 +109,82 @@ public class OrdersUI extends JFrame implements ActionListener{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        
+        ordersPane.setLayout(new BoxLayout(ordersPane, BoxLayout.Y_AXIS));
+        
+        //Orders
+        List<Order> orders = ShopletSystemManager.getInstance().get_all_orders();
+        
+        for (int i = 0; i < orders.size(); i++)
+        {
+        	ordersPane.add(addOrderItem(orders.get(i).order_id, orders.get(i).buyer_id, orders.get(i).total_cost, orders.get(i).product_ids), "span, growx");
+        }
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JPanel addOrderItem(Integer order_id, Integer buyer_id, String total_cost, String productIds)
+    {    	
+        // Convert price to 2 decimal places
+        Border border = BorderFactory.createLineBorder(Color.black);
+
+        // Build product entry
+        JPanel orderPanel = new JPanel(new MigLayout("", "[][]push[][]15", "[]"));
+        orderPanel.setPreferredSize(new Dimension(1000, 60));
+        orderPanel.setMaximumSize(new Dimension(1000, 60));
+        orderPanel.setBackground(Color.white);
+        
+        JLabel orderNumber = new JLabel("Order #000" + order_id.toString());
+        orderNumber.setMaximumSize(new Dimension(200, 100));
+        orderPanel.add(orderNumber);
+
+        JLabel orderBuyer = new JLabel("Buyer ID: " + buyer_id.toString());
+        orderBuyer.setMaximumSize(new Dimension(200, 100));
+        orderPanel.add(orderBuyer);
+        
+        JLabel orderTotalCost = new JLabel("Total cost: $" + total_cost);
+        orderTotalCost.setMaximumSize(new Dimension(200, 100));
+        orderPanel.add(orderTotalCost);
+        
+        JLabel productsIdsInCart = new JLabel("Order Products: " + productIds);
+        productsIdsInCart.setMaximumSize(new Dimension(200, 100));
+        orderPanel.add(productsIdsInCart);
+        
+        JButton cancelOrder = new JButton("Cancel Order");
+        cancelOrder.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ShopletSystemManager.getInstance().delete_order(order_id);
+        		refreshOrdersUI();
+        		JOptionPane.showMessageDialog(null, "Order has been cancelled. Refund in process...", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        	}
+        });
+        
+        orderPanel.add(cancelOrder);
+        orderPanel.setBorder(border);
+
+        // Return the product panel
+        return orderPanel;
+    }
+    
+    void refreshOrdersUI()
+    {
+    	ordersPane.removeAll();
+		
+    	 //Orders
+        List<Order> orders = ShopletSystemManager.getInstance().get_all_orders();
+        
+        for (int i = 0; i < orders.size(); i++)
+        {
+        	ordersPane.add(addOrderItem(orders.get(i).order_id, orders.get(i).buyer_id, orders.get(i).total_cost, orders.get(i).product_ids), "span, growx");
+        }
+			
+	     ordersPane.revalidate();
+	     ordersPane.repaint();	
+    }
+    
     private void homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeActionPerformed
     	this.setVisible(false);
     }//GEN-LAST:event_homeActionPerformed
-
-    private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
-        Refund obj = new Refund();
-        if(cancel1.getMouseListeners() != null){
-            orders1.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel1ActionPerformed
-
-    private void cancel2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel2ActionPerformed
-        Refund obj = new Refund();
-        if(cancel2.getMouseListeners() != null){
-            orders2.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel2ActionPerformed
-
-    private void cancel3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel3ActionPerformed
-                Refund obj = new Refund();
-        if(cancel3.getMouseListeners() != null){
-            orders3.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel3ActionPerformed
-
-    private void cancel4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel4ActionPerformed
-        Refund obj = new Refund();
-        if(cancel4.getMouseListeners() != null){
-            orders4.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel4ActionPerformed
-
-    private void cancel5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel5ActionPerformed
-           Refund obj = new Refund();
-        if(cancel5.getMouseListeners() != null){
-            orders5.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel5ActionPerformed
-
-    private void cancel6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel6ActionPerformed
-            Refund obj = new Refund();
-        if(cancel6.getMouseListeners() != null){
-            orders6.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel6ActionPerformed
-
-    private void cancel7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel7ActionPerformed
-         Refund obj = new Refund();
-        if(cancel7.getMouseListeners() != null){
-            orders7.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel7ActionPerformed
-
-    private void cancel8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel8ActionPerformed
-           Refund obj = new Refund();
-        if(cancel8.getMouseListeners() != null){
-            orders8.setVisible(false);
-            obj.getClass();
-        }
-    }//GEN-LAST:event_cancel8ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -666,51 +217,9 @@ public class OrdersUI extends JFrame implements ActionListener{
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancel1;
-    private javax.swing.JButton cancel2;
-    private javax.swing.JButton cancel3;
-    private javax.swing.JButton cancel4;
-    private javax.swing.JButton cancel5;
-    private javax.swing.JButton cancel6;
-    private javax.swing.JButton cancel7;
-    private javax.swing.JButton cancel8;
     private javax.swing.JPanel contentPane;
-    private javax.swing.JLabel cost1;
-    private javax.swing.JLabel cost2;
-    private javax.swing.JLabel cost3;
-    private javax.swing.JLabel cost4;
-    private javax.swing.JLabel cost5;
-    private javax.swing.JLabel cost6;
-    private javax.swing.JLabel cost7;
-    private javax.swing.JLabel cost8;
-    private javax.swing.JLabel fname_lname1;
-    private javax.swing.JLabel fname_lname2;
-    private javax.swing.JLabel fname_lname3;
-    private javax.swing.JLabel fname_lname4;
-    private javax.swing.JLabel fname_lname5;
-    private javax.swing.JLabel fname_lname6;
-    private javax.swing.JLabel fname_lname7;
-    private javax.swing.JLabel fname_lname8;
     private javax.swing.JButton home;
     private javax.swing.JPanel menuPane;
-    private javax.swing.JLabel order_num1;
-    private javax.swing.JLabel order_num2;
-    private javax.swing.JLabel order_num3;
-    private javax.swing.JLabel order_num4;
-    private javax.swing.JLabel order_num5;
-    private javax.swing.JLabel order_num6;
-    private javax.swing.JLabel order_num7;
-    private javax.swing.JLabel order_num8;
-    private javax.swing.JPanel orders1;
-    private javax.swing.JPanel orders2;
-    private javax.swing.JPanel orders3;
-    private javax.swing.JPanel orders4;
-    private javax.swing.JPanel orders5;
-    private javax.swing.JPanel orders6;
-    private javax.swing.JPanel orders7;
-    private javax.swing.JPanel orders8;
     private javax.swing.JPanel ordersPane;
     // End of variables declaration//GEN-END:variables
     @Override

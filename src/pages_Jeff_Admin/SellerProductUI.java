@@ -4,6 +4,31 @@
  */
 package pages_Jeff_Admin;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
+
+import datebase_jon.Product;
+import datebase_jon.ShopletSystemManager;
+import datebase_jon.User;
+import net.miginfocom.swing.MigLayout;
+import pages_Jeff_Seller.ProductUI;
+
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.BorderFactory;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.Border;
+import javax.swing.BoxLayout;
+
 /**
  *
  * @author jeffplatel
@@ -13,10 +38,23 @@ public class SellerProductUI extends javax.swing.JFrame {
     /**
      * Creates new form SellerProductUI
      */
-    public SellerProductUI() {
+    public SellerProductUI(User user) {
     	setTitle("Seller Products");
+    	this.user = user;
+    	
+    	addWindowListener(new WindowAdapter() {
+        	@Override
+        	public void windowActivated(WindowEvent e) {
+        		// Update cart text button when user focuses on window.
+        		System.out.println("Product list refreshed");
+        		refreshProductsList();
+        	}
+        });
+    	
         initComponents();
     }
+    
+    User user;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,264 +67,43 @@ public class SellerProductUI extends javax.swing.JFrame {
 
         contentPane = new javax.swing.JPanel();
         back_button = new javax.swing.JButton();
+        back_button.setForeground(new Color(255, 255, 255));
         product_listPane = new javax.swing.JPanel();
-        product1 = new javax.swing.JPanel();
-        product_name1 = new javax.swing.JLabel();
-        view_button1 = new javax.swing.JButton();
-        cost1 = new javax.swing.JLabel();
-        product2 = new javax.swing.JPanel();
-        product_name2 = new javax.swing.JLabel();
-        view_button2 = new javax.swing.JButton();
-        cost2 = new javax.swing.JLabel();
-        product3 = new javax.swing.JPanel();
-        product_name3 = new javax.swing.JLabel();
-        view_button3 = new javax.swing.JButton();
-        cost3 = new javax.swing.JLabel();
-        product4 = new javax.swing.JPanel();
-        product_name4 = new javax.swing.JLabel();
-        view_button4 = new javax.swing.JButton();
-        cost4 = new javax.swing.JLabel();
 
-        contentPane.setBackground(new java.awt.Color(255, 255, 255));
+        contentPane.setBackground(new Color(240, 240, 240));
 
         back_button.setBackground(new java.awt.Color(102, 102, 102));
         back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        back_button.setText("Back");
-        back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        back_button.setText("Close");
         back_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActiveSellersUI obj = new ActiveSellersUI();
-                obj.setVisible(true);
+                setVisible(false);
             }
         });
 
-        product_listPane.setBackground(new java.awt.Color(255, 255, 255));
-
-        product1.setBackground(new java.awt.Color(255, 255, 255));
-        product1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        product_name1.setText("Product Name");
-
-        view_button1.setBackground(new java.awt.Color(102, 102, 102));
-        view_button1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        view_button1.setText("View");
-        view_button1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        view_button1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductUI obj = new ProductUI();
-                obj.setVisible(true);
-            }
-        });
-
-        cost1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost1.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout product1Layout = new javax.swing.GroupLayout(product1);
-        product1.setLayout(product1Layout);
-        product1Layout.setHorizontalGroup(
-            product1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(product_name1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(view_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        product1Layout.setVerticalGroup(
-            product1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(product1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cost1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product_name1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(view_button1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        product2.setBackground(new java.awt.Color(255, 255, 255));
-        product2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        product_name2.setText("Product Name");
-
-        view_button2.setBackground(new java.awt.Color(102, 102, 102));
-        view_button2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        view_button2.setText("View");
-        view_button2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        view_button2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductUI obj = new ProductUI();
-                obj.setVisible(true);
-            }
-        });
-
-        cost2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost2.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout product2Layout = new javax.swing.GroupLayout(product2);
-        product2.setLayout(product2Layout);
-        product2Layout.setHorizontalGroup(
-            product2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(product_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                .addComponent(cost2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(view_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        product2Layout.setVerticalGroup(
-            product2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(product2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cost2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product_name2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(view_button2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        product3.setBackground(new java.awt.Color(255, 255, 255));
-        product3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        product_name3.setText("Product Name");
-
-        view_button3.setBackground(new java.awt.Color(102, 102, 102));
-        view_button3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        view_button3.setText("View");
-        view_button3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        view_button3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductUI obj = new ProductUI();
-                obj.setVisible(true);
-            }
-        });
-
-        cost3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost3.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout product3Layout = new javax.swing.GroupLayout(product3);
-        product3.setLayout(product3Layout);
-        product3Layout.setHorizontalGroup(
-            product3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(product_name3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(view_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        product3Layout.setVerticalGroup(
-            product3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(product3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cost3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product_name3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(view_button3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        product4.setBackground(new java.awt.Color(255, 255, 255));
-        product4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        product_name4.setText("Product Name");
-
-        view_button4.setBackground(new java.awt.Color(102, 102, 102));
-        view_button4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        view_button4.setText("View");
-        view_button4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        view_button4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProductUI obj = new ProductUI();
-                obj.setVisible(true);
-            }
-        });
-
-        cost4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        cost4.setText("Cost: $XXX.XX");
-
-        javax.swing.GroupLayout product4Layout = new javax.swing.GroupLayout(product4);
-        product4.setLayout(product4Layout);
-        product4Layout.setHorizontalGroup(
-            product4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(product_name4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cost4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(view_button4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        product4Layout.setVerticalGroup(
-            product4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(product4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cost4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product_name4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, product4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(view_button4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        javax.swing.GroupLayout product_listPaneLayout = new javax.swing.GroupLayout(product_listPane);
-        product_listPane.setLayout(product_listPaneLayout);
-        product_listPaneLayout.setHorizontalGroup(
-            product_listPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product_listPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(product_listPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(product1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        product_listPaneLayout.setVerticalGroup(
-            product_listPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(product_listPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(product1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(product2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(product3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(product4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        product_listPane.setBackground(new Color(240, 240, 240));
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
-        contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(product_listPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(product_listPane, GroupLayout.PREFERRED_SIZE, 515, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(back_button, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
-            contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(back_button, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(product_listPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(back_button, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
+        			.addComponent(product_listPane, GroupLayout.PREFERRED_SIZE, 416, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        contentPane.setLayout(contentPaneLayout);
+        product_listPane.setLayout(new BoxLayout(product_listPane, BoxLayout.X_AXIS));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -298,9 +115,79 @@ public class SellerProductUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        
+        product_listPane.setLayout(new BoxLayout(product_listPane, BoxLayout.Y_AXIS));
+        
+        //Products
+        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products(user.user_id);
+        
+        for (int i = 0; i < products.size(); i++)
+        {
+        	product_listPane.add(ProductItem(products.get(i).product_id ,products.get(i).name, products.get(i).price, products.get(i).description), "span, growx");
+        }
+
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void refreshProductsList()
+    {
+    	product_listPane.removeAll();
+		
+		//Products for Sellers
+        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products(user.user_id);
+	     
+	     for (int i = 0; i < products.size(); i++)
+	     {
+	        	product_listPane.add(ProductItem(products.get(i).product_id ,products.get(i).name, products.get(i).price, products.get(i).description), "span, growx");
+	     }
+			
+	     product_listPane.revalidate();
+	     product_listPane.repaint();	
+    }
+
+    
+    /**
+     * The JPanel object that represents a product item entry in the product catalog.
+     * @param productName The name of the product to show
+     * @param productPrice The price of the product to show
+     * @return
+     */
+    public JPanel ProductItem(Integer productId,String productName, Integer productPrice, String productDescription)
+    {
+    	Product product = new Product(productId, productName, productPrice, productDescription, true, 1, false);
+    	
+        // Convert price to 2 decimal places
+        Border border = BorderFactory.createLineBorder(Color.black);
+
+        // Build product entry
+        JPanel newProductPanel = new JPanel(new MigLayout("", "[][]push[][]15", "[]"));
+        newProductPanel.setPreferredSize(new Dimension(1000, 60));
+        newProductPanel.setMaximumSize(new Dimension(1000, 60));
+        newProductPanel.setBackground(Color.white);
+        
+        JLabel productLabel = new JLabel(productName);
+        productLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        productLabel.setMaximumSize(new Dimension(200, 100));
+        
+        newProductPanel.add(productLabel);
+        newProductPanel.add(new JLabel("Cost: $" + productPrice)).setFont(new Font("Arial", Font.PLAIN, 16));
+        
+        JButton viewProduct = new JButton("View Product");
+        viewProduct.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		ProductUI obj = new ProductUI(product);
+            	obj.setVisible(true);
+        	}
+        });
+        
+        newProductPanel.add(viewProduct);
+        newProductPanel.setBorder(border);
+
+        // Return the product panel
+        return newProductPanel;
+    }
+    
 
     /**
      * @param args the command line arguments
@@ -332,7 +219,7 @@ public class SellerProductUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SellerProductUI().setVisible(true);
+                new SellerProductUI(new User()).setVisible(true);
             }
         });
     }
@@ -340,22 +227,6 @@ public class SellerProductUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_button;
     private javax.swing.JPanel contentPane;
-    private javax.swing.JLabel cost1;
-    private javax.swing.JLabel cost2;
-    private javax.swing.JLabel cost3;
-    private javax.swing.JLabel cost4;
-    private javax.swing.JPanel product1;
-    private javax.swing.JPanel product2;
-    private javax.swing.JPanel product3;
-    private javax.swing.JPanel product4;
     private javax.swing.JPanel product_listPane;
-    private javax.swing.JLabel product_name1;
-    private javax.swing.JLabel product_name2;
-    private javax.swing.JLabel product_name3;
-    private javax.swing.JLabel product_name4;
-    private javax.swing.JButton view_button1;
-    private javax.swing.JButton view_button2;
-    private javax.swing.JButton view_button3;
-    private javax.swing.JButton view_button4;
     // End of variables declaration//GEN-END:variables
 }

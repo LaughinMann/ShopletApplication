@@ -30,6 +30,10 @@ public class ShopletSystemManager {
     	return _instance;
     }
 
+    /**
+     * connect to existing database
+     * @return connection object
+     */
     private Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:sqlite.sqlite";
@@ -43,6 +47,16 @@ public class ShopletSystemManager {
     }
 
 
+    /**
+     * add a new user to the database
+     * @param firstname first name of user 
+     * @param lastname last name of user 
+     * @param email email of user 
+     * @param password password of user 
+     * @param account_type account_type of user (seller, buyer, admin)
+     * @param approval approval of user (this is for when a seller is approved or not)
+     * @return a "success" response message
+     */
     public String add_user(String firstname, String lastname, String email, String password, String account_type, Boolean approval) {
 
         String sql = "INSERT INTO users(firstname, lastname, email, password, account_type, approval) VALUES(?,?,?,?,?,?)";
@@ -80,7 +94,12 @@ public class ShopletSystemManager {
         }
     }
     
-
+    /**
+     * compare username and password to database
+     * @param email email of the user
+     * @param password password of the user
+     * @return a user object with information
+     */
     public User authenticate_user(String email, String password){
         User user = new User();
         String sql =  "SELECT * FROM users WHERE email = ?";
@@ -134,6 +153,11 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * get a list of approved or unapproved sellers
+     * @param approved boolean of whether the sellers are approved or not
+     * @return list of user objects
+     */
     public List<User> grab_sellers(Boolean approved){
         String sql =  "SELECT * FROM users WHERE approval = ?";
         
@@ -168,6 +192,17 @@ public class ShopletSystemManager {
         }
     }
 
+    /**
+     * edit an existing user's information
+     * @param user_id user's id as it is in the database
+     * @param firstname first name of user
+     * @param lastname last name of user
+     * @param email email of user
+     * @param password password of user
+     * @param account_type account_type of user (seller, buyer, admin)
+     * @param approval approval of user (this is for when a seller is approved or not)
+     * @return a user object with current users updated information
+     */
     public User edit_user(Integer user_id, String firstname, String lastname, String email, String password, String account_type, Boolean approval){
         
         User user = new User();
@@ -185,7 +220,6 @@ public class ShopletSystemManager {
         }
 
         if (firstname != null){
-        	System.out.println("test");
             String query2 =  "UPDATE users SET firstname = ? WHERE user_id = ?";
             try (Connection connQuery2 = this.connect(); PreparedStatement pstmt2 = connQuery2.prepareStatement(query2)){
                 pstmt2.setString(1, firstname);
@@ -265,7 +299,7 @@ public class ShopletSystemManager {
             }
         }
 
-        String queryFinal =  "SELECT user_id FROM users WHERE user_id = ?";
+        String queryFinal =  "SELECT * FROM users WHERE user_id = ?";
         try (Connection connQueryFinal = this.connect(); PreparedStatement pstmt1 = connQueryFinal.prepareStatement(queryFinal)) {
             pstmt1.setInt(1, user_id);
             ResultSet resultsFinal = pstmt1.executeQuery();
@@ -286,6 +320,11 @@ public class ShopletSystemManager {
         }
     }
 
+    /**
+     * remove a product from the database
+     * @param product_id product_id of the product as it is in the database 
+     * @return a "success" response message
+     */
     public String delete_user(Integer user_id){
 
         String query1 =  "SELECT user_id FROM users WHERE user_id = ?";
@@ -313,6 +352,11 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * get a user from the database
+     * @param user_id user's id as it is in the database
+     * @return a user object with information
+     */
     public User grab_user_info(Integer user_id){
         String sql =  "SELECT * FROM users WHERE user_id = ?";
         User user = new User();
@@ -340,6 +384,15 @@ public class ShopletSystemManager {
         }
     }
 
+    /**
+     * add a new product to the database
+     * @param name name of product
+     * @param description description of product
+     * @param price price of product
+     * @param amount_sold amount_sold of product
+     * @param user_id user id of seller as it is in database
+     * @return a product object with information
+     */
     public Product add_product(String name, String description, Integer price, Integer amount_sold, Integer user_id){
         String sql = "INSERT INTO products(name, description, price, amount_sold, seller_id) VALUES(?,?,?,?,?)";
         Product product = new Product();
@@ -382,6 +435,15 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * add a review to the database
+     * @param user_id user_id of author as it is in the database
+     * @param product_id product_id if the product as it is in the database
+     * @param review_name name of review
+     * @param review_rating rating of review
+     * @param review_content content of review
+     * @return a review object with information
+     */
     public Review add_review(Integer user_id, Integer product_id, String review_name, String review_rating, String review_content){
         String sql = "INSERT INTO reviews(product_id, review_rating, review_content, review_author_name, review_author_id) VALUES(?,?,?,?,?)";
         Review review = new Review();
@@ -423,6 +485,11 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * Grabs a list of the reviews from a product id
+     * @param product_id the id of the product
+     * @return a list of review objects
+     */
     public List<Review> grab_reviews(Integer product_id){
         String sql =  "SELECT * FROM reviews WHERE product_id = ?";
         
@@ -453,7 +520,13 @@ public class ShopletSystemManager {
         }
     }
     
-    
+    /**
+     * add a order to the database
+     * @param buyer_id user_id of buyer as it is in the database
+     * @param total_cost total_cost of order
+     * @param product_ids product_ids of products in order
+     * @return an order object with information
+     */
     public Order add_order(Integer buyer_id, String total_cost, String product_ids){
         String sql = "INSERT INTO orders(buyer_id, total_cost, product_ids) VALUES(?,?, ?)";
         Order order = new Order();
@@ -491,7 +564,16 @@ public class ShopletSystemManager {
             return order;
         }
     }
-
+    
+    /**
+     * edit an existing product's information
+     * @param product_id product_id of the product as it is in the database 
+     * @param name name of product
+     * @param description description of product
+     * @param price price of product
+     * @param amount_sold amount_sold of product
+     * @return a "success" response message
+     */
     public String edit_product(Integer product_id, String name, String description, Integer price, Integer amount_sold){
         String query1 =  "SELECT product_id FROM products WHERE product_id = ?";
         try (Connection connQuery1 = this.connect(); PreparedStatement pstmt1 = connQuery1.prepareStatement(query1)) {
@@ -552,6 +634,12 @@ public class ShopletSystemManager {
         return "Item has been updated";
     }
 
+    /**
+     * add the amount of sells a product has
+     * @param product_id product_id of the product as it is in the database 
+     * @param amount quantity of product sold
+     * @return a "success" response message
+     */
     public String add_product_sale(Integer product_id, Integer amount){
 
         Integer ogAmount = 0;
@@ -581,6 +669,11 @@ public class ShopletSystemManager {
             }
     }
 
+    /**
+     * remove a product from the database
+     * @param product_id product_id of the product as it is in the database 
+     * @return a "success" response message
+     */
     public String delete_product(Integer product_id){
         String query1 =  "SELECT product_id FROM products WHERE product_id = ?";
         try (Connection connQuery1 = this.connect(); PreparedStatement pstmt1 = connQuery1.prepareStatement(query1)) {
@@ -607,6 +700,10 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * get all orders in the database
+     * @return list of order objects
+     */
     public List<Order> get_all_orders(){
         List<Order> order_list = new ArrayList<Order>();
         String sql =  "SELECT * FROM orders";
@@ -631,7 +728,42 @@ public class ShopletSystemManager {
             return order_list;
         }
     }
+    
+    /**
+     * remove a order from the database
+     * @param order_id product_id of the product as it is in the database 
+     * @return a "success" response message
+     */
+    public String delete_order(Integer order_id){
+        String query1 =  "SELECT order_id FROM orders WHERE order_id = ?";
+        try (Connection connQuery1 = this.connect(); PreparedStatement pstmt1 = connQuery1.prepareStatement(query1)) {
+            pstmt1.setInt(1, order_id);
+            ResultSet results1 = pstmt1.executeQuery();
+            if (results1.next() == false) {
+                System.out.println("Order does not exist");
+                return "Order does not exist";
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
+        String sql =  "DELETE FROM orders WHERE order_id = ?";
+        try (Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                pstmt.setInt(1, order_id);
+                pstmt.executeUpdate();
+                System.out.println("Order has been deleted");
+                return "Order has been deleted";
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return "No db connection";
+        }
+    }
+
+    /**
+     * get all products in the database
+     * @return list of product objects
+     */
     public List<Product> get_list_of_products(){
         List<Product> product_list = new ArrayList<Product>();
         String sql =  "SELECT * FROM products";
@@ -659,12 +791,16 @@ public class ShopletSystemManager {
         }
     }
     
-    public List<Product> get_list_of_own_products(){
+    /**
+     * get current user's products in the database
+     * @return list of product objects
+     */
+    public List<Product> get_list_of_own_products(Integer user_id){
         List<Product> product_list = new ArrayList<Product>();
         String sql =  "SELECT * FROM products WHERE seller_id = ?";
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setInt(1, current_user_id);
+                pstmt.setInt(1, user_id);
                 ResultSet results = pstmt.executeQuery();
 
                 while(results.next()){
@@ -687,6 +823,11 @@ public class ShopletSystemManager {
         }
     }
     
+    /**
+     * Main function
+     * @param args arguments
+     * @throws Exception exception
+     */
     public static void main(String[] args) throws Exception {
         ShopletSystemManager db = new ShopletSystemManager();
         // add user

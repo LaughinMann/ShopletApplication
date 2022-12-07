@@ -171,12 +171,6 @@ public class ProductUI extends javax.swing.JFrame {
         back_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         back_button.setText("Back");
         back_button.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        back_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SellerProductUI obj = new SellerProductUI();
-                obj.setVisible(true);
-            }
-        });
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);

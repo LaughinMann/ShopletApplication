@@ -113,7 +113,7 @@ public class ProfitReportUI extends javax.swing.JFrame {
         //Get the total profit.
         
     	List<Order> orders = ShopletSystemManager.getInstance().get_all_orders();
-    	List<Product> sellerProductIds = ShopletSystemManager.getInstance().get_list_of_own_products();
+    	List<Product> sellerProductIds = ShopletSystemManager.getInstance().get_list_of_own_products(ShopletSystemManager.getInstance().current_user_id);
     	
     	Integer totalProfit = 0;
     	List<String> orderProductIds = new ArrayList<String>();

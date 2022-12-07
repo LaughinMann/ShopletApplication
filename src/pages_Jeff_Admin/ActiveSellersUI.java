@@ -2,9 +2,19 @@ package pages_Jeff_Admin;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.List;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.Border;
+
+import datebase_jon.ShopletSystemManager;
+import datebase_jon.User;
+import net.miginfocom.swing.MigLayout;
+
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
 public class ActiveSellersUI extends JFrame implements ActionListener{
 
@@ -28,46 +38,6 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         contentPane = new javax.swing.JPanel();
         menuPane = new javax.swing.JPanel();
         active_sellersPane = new javax.swing.JPanel();
-        active_sellers1 = new javax.swing.JPanel();
-        fname_lname1 = new javax.swing.JLabel();
-        account_type1 = new javax.swing.JLabel();
-        product1 = new javax.swing.JButton();
-        product1.setForeground(new Color(255, 255, 255));
-        active_sellers2 = new javax.swing.JPanel();
-        fname_lname2 = new javax.swing.JLabel();
-        account_type2 = new javax.swing.JLabel();
-        product2 = new javax.swing.JButton();
-        product2.setForeground(new Color(255, 255, 255));
-        active_sellers3 = new javax.swing.JPanel();
-        fname_lname3 = new javax.swing.JLabel();
-        account_type3 = new javax.swing.JLabel();
-        product3 = new javax.swing.JButton();
-        product3.setForeground(new Color(255, 255, 255));
-        active_sellers4 = new javax.swing.JPanel();
-        fname_lname4 = new javax.swing.JLabel();
-        account_type4 = new javax.swing.JLabel();
-        product4 = new javax.swing.JButton();
-        product4.setForeground(new Color(255, 255, 255));
-        active_sellers5 = new javax.swing.JPanel();
-        fname_lname5 = new javax.swing.JLabel();
-        account_type5 = new javax.swing.JLabel();
-        product5 = new javax.swing.JButton();
-        product5.setForeground(new Color(255, 255, 255));
-        active_sellers6 = new javax.swing.JPanel();
-        fname_lname6 = new javax.swing.JLabel();
-        account_type6 = new javax.swing.JLabel();
-        product6 = new javax.swing.JButton();
-        product6.setForeground(new Color(255, 255, 255));
-        active_sellers7 = new javax.swing.JPanel();
-        fname_lname7 = new javax.swing.JLabel();
-        account_type7 = new javax.swing.JLabel();
-        product7 = new javax.swing.JButton();
-        product7.setForeground(new Color(255, 255, 255));
-        active_sellers8 = new javax.swing.JPanel();
-        fname_lname8 = new javax.swing.JLabel();
-        account_type8 = new javax.swing.JLabel();
-        product8 = new javax.swing.JButton();
-        product8.setForeground(new Color(255, 255, 255));
 
         contentPane.setBackground(new Color(240, 240, 240));
 
@@ -103,392 +73,27 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
 
         active_sellersPane.setBackground(new Color(240, 240, 240));
 
-        active_sellers1.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname1.setText("F. Name L. Name");
-
-        account_type1.setText("Account Type: Seller");
-
-        product1.setBackground(new java.awt.Color(102, 102, 102));
-        product1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product1.setText("Products");
-        product1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers1Layout = new javax.swing.GroupLayout(active_sellers1);
-        active_sellers1.setLayout(active_sellers1Layout);
-        active_sellers1Layout.setHorizontalGroup(
-            active_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers1Layout.setVerticalGroup(
-            active_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellers1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        active_sellers2.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname2.setText("F. Name L. Name");
-
-        account_type2.setText("Account Type: Seller");
-
-        product2.setBackground(new java.awt.Color(102, 102, 102));
-        product2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product2.setText("Products");
-        product2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers2Layout = new javax.swing.GroupLayout(active_sellers2);
-        active_sellers2.setLayout(active_sellers2Layout);
-        active_sellers2Layout.setHorizontalGroup(
-            active_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers2Layout.setVerticalGroup(
-            active_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellers2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        active_sellers3.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname3.setText("F. Name L. Name");
-
-        account_type3.setText("Account Type: Seller");
-
-        product3.setBackground(new java.awt.Color(102, 102, 102));
-        product3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product3.setText("Products");
-        product3.setToolTipText("");
-        product3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers3Layout = new javax.swing.GroupLayout(active_sellers3);
-        active_sellers3.setLayout(active_sellers3Layout);
-        active_sellers3Layout.setHorizontalGroup(
-            active_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers3Layout.setVerticalGroup(
-            active_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers3Layout.createSequentialGroup()
-                .addGroup(active_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(account_type3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(active_sellers3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(active_sellers3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fname_lname3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(product3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-
-        active_sellers4.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname4.setText("F. Name L. Name");
-
-        account_type4.setText("Account Type: Seller");
-
-        product4.setBackground(new java.awt.Color(102, 102, 102));
-        product4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product4.setText("Products");
-        product4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product4ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers4Layout = new javax.swing.GroupLayout(active_sellers4);
-        active_sellers4.setLayout(active_sellers4Layout);
-        active_sellers4Layout.setHorizontalGroup(
-            active_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers4Layout.setVerticalGroup(
-            active_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers4Layout.createSequentialGroup()
-                .addGroup(active_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(active_sellers4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(active_sellers4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(account_type4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(product4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-
-        active_sellers5.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname5.setText("F. Name L. Name");
-
-        account_type5.setText("Account Type: Seller");
-
-        product5.setBackground(new java.awt.Color(102, 102, 102));
-        product5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product5.setText("Products");
-        product5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product5ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers5Layout = new javax.swing.GroupLayout(active_sellers5);
-        active_sellers5.setLayout(active_sellers5Layout);
-        active_sellers5Layout.setHorizontalGroup(
-            active_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type5, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers5Layout.setVerticalGroup(
-            active_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellers5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        active_sellers6.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname6.setText("F. Name L. Name");
-
-        account_type6.setText("Account Type: Seller");
-
-        product6.setBackground(new java.awt.Color(102, 102, 102));
-        product6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product6.setText("Products");
-        product6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product6ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers6Layout = new javax.swing.GroupLayout(active_sellers6);
-        active_sellers6.setLayout(active_sellers6Layout);
-        active_sellers6Layout.setHorizontalGroup(
-            active_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type6, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers6Layout.setVerticalGroup(
-            active_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellers6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        active_sellers7.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname7.setText("F. Name L. Name");
-
-        account_type7.setText("Account Type: Seller");
-
-        product7.setBackground(new java.awt.Color(102, 102, 102));
-        product7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product7.setText("Products");
-        product7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product7ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers7Layout = new javax.swing.GroupLayout(active_sellers7);
-        active_sellers7.setLayout(active_sellers7Layout);
-        active_sellers7Layout.setHorizontalGroup(
-            active_sellers7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname7, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type7, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(product7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers7Layout.setVerticalGroup(
-            active_sellers7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers7Layout.createSequentialGroup()
-                .addGroup(active_sellers7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(account_type7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(active_sellers7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(active_sellers7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fname_lname7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(product7, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-
-        active_sellers8.setBackground(new java.awt.Color(255, 255, 255));
-        active_sellers8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        fname_lname8.setText("F. Name L. Name");
-
-        account_type8.setText("Account Type: Seller");
-
-        product8.setBackground(new java.awt.Color(102, 102, 102));
-        product8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        product8.setText("Products");
-        product8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                product8ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout active_sellers8Layout = new javax.swing.GroupLayout(active_sellers8);
-        active_sellers8.setLayout(active_sellers8Layout);
-        active_sellers8Layout.setHorizontalGroup(
-            active_sellers8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fname_lname8, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(account_type8, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
-                .addComponent(product8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        active_sellers8Layout.setVerticalGroup(
-            active_sellers8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellers8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellers8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fname_lname8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(account_type8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(product8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout active_sellersPaneLayout = new javax.swing.GroupLayout(active_sellersPane);
-        active_sellersPane.setLayout(active_sellersPaneLayout);
-        active_sellersPaneLayout.setHorizontalGroup(
-            active_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellersPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(active_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(active_sellers8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(active_sellers1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        active_sellersPaneLayout.setVerticalGroup(
-            active_sellersPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(active_sellersPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(active_sellers1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(active_sellers8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPaneLayout.setHorizontalGroup(
-        	contentPaneLayout.createParallelGroup(Alignment.TRAILING)
-        		.addGroup(Alignment.LEADING, contentPaneLayout.createSequentialGroup()
+        	contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(contentPaneLayout.createSequentialGroup()
         			.addContainerGap()
         			.addGroup(contentPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(active_sellersPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         				.addGroup(contentPaneLayout.createSequentialGroup()
         					.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, 897, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap())
-        				.addComponent(active_sellersPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        					.addContainerGap())))
         );
         contentPaneLayout.setVerticalGroup(
         	contentPaneLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(contentPaneLayout.createSequentialGroup()
         			.addContainerGap()
         			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addGap(18)
-        			.addComponent(active_sellersPane, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+        			.addComponent(active_sellersPane, GroupLayout.PREFERRED_SIZE, 547, GroupLayout.PREFERRED_SIZE)
         			.addContainerGap())
         );
+        active_sellersPane.setLayout(new BoxLayout(active_sellersPane, BoxLayout.X_AXIS));
         contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -501,52 +106,66 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(contentPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+        
+        active_sellersPane.setLayout(new BoxLayout(active_sellersPane, BoxLayout.Y_AXIS));
+        
+        //Active Users
+        List<User> pendingSellers = ShopletSystemManager.getInstance().grab_sellers(true);
+        
+        for (int i = 0; i < pendingSellers.size(); i++)
+        {
+        	active_sellersPane.add(addActiveSeller(pendingSellers.get(i).firstname, pendingSellers.get(i).lastname, pendingSellers.get(i).user_id), "span, growx");
+        }
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void product1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product1ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product1ActionPerformed
-
-    private void product2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product2ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product2ActionPerformed
-
-    private void product3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product3ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product3ActionPerformed
-
-    private void product4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product4ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product4ActionPerformed
-
-    private void product5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product5ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product5ActionPerformed
-
-    private void product6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product6ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product6ActionPerformed
-
-    private void product7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product7ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product7ActionPerformed
-
-    private void product8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product8ActionPerformed
-        SellerProductUI obj = new SellerProductUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_product8ActionPerformed
         private void back_buttonActionPerformed(ActionEvent evt){
         this.setVisible(false);
     }
+        
+        /**
+         * Creates a Pending User UI component
+         * @param firstName First name of user
+         * @param lastName Last name of user
+         * @param user_id User's id
+         * @return A JPanel element to approve or deny a user
+         */
+        public JPanel addActiveSeller(String firstName, String lastName, Integer user_id)
+        {    	
+            // Convert price to 2 decimal places
+            Border border = BorderFactory.createLineBorder(Color.black);
+
+            // Build product entry
+            JPanel newProductPanel = new JPanel(new MigLayout("", "[][]push[][]15", "[]"));
+            newProductPanel.setPreferredSize(new Dimension(1000, 60));
+            newProductPanel.setMaximumSize(new Dimension(1000, 60));
+            newProductPanel.setBackground(Color.white);
+            
+            JLabel productLabel = new JLabel(firstName + " " + lastName);
+            productLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+            productLabel.setMaximumSize(new Dimension(200, 100));
+            
+            newProductPanel.add(productLabel);
+            newProductPanel.add(new JLabel("Account Type: Seller")).setFont(new Font("Arial", Font.PLAIN, 16));
+            
+            JButton productsBtn = new JButton("Products");
+
+            newProductPanel.add(productsBtn);
+            
+            productsBtn.addActionListener(new ActionListener() {
+            	public void actionPerformed(ActionEvent e) {
+            		SellerProductUI newSellerUI = new SellerProductUI(ShopletSystemManager.getInstance().grab_user_info(user_id));
+            		newSellerUI.setVisible(true);
+            	}
+            });
+            
+            newProductPanel.setBorder(border);
+
+            // Return the product panel
+            return newProductPanel;
+        }
+        
+        
        public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -578,44 +197,10 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel account_type1;
-    private javax.swing.JLabel account_type2;
-    private javax.swing.JLabel account_type3;
-    private javax.swing.JLabel account_type4;
-    private javax.swing.JLabel account_type5;
-    private javax.swing.JLabel account_type6;
-    private javax.swing.JLabel account_type7;
-    private javax.swing.JLabel account_type8;
-    private javax.swing.JPanel active_sellers1;
-    private javax.swing.JPanel active_sellers2;
-    private javax.swing.JPanel active_sellers3;
-    private javax.swing.JPanel active_sellers4;
-    private javax.swing.JPanel active_sellers5;
-    private javax.swing.JPanel active_sellers6;
-    private javax.swing.JPanel active_sellers7;
-    private javax.swing.JPanel active_sellers8;
     private javax.swing.JPanel active_sellersPane;
     private javax.swing.JButton back_button;
     private javax.swing.JPanel contentPane;
-    private javax.swing.JLabel fname_lname1;
-    private javax.swing.JLabel fname_lname2;
-    private javax.swing.JLabel fname_lname3;
-    private javax.swing.JLabel fname_lname4;
-    private javax.swing.JLabel fname_lname5;
-    private javax.swing.JLabel fname_lname6;
-    private javax.swing.JLabel fname_lname7;
-    private javax.swing.JLabel fname_lname8;
     private javax.swing.JPanel menuPane;
-    private javax.swing.JButton product1;
-    private javax.swing.JButton product2;
-    private javax.swing.JButton product3;
-    private javax.swing.JButton product4;
-    private javax.swing.JButton product5;
-    private javax.swing.JButton product6;
-    private javax.swing.JButton product7;
-    private javax.swing.JButton product8;
     // End of variables declaration//GEN-END:variables
 
     @Override

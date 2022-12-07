@@ -260,7 +260,7 @@ public class SellersPanelUI extends javax.swing.JFrame {
         
        
         //Products
-        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products();
+        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products(ShopletSystemManager.getInstance().current_user_id);
         
         for (int i = 0; i < products.size(); i++)
         {
@@ -388,7 +388,7 @@ public class SellersPanelUI extends javax.swing.JFrame {
     	productList.repaint();
     	
     	 //Products
-        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products();
+        List<Product> products = ShopletSystemManager.getInstance().get_list_of_own_products(ShopletSystemManager.getInstance().current_user_id);
         
         for (int i = 0; i < products.size(); i++)
         {

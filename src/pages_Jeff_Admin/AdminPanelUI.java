@@ -14,10 +14,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.Border;
 
 import datebase_jon.Product;
+import datebase_jon.Review;
 import datebase_jon.ShopletSystemManager;
 import datebase_jon.User;
 import net.miginfocom.swing.MigLayout;
 import pages_Jeff_Seller.ProductUI;
+import pages_kelvin.Cart;
+
 import java.awt.FlowLayout;
 
 public class AdminPanelUI extends JFrame {
@@ -51,8 +54,6 @@ public class AdminPanelUI extends JFrame {
         menuPane = new javax.swing.JPanel();
         create_new_user = new javax.swing.JButton();
         create_new_user.setForeground(new Color(255, 255, 255));
-        pending_Sellers = new javax.swing.JButton();
-        pending_Sellers.setForeground(new Color(255, 255, 255));
         active_sellers = new javax.swing.JButton();
         active_sellers.setForeground(new Color(255, 255, 255));
         orders = new javax.swing.JButton();
@@ -73,7 +74,7 @@ public class AdminPanelUI extends JFrame {
 
         head_Dashboard.setBackground(new java.awt.Color(255, 255, 255));
         head_Dashboard.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        head_Dashboard.setText("Dashboard");
+        head_Dashboard.setText("Dashboard (Pending Sellers)");
 
         logout_button.setBackground(new java.awt.Color(102, 102, 102));
         logout_button.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -92,21 +93,21 @@ public class AdminPanelUI extends JFrame {
         			.addComponent(logo)
         			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addComponent(head_Administrator)
-        			.addGap(129)
-        			.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+        			.addGap(68)
+        			.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 269, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
         			.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
         			.addContainerGap())
         );
         logoPaneLayout.setVerticalGroup(
         	logoPaneLayout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(logoPaneLayout.createSequentialGroup()
-        			.addGap(16)
-        			.addGroup(logoPaneLayout.createParallelGroup(Alignment.TRAILING)
-        				.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(head_Administrator, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)))
         		.addComponent(logo)
         		.addComponent(logout_button, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+        		.addGroup(logoPaneLayout.createSequentialGroup()
+        			.addGap(16)
+        			.addGroup(logoPaneLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(head_Administrator, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(head_Dashboard, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)))
         );
         logoPane.setLayout(logoPaneLayout);
 
@@ -132,15 +133,6 @@ public class AdminPanelUI extends JFrame {
             }
         });
 
-        pending_Sellers.setBackground(new java.awt.Color(102, 102, 102));
-        pending_Sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        pending_Sellers.setText("Pending Sellers");
-        pending_Sellers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pending_SellersActionPerformed(evt);
-            }
-        });
-
         active_sellers.setBackground(new java.awt.Color(102, 102, 102));
         active_sellers.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         active_sellers.setText("Active Sellers");
@@ -160,30 +152,28 @@ public class AdminPanelUI extends JFrame {
         });
 
         javax.swing.GroupLayout menuPaneLayout = new javax.swing.GroupLayout(menuPane);
-        menuPane.setLayout(menuPaneLayout);
         menuPaneLayout.setHorizontalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(create_new_user, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(pending_Sellers, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(active_sellers, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(orders, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addComponent(create_new_user, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        			.addGap(132)
+        			.addComponent(active_sellers, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        			.addGap(136)
+        			.addComponent(orders, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE))
         );
         menuPaneLayout.setVerticalGroup(
-            menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menuPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pending_Sellers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(create_new_user, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orders, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                    .addComponent(active_sellers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(menuPaneLayout.createSequentialGroup()
+        			.addContainerGap()
+        			.addGroup(menuPaneLayout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(menuPaneLayout.createParallelGroup(Alignment.LEADING, false)
+        					.addComponent(create_new_user, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(orders, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+        				.addComponent(active_sellers, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        			.addContainerGap())
         );
+        menuPane.setLayout(menuPaneLayout);
 
         pending_sellers.setBackground(new Color(240, 240, 240));
 
@@ -193,15 +183,15 @@ public class AdminPanelUI extends JFrame {
         		.addGroup(pending_sellersPaneLayout.createSequentialGroup()
         			.addGap(47)
         			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(17, Short.MAX_VALUE))
-        		.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+        			.addContainerGap(38, Short.MAX_VALUE))
+        		.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
         );
         pending_sellersPaneLayout.setVerticalGroup(
         	pending_sellersPaneLayout.createParallelGroup(Alignment.LEADING)
         		.addGroup(pending_sellersPaneLayout.createSequentialGroup()
         			.addContainerGap()
         			.addComponent(menuPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        			.addGap(18)
+        			.addGap(24)
         			.addComponent(pending_sellers, GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         			.addContainerGap())
         );
@@ -238,9 +228,9 @@ public class AdminPanelUI extends JFrame {
             .addComponent(contentPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         
+        pending_sellers.setLayout(new BoxLayout(pending_sellers, BoxLayout.Y_AXIS));
         
-        
-        //Products
+        //Pending Users
         List<User> pendingSellers = ShopletSystemManager.getInstance().grab_sellers(false);
         
         for (int i = 0; i < pendingSellers.size(); i++)
@@ -263,11 +253,6 @@ public class AdminPanelUI extends JFrame {
         ActiveSellersUI obj = new ActiveSellersUI();
         obj.setVisible(true);
     }//GEN-LAST:event_active_sellersActionPerformed
-
-    private void pending_SellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pending_SellersActionPerformed
-        PendingSellersUI obj = new PendingSellersUI();
-        obj.setVisible(true);
-    }//GEN-LAST:event_pending_SellersActionPerformed
 
     private void create_new_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_new_userActionPerformed
         CreateNewUserUI obj = new CreateNewUserUI();
@@ -293,6 +278,13 @@ public class AdminPanelUI extends JFrame {
     }
 */
   
+    /**
+     * Creates a Pending User UI component
+     * @param firstName First name of user
+     * @param lastName Last name of user
+     * @param user_id User's id
+     * @return A JPanel element to approve or deny a user
+     */
     public JPanel addPendingSeller(String firstName, String lastName, Integer user_id)
     {    	
         // Convert price to 2 decimal places
@@ -320,12 +312,16 @@ public class AdminPanelUI extends JFrame {
         approveBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ShopletSystemManager.getInstance().edit_user(user_id, null, null, null, null, null,  true);
+        		JOptionPane.showMessageDialog(null, "User has been approved.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        		refreshPendingUserList();
         	}
         });
         
         denyBtn.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		ShopletSystemManager.getInstance().edit_user(user_id, null, null, null, null, "buyer", false);
+        		JOptionPane.showMessageDialog(null, "User has been denied.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+        		refreshPendingUserList();
         	}
         });
         
@@ -334,6 +330,26 @@ public class AdminPanelUI extends JFrame {
         // Return the product panel
         return newProductPanel;
     }
+    
+    /**
+     * Refreshes Pending User list UI
+     */
+    public void refreshPendingUserList()
+    {
+    	pending_sellers.removeAll();
+		
+		//Pending Sellers
+		 List<User> pendingSellers = ShopletSystemManager.getInstance().grab_sellers(false);
+	     
+	     for (int i = 0; i < pendingSellers.size(); i++)
+	     {
+	     	pending_sellers.add(addPendingSeller(pendingSellers.get(i).firstname, pendingSellers.get(i).lastname, pendingSellers.get(i).user_id), "span, growx");
+	     }
+			
+       pending_sellers.revalidate();
+       pending_sellers.repaint();	
+    }
+
     
 
     public static void main(String args[]) {
@@ -376,7 +392,6 @@ public class AdminPanelUI extends JFrame {
     private javax.swing.JButton logout_button;
     private javax.swing.JPanel menuPane;
     private javax.swing.JButton orders;
-    private javax.swing.JButton pending_Sellers;
     private javax.swing.JPanel pending_sellers;
     private javax.swing.JPanel pending_sellersPane;
     // End of variables declaration//GEN-END:variables
