@@ -53,7 +53,7 @@ public class ProductUI extends JFrame {
         this.setResizable(false);
 
         //Layout and Buttons
-        getContentPane().setLayout(new MigLayout("wrap", "[793.00,grow][::100px,grow]", "[73.00][67.00][177.00][27.00][grow,fill]"));
+        getContentPane().setLayout(new MigLayout("wrap", "[793.00,grow][::100px,grow]", "[73.00][67.00][177.00][27.00][grow,fill][]"));
         
         JLabel lblProductName = new JLabel(product.name);
         lblProductName.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -108,7 +108,8 @@ public class ProductUI extends JFrame {
             		, productReviews.get(i).review_content), "span, growx");
         }
         
-        getContentPane().add(reviewsArea, "cell 0 4 2 1");
+        getContentPane().add(reviewsArea, "cell 0 4 2 2");
+        reviewsArea.setLayout(new BoxLayout(reviewsArea, BoxLayout.Y_AXIS));
     }
 	
 	/**

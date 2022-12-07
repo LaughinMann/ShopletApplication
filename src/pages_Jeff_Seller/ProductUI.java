@@ -27,6 +27,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.Border;
+import javax.swing.BoxLayout;
 
 /**
  *
@@ -180,6 +181,7 @@ public class ProductUI extends javax.swing.JFrame {
         			.addComponent(reviewPanel, GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
         			.addContainerGap())
         );
+        reviewPanel.setLayout(new BoxLayout(reviewPanel, BoxLayout.X_AXIS));
         contentPane.setLayout(contentPaneLayout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,6 +195,8 @@ public class ProductUI extends javax.swing.JFrame {
             .addComponent(contentPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         
+        reviewPanel.setLayout(new BoxLayout(reviewPanel, BoxLayout.Y_AXIS));
+  
         //Reviews
         List<Review> productReviews = ShopletSystemManager.getInstance().grab_reviews(product.product_id);
                 
