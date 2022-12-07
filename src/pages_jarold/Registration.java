@@ -19,6 +19,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComboBox;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -109,26 +111,34 @@ public class Registration extends JFrame {
 		JButton register_button = new JButton("Register");
 		register_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean match = false;
-				
-				if(String.valueOf(password_box.getPassword()) == String.valueOf(password_box.getPassword())) {
-					match = true;
-				}
-				else {
-					match = false;
-				}					
-				
-				if ((String.valueOf(account_box.getSelectedItem()).equals("Seller")))
+				if (email_box.getText().isEmpty() || inputFirstName.getText().isEmpty() || inputLastName.getText().isEmpty() || password_box.getText().isEmpty() || password2_box.getText().isEmpty())
 				{
-					System.out.println("Test");
-					ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), false);
+	        		JOptionPane.showMessageDialog(null, "One or more fields left blank.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+
 				}
-				else if ((String.valueOf(account_box.getSelectedItem()).equals("Buyer")))
+				else if (!(password_box.getText().equals(password2_box.getText())))
 				{
-					System.out.println("Test1");
-					ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), true);
+	        		JOptionPane.showMessageDialog(null, "Passwords do not match.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
 				}
-				//String firstname, String lastname, String email, String password, String account_type, Boolean approval
+				else
+				{
+					if ((String.valueOf(account_box.getSelectedItem()).equals("Seller")))
+					{
+						ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), false);
+						hideRegister();
+		        		JOptionPane.showMessageDialog(null, "Account created. Please wait for seller approval.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+						Login login = new Login();
+						login.setVisible(true);
+					}
+					else if ((String.valueOf(account_box.getSelectedItem()).equals("Buyer")))
+					{
+						ShopletSystemManager.getInstance().add_user(inputFirstName.getText(), inputLastName.getText(), email_box.getText(), String.valueOf(password_box.getPassword()), String.valueOf(account_box.getSelectedItem()), true);
+						hideRegister();
+		        		JOptionPane.showMessageDialog(null, "Buyer account created. Go ahead and log in!", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+						Login login = new Login();
+						login.setVisible(true);
+					}
+				}
 			}
 		});
 		register_button.setBounds(183, 407, 89, 23);
@@ -178,6 +188,11 @@ public class Registration extends JFrame {
 		inputLastName.setColumns(20);
 		inputLastName.setBounds(184, 281, 203, 20);
 		contentPane.add(inputLastName);
+	}
+	
+	public void hideRegister()
+	{
+		this.setVisible(false);
 	}
 	
 	private static void addPopup(Component component, final JPopupMenu popup) {
