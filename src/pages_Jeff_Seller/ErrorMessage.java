@@ -12,6 +12,11 @@ package pages_Jeff_Seller;
 import javax.swing.*;
 import javax.swing.JOptionPane;
 
+/**
+ * Error message prompt class
+ * @author Kelvin Dhoman
+ *
+ */
 public class ErrorMessage {
     ErrorMessage(){
         JFrame frame = new JFrame();

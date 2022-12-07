@@ -20,7 +20,9 @@ public class EditDetailsUI extends javax.swing.JFrame {
     ProductUI productUI;
 
     /**
-     * Creates new form UpdateProductUI
+     * Edit Details of a product class
+     * @param product The product to edit
+     * @param productUI The parent UI element
      */
     public EditDetailsUI(Product product, ProductUI productUI) {
     	setTitle("Update Product - " + product.name);

@@ -322,7 +322,7 @@ public class ShopletSystemManager {
 
     /**
      * remove a product from the database
-     * @param product_id product_id of the product as it is in the database 
+     * @param product_id id of the product as it is in the database 
      * @return a "success" response message
      */
     public String delete_user(Integer user_id){

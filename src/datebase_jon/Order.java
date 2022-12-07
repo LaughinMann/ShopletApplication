@@ -1,5 +1,10 @@
 package datebase_jon;
 
+/**
+ * Order class
+ * @author Kelvin Dhoman
+ *
+ */
 public class Order {
 	public Integer order_id;
 	public Integer buyer_id;

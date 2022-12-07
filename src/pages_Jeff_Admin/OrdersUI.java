@@ -123,6 +123,14 @@ public class OrdersUI extends JFrame implements ActionListener{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Adds an order item UI element
+     * @param order_id the order_id of the order
+     * @param buyer_id the buyer_id of the order
+     * @param total_cost the total_cost of the order
+     * @param productIds the product ids involved in the order
+     * @return A JPanel element reperesnting a order
+     */
     public JPanel addOrderItem(Integer order_id, Integer buyer_id, String total_cost, String productIds)
     {    	
         // Convert price to 2 decimal places
@@ -186,6 +194,10 @@ public class OrdersUI extends JFrame implements ActionListener{
     	this.setVisible(false);
     }//GEN-LAST:event_homeActionPerformed
 
+    /**
+     * Main
+     * @param args
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

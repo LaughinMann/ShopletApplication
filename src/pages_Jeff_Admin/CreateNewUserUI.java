@@ -9,6 +9,11 @@ import java.awt.Color;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+/**
+ * Creates a new user class UI
+ * @author Kelvin Dhoman
+ *
+ */
 public class CreateNewUserUI extends JFrame implements ActionListener{
 
     /**

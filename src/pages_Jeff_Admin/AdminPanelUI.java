@@ -23,6 +23,11 @@ import pages_kelvin.Cart;
 
 import java.awt.FlowLayout;
 
+/**
+ * Admin Panel UI class
+ * @author Kelvin Dhoman
+ *
+ */
 public class AdminPanelUI extends JFrame {
 
     /**

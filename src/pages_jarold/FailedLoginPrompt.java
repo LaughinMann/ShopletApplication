@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
 
+/**
+ * Failed login prompt UI
+ * @author Kelvin Dhoman
+ *
+ */
 public class FailedLoginPrompt extends JFrame {
 
 	/**

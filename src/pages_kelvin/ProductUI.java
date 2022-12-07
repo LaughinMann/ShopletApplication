@@ -28,8 +28,8 @@ public class ProductUI extends JFrame {
 	
 	/**
 	 * Product UI constructor
-	 * @param windowTitle The title of the product panel.
-	 * @param product The product the panel will be created for.
+	 * @param windowTitle The title of the product panel
+	 * @param product The product the panel will be created for
 	 */
 	
     JPanel reviewsArea = new JPanel();

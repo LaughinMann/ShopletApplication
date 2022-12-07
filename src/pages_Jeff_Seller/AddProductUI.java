@@ -17,9 +17,10 @@ public class AddProductUI extends javax.swing.JFrame {
 
 	SellersPanelUI sellersPanel;
 	
-    /**
-     * Creates new form AddProduct
-     */
+	/**
+	 * Creates a new add product UI component
+	 * @param sellersPanel The sellers panel parent UI object
+	 */
     public AddProductUI(SellersPanelUI sellersPanel) {
     	setTitle("Add Product");
     	this.sellersPanel = sellersPanel;

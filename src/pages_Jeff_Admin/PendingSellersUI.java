@@ -9,6 +9,12 @@ import java.awt.Color;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+
+/**
+ * Pending Sellers UI class
+ * @author Kelvin Dhoman
+ *
+ */
 public class PendingSellersUI extends JFrame implements ActionListener{
     /**
      * Creates new form PendingSellersUI

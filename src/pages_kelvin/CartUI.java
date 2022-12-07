@@ -232,6 +232,9 @@ public class CartUI extends JFrame {
         lblTotalCost.setText("Total Cost: $" + Cart.getInstance().calculateGrandTotal());
     }
     
+    /**
+     * Clears the cart UI elements
+     */
     public void clearCartUI()
     {
     	Cart.getInstance().clearCart();

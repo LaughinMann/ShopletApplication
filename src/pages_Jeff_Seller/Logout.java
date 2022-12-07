@@ -11,11 +11,21 @@ package pages_Jeff_Seller;
 
 import javax.swing.*;
 
+/**
+ * Logout class
+ * @author Kelvin Dhoman
+ *
+ */
 public class Logout {
     Logout(){
         JFrame frame = new JFrame();
         JOptionPane.showMessageDialog(frame, "You've successfully logged out!");
     }
+    
+    /**
+     * Logs out
+     * @param args
+     */
     public static void main(String[] args) {
         new Logout();   
     }

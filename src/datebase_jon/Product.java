@@ -1,5 +1,10 @@
 package datebase_jon;
 
+/**
+ * Class representing a product
+ * @author Kelvin Dhoman
+ *
+ */
 public class Product {
     public Integer product_id;
     public Integer seller_id;
