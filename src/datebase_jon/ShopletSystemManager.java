@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;  
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.security.MessageDigest;
@@ -36,11 +39,12 @@ public class ShopletSystemManager {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:sqlite.sqlite";
+        String url = "jdbc:sqlite:sqlite.db";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
+    		JOptionPane.showMessageDialog(null, e.toString(), "Shoplet", JOptionPane.INFORMATION_MESSAGE);
             System.out.println(e.getMessage());
         }
         return conn;

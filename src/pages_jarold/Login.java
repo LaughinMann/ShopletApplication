@@ -43,6 +43,7 @@ public class Login extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+		
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -61,6 +62,7 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setTitle("Shoplet - Login");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 554, 459);
 		contentPane = new JPanel();
@@ -118,44 +120,44 @@ public class Login extends JFrame {
 		JButton login_button = new JButton("Login");
 		login_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+					
 				ShopletSystemManager db = ShopletSystemManager.getInstance();
 				
 				User user = db.authenticate_user(user_box.getText(), String.valueOf(password_box.getPassword()));		
 				
-				if (user.firstname != null)
-				{
-					if (user.account_type.equals("seller") && user.approval == true)
+					if (user.firstname != null)
 					{
-						hideLogin();
-						SellersPanelUI sellerPanel = new SellersPanelUI();
-						sellerPanel.setVisible(true);
-					} 
-					else if (user.account_type.equals("seller") && user.approval == false) 
-					{
-		        		JOptionPane.showMessageDialog(null, "Seller account pending approval. Try again later.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+						if (user.account_type.equals("seller") && user.approval == true)
+						{
+							hideLogin();
+							SellersPanelUI sellerPanel = new SellersPanelUI();
+							sellerPanel.setVisible(true);
+						} 
+						else if (user.account_type.equals("seller") && user.approval == false) 
+						{
+			        		JOptionPane.showMessageDialog(null, "Seller account pending approval. Try again later.", "Shoplet", JOptionPane.INFORMATION_MESSAGE);
+						}
+						
+						
+						if (user.account_type.equals("buyer"))
+						{
+							hideLogin();
+							BuyerCatalogUI buyerCatalog = new BuyerCatalogUI("Buyers Catalog - Logged in as " + user.firstname + " " + user.lastname);
+							buyerCatalog.setVisible(true);
+						}
+						
+						if (user.account_type.equals("admin"))
+						{
+							hideLogin();
+							AdminPanelUI adminPanel = new AdminPanelUI();
+							adminPanel.setVisible(true);
+						}
 					}
-					
-					
-					if (user.account_type.equals("buyer"))
-					{
-						hideLogin();
-						BuyerCatalogUI buyerCatalog = new BuyerCatalogUI("Buyers Catalog - Logged in as " + user.firstname + " " + user.lastname);
-						buyerCatalog.setVisible(true);
-					}
-					
-					if (user.account_type.equals("admin"))
-					{
-						hideLogin();
-						AdminPanelUI adminPanel = new AdminPanelUI();
-						adminPanel.setVisible(true);
+					else
+					{								
+		        		JOptionPane.showMessageDialog(null, "User not found or incorrect Username or Password.", "Shoplet", JOptionPane.ERROR_MESSAGE);
 					}
 				}
-				else
-				{								
-	        		JOptionPane.showMessageDialog(null, "User not found or incorrect Username or Password.", "Shoplet", JOptionPane.ERROR_MESSAGE);
-				}
-			}
 		});
 		login_button.setBounds(260, 326, 126, 20);
 		contentPane.add(login_button);
