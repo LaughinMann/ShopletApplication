@@ -159,7 +159,7 @@ public class ShopletSystemManager {
      * @return list of user objects
      */
     public List<User> grab_sellers(Boolean approved){
-        String sql =  "SELECT * FROM users WHERE approval = ?";
+        String sql =  "SELECT * FROM users WHERE approval = ? AND account_type = ?";
         
         List<User> sellerList = new ArrayList<User>();
 
@@ -168,6 +168,7 @@ public class ShopletSystemManager {
 
                 if (approved) {
                     pstmt.setString(1, "1");
+                    pstmt.setString(2, "seller");
                 } else {
                     pstmt.setString(1, "0");
                 }

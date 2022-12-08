@@ -110,11 +110,11 @@ public class ActiveSellersUI extends JFrame implements ActionListener{
         active_sellersPane.setLayout(new BoxLayout(active_sellersPane, BoxLayout.Y_AXIS));
         
         //Active Users
-        List<User> pendingSellers = ShopletSystemManager.getInstance().grab_sellers(true);
+        List<User> activeSellers = ShopletSystemManager.getInstance().grab_sellers(true);
         
-        for (int i = 0; i < pendingSellers.size(); i++)
+        for (int i = 0; i < activeSellers.size(); i++)
         {
-        	active_sellersPane.add(addActiveSeller(pendingSellers.get(i).firstname, pendingSellers.get(i).lastname, pendingSellers.get(i).user_id), "span, growx");
+        	active_sellersPane.add(addActiveSeller(activeSellers.get(i).firstname, activeSellers.get(i).lastname, activeSellers.get(i).user_id), "span, growx");
         }
 
         pack();
