@@ -175,6 +175,7 @@ public class ShopletSystemManager {
                     pstmt.setString(2, "seller");
                 } else {
                     pstmt.setString(1, "0");
+                    pstmt.setString(2, "seller");
                 }
                 ResultSet results = pstmt.executeQuery();
 
